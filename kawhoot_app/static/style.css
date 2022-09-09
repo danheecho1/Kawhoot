@@ -43,7 +43,6 @@ a {
 .container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
 
 .btn {
@@ -68,6 +67,10 @@ a {
     align-items: center;
 }
 
+.header_div__logo {
+    margin: 20px 0px;
+}
+
 .header-div__buttons-div__about {
     color: black;
     font-weight: var(--fw-medium);
@@ -81,6 +84,7 @@ a {
 
 .body-div {
     display: flex;
+    flex-direction: column;
     align-self: center;
     width: var(--width-main);
     height: 900px;
@@ -91,7 +95,9 @@ a {
 .body-div__login-div {
     display: flex;
     flex-direction: column;
+    align-self: center;
     width: var(--width-one-column);
+    margin-top: 200px;
 }
 
 .body-div__login-div__header {
@@ -102,9 +108,22 @@ a {
 .body-div__login-div__description {
     font-size: var(--fs-4);
     color: var(--clr-general-2);
+    margin-top: 15px;
 }
 
 .body-div__login-div__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+    gap: 20px;
+}
+
+.body-div__login-div__form__username {
+    display: flex;
+    flex-direction: column;
+}
+
+.body-div__login-div__form__password {
     display: flex;
     flex-direction: column;
 }
@@ -117,11 +136,18 @@ a {
     border-radius: 10px;
     border: 1px solid var(--clr-general-4);
     height: 45px;
+    padding-left: 15px;
 }
 
 .body-div__login-div__form__validation {
     color: var(--clr-general-7);
     font-size: var(--fs-6);
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.body-div__login-div__form__sign-up {
+    text-align: center;
 }
 
 
