@@ -38,6 +38,7 @@
 
 a {
     text-decoration: none;
+    color: black;
 }
 
 .container {
@@ -71,85 +72,165 @@ a {
     margin: 20px 0px;
 }
 
+.header-div__buttons-div {
+    display: flex;
+    gap: 15px;
+}
+
 .header-div__buttons-div__about {
     color: black;
     font-weight: var(--fw-medium);
 }
 
 .header-div__buttons-div__about:hover {
-    color: var(--clr-general-5);
+    color: var(--clr-general-6);
+}
+
+.header-div__buttons-div__log-out {
+    color: var(--clr-general-7);
+    font-weight: var(--fw-medium);
 }
 
 /* body */
 
 .body-div {
     display: flex;
-    flex-direction: column;
     align-self: center;
     width: var(--width-main);
-    height: 900px;
+    height: 1000px;
     background-color: var(--clr-theme-3);
-    border-radius: 50px;
+    border-radius: 25px;
 }
 
-.body-div__login-div {
+/* body__login & registration */
+
+.body-div__login-div, 
+.body-div__registration-div {
     display: flex;
     flex-direction: column;
-    align-self: center;
     width: var(--width-one-column);
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
-.body-div__login-div__header {
+.body-div__login-div__header, 
+.body-div__registration-div__header {
     font-weight: var(--fw-bold);
     font-size: var(--fs-2);
 }
 
-.body-div__login-div__description {
+.body-div__login-div__description, 
+.body-div__registration-div__description {
     font-size: var(--fs-4);
     color: var(--clr-general-2);
     margin-top: 15px;
 }
 
-.body-div__login-div__form {
+.body-div__login-div__form, 
+.body-div__registration-div__form {
     display: flex;
     flex-direction: column;
     margin-top: 45px;
     gap: 20px;
 }
 
-.body-div__login-div__form__username {
+.body-div__login-div__form__username, 
+.body-div__login-div__form__password, 
+.body-div__registration-div__form__username, 
+.body-div__registration-div__form__email,
+.body-div__registration-div__form__password,
+.body-div__registration-div__form__confirm {
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
-.body-div__login-div__form__password {
-    display: flex;
-    flex-direction: column;
-}
-
-.body-div__login-div__form__label {
+.body-div__login-div__form__label, 
+.body-div__registration-div__form__label {
     font-size: var(--fs-5);
 }
 
-.body-div__login-div__form__input {
+.body-div__login-div__form__input, 
+.body-div__registration-div__form__input {
     border-radius: 10px;
     border: 1px solid var(--clr-general-4);
     height: 45px;
     padding-left: 15px;
 }
 
-.body-div__login-div__form__validation {
+.body-div__login-div__form__validation, 
+.body-div__registration-div__form__validation {
     color: var(--clr-general-7);
     font-size: var(--fs-6);
     margin-left: 15px;
     margin-top: 5px;
 }
 
-.body-div__login-div__form__sign-up {
+.body-div__login-div__form__sign-up, 
+.body-div__registration-div__form__sign-in {
     text-align: center;
 }
 
+.body-div__login-div__form__sign-up a, 
+.body-div__registration-div__form__sign-in a {
+    color: var(--clr-general-6);
+    font-weight: var(--fw-medium);
+}
+
+/* body__dashboard */
+
+.body-div__navigation-div {
+    width: 100px;
+    height: 1000px;
+    background-color: var(--clr-theme-1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-end;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.body-div__navigation-div__link-div {
+    width: 80px;
+    height: 176px;
+    background-color: var(--clr-theme-2);
+    border-top-left-radius: 12.5px;
+    border-bottom-left-radius: 12.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body-div__navigation-div__link-div--selected {
+    width: 80px;
+    height: 176px;
+    background-color: var(--clr-theme-3);
+    border-top-left-radius: 12.5px;
+    border-bottom-left-radius: 12.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body-div__navigation-div__link-div h2 {
+    transform: rotate(-90deg);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-3);
+    color: white;
+    text-align: center;
+}
+
+.body-div__navigation-div__link-div--selected h2 {
+    transform: rotate(-90deg);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-3);
+    text-align: center;
+}
+
+.body-div__content-div__search-bar-div {
+    display: flex;
+}
 
 /* footer  */
 
