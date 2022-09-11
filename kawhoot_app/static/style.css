@@ -95,6 +95,7 @@ a {
 
 .body-div {
     display: flex;
+    justify-content: space-around;
     align-self: center;
     width: var(--width-main);
     height: 1000px;
@@ -108,6 +109,7 @@ a {
 .body-div__registration-div {
     display: flex;
     flex-direction: column;
+
     width: var(--width-one-column);
     margin-top: 150px;
 }
@@ -176,7 +178,7 @@ a {
     font-weight: var(--fw-medium);
 }
 
-/* body__dashboard */
+/* body__navigation */
 
 .body-div__navigation-div {
     width: 100px;
@@ -215,7 +217,7 @@ a {
 
 .body-div__navigation-div__link-div h2 {
     transform: rotate(-90deg);
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-medium);
     font-size: var(--fs-3);
     color: white;
     text-align: center;
@@ -223,13 +225,67 @@ a {
 
 .body-div__navigation-div__link-div--selected h2 {
     transform: rotate(-90deg);
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-medium);
     font-size: var(--fs-3);
     text-align: center;
 }
 
 .body-div__content-div__search-bar-div {
     display: flex;
+}
+
+/* body__main content view */
+
+.body-div__main-content-div {
+    width: 1150px;
+    padding: 100px;
+}
+
+.body-div__content-div__search-bar-div {
+    display: flex; 
+    gap: 10px;
+    height: 45px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.body-div__content-div__search-bar-div__form {
+    display: flex;
+    gap: 10px;
+}
+
+.body-div__content-div__search-bar-div__form__select {
+    width: 200px;
+    height: 45px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.body-div__content-div__search-bar-div__form__input {
+    width: 550px;
+    height: 45px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.body-div__content-div__search-bar-div__new-button {
+    border-radius: 10px;
+    width: 180px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+.body-div__content-div__my-quizzes-table {
+    width: 950px;
+}
+
+.body-div__content-div__my-quizzes-table__body {
+    background-color: var(--clr-general-5);
+    height: 525px;
+}
+
+.body-div__content-div__my-quizzes-table__body__tr {
+    height: 50px; 
 }
 
 /* footer  */
