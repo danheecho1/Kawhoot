@@ -15,7 +15,7 @@
     --fw-bold: 700;
 
     --fs-1: 67px;
-    --fs-2: 42px;
+    --fs-2: 42px; /* page headers */
     --fs-3: 19px;
     --fs-4: 17px;
     --fs-5: 15px;
@@ -46,7 +46,7 @@ a {
     flex-direction: column;
 }
 
-.btn {
+.util--btn {
     border-radius: 10px;
     height: 45px;
     color: var(--clr-general-5);
@@ -54,6 +54,12 @@ a {
     font-weight: var(--fw-medium);
     border: none;
     cursor: pointer;
+    padding: 0px 30px;
+}
+
+.util--page-header {
+    font-size: var(--fs-2);
+    font-weight: var(--fw-bold);
 }
 
 /* header */
@@ -146,11 +152,6 @@ a {
     gap: 5px;
 }
 
-.body-div__login-div__form__label, 
-.body-div__registration-div__form__label {
-    font-size: var(--fs-5);
-}
-
 .body-div__login-div__form__input, 
 .body-div__registration-div__form__input {
     border-radius: 10px;
@@ -230,62 +231,196 @@ a {
     text-align: center;
 }
 
-.body-div__content-div__search-bar-div {
-    display: flex;
-}
-
 /* body__main content view */
 
 .body-div__main-content-div {
+    display: flex;
+    flex-direction: column;
     width: 1150px;
     padding: 100px;
+    gap: 40px;
 }
 
-.body-div__content-div__search-bar-div {
+/* body__main content view -> my quizzes */
+
+.body-div__main-content-div__search-bar-div {
+    display: flex;
+}
+
+.body-div__main-content-div__search-bar-div {
     display: flex; 
     gap: 10px;
     height: 45px;
     border-radius: 5px;
-    margin-bottom: 30px;
 }
 
-.body-div__content-div__search-bar-div__form {
+.body-div__main-content-div__search-bar-div__form {
     display: flex;
     gap: 10px;
 }
 
-.body-div__content-div__search-bar-div__form__select {
+.body-div__main-content-div__search-bar-div__form__select {
     width: 200px;
     height: 45px;
     border-radius: 5px;
     padding-left: 10px;
 }
 
-.body-div__content-div__search-bar-div__form__input {
+.body-div__main-content-div__search-bar-div__form__input {
     width: 550px;
     height: 45px;
     border-radius: 5px;
     padding-left: 10px;
 }
 
-.body-div__content-div__search-bar-div__new-button {
+.body-div__main-content-div__search-bar-div__new-button {
     border-radius: 10px;
     width: 180px;
     height: 45px;
     border-radius: 10px;
 }
 
-.body-div__content-div__my-quizzes-table {
+.body-div__main-content-div__my-quizzes-table {
     width: 950px;
 }
 
-.body-div__content-div__my-quizzes-table__body {
+.body-div__main-content-div__my-quizzes-table__tbody {
     background-color: var(--clr-general-5);
     height: 525px;
 }
 
-.body-div__content-div__my-quizzes-table__body__tr {
-    height: 50px; 
+.body-div__main-content-div__my-quizzes-table_tbody__tr:hover {
+    background-color: var(--clr-theme-3);
+}
+
+.body-div__main-content-div__my-quizzes-table__tbody__tr__td {
+    padding-left: 25px;
+}
+
+.body-div__main-content-div__my-quizzes-table__tbody tr:first-child td:first-child {
+    border-top-left-radius: 10px;
+}
+
+.body-div__main-content-div__my-quizzes-table__tbody tr:first-child td:last-child {
+    border-top-right-radius: 10px;
+}
+
+.body-div__main-content-div__my-quizzes-table__tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+
+.body-div__main-content-div__my-quizzes-table__tbody tr:last-child td:last-child{
+    border-bottom-right-radius: 10px;
+}
+
+.body-div__main-content-div__my-quizzes-table__tbody tr:not(:first-child) {
+    border-top: 2px solid var(--clr-theme-3);
+}
+
+/* body__main content view -> edit profile */
+
+.body-div__main-content-div__forms-div__account-update-form-div {
+    display: flex;
+    gap: 50px;
+}
+
+.body-div__main-content-div__forms-div__account-update-form-div form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 450px;
+    height: 327px;
+}
+
+.body-div__main-content-div__forms-div__account-update-form-div__label-input-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.body-div__main-content-div__forms-div__account-update-form-div__input {
+    border-radius: 10px;
+    border: 1px solid var(--clr-general-4);
+    height: 45px;
+    width: 250px;
+    padding-left: 15px;
+}
+
+.body-div__main-content-div__forms-div__validation {
+    color: var(--clr-general-7);
+    font-size: var(--fs-6);
+    margin-left: 210px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.body-div__main-content-div__form__button {
+    width: 120px;
+    align-self: flex-end;
+    margin: 30px 0px;
+}
+
+.special-one {
+    display: flex;
+    flex-direction: column;
+}
+
+/* body__main content view -> create quiz__title */
+
+.body-div__main-content-div__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.body-div__main-content-div__form-label-input-div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.body-div__main-content-div__form-label-input-div label {
+    margin-left: 10px;
+}
+
+.body-div__main-content-div__form-label-input-div input {
+    border-radius: 10px;
+    border: 1px solid var(--clr-general-4);
+    height: 45px;
+    padding-left: 15px;
+}
+
+.body-div__main-content-div__form-label-input-div textarea {
+    resize: none;
+    border-radius: 10px;
+    border: 1px solid var(--clr-general-4);
+    padding: 15px;
+}
+
+.body-div__main-content-div__form-label-input-div__validation {
+    color: var(--clr-general-7);
+    font-size: var(--fs-6);
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.body-div__main-content-div__form__buttons-div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+/* body__main content view -> create quiz__question and options */
+
+.body-div__main-content-div__form-label-input-div--options-div div {
+    display: flex;
+    flex-direction: column;
+}
+
+.body-div__main-content-div__form-label-input-div--options-div input {
+    width: 300px;
 }
 
 /* footer  */
@@ -297,7 +432,6 @@ a {
     height: 55px;
     width: var(--width-footer);
     color: var(--clr-general-3);
-    font-size: var(--fs-5);
     border-top: 1px solid var(--clr-general-4);
     position: fixed;
     bottom: 0px;
