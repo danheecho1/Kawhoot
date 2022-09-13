@@ -380,10 +380,6 @@ a {
     gap: 5px;
 }
 
-.body-div__main-content-div__form-label-input-div label {
-    margin-left: 10px;
-}
-
 .body-div__main-content-div__form-label-input-div input {
     border-radius: 10px;
     border: 1px solid var(--clr-general-4);
@@ -408,19 +404,109 @@ a {
 
 .body-div__main-content-div__form__buttons-div {
     display: flex;
-    justify-content: flex-end;
-    gap: 20px;
+    justify-content: space-between;
+}
+
+.body-div__main-content-div__form__buttons-div--right {
+    display: flex;
+    gap: 10px;
 }
 
 /* body__main content view -> create quiz__question and options */
 
-.body-div__main-content-div__form-label-input-div--options-div div {
+.body-div__main-content-div__form__question-div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.body-div__main-content-div__form-label-input-div--options-div__choices-div {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.body-div__main-content-div__form-label-input-div--options-div__choices-div div {
     display: flex;
     flex-direction: column;
 }
 
-.body-div__main-content-div__form-label-input-div--options-div input {
+.body-div__main-content-div__form-label-input-div--options-div__choices-div label {
+    text-align: center;
+}
+
+.body-div__main-content-div__form__question-div input, 
+.body-div__main-content-div__form-label-input-div--options-div__choices-div input, 
+.body-div__main-content-div__form-label-input-div--options-div__choices-div select {
+    border-radius: 10px;
+    border: 1px solid var(--clr-general-4);
+    height: 45px;
+    padding-left: 15px;
+}
+
+.body-div__main-content-div__form-label-input-div--options-div__choices-div input, 
+.body-div__main-content-div__form-label-input-div--options-div__choices-div select {
     width: 300px;
+}
+
+/* body__main content view -> take quiz__quiz info */
+
+.body-div__main-content-div__quiz-detail-div {
+    border: 1px solid var(--clr-general-4);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--clr-general-5);
+    border-radius: 10px;
+}
+
+.body-div__main-content-div__quiz-detail-div__header-div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.body-div__main-content-div__quiz-detail-div__validation {
+    color: var(--clr-general-7);
+    font-weight: var(--fw-medium);
+}
+
+.body-div__main-content-div__form__buttons-div--start-quiz {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+/* body__main content view -> taking a quiz */
+
+.body-div__main-content-div__question-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.body-div__main-content-div__choices-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.body-div__main-content-div__choices-div__list {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.body-div__main-content-div__choices-div__list__selection {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    text-align: center;
+    border: 1px solid var(--clr-general-4);
+    background-color: var(--clr-general-5);
+    border-radius: 5px;
+    height: 100px;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 /* footer  */

@@ -25,28 +25,23 @@
             <div class="body-div__registration-div">
                 <h2 class="util--page-header">Register</h2>
                 <p class="body-div__registration-div__description">Fill in below to create an account.</p>
-                <form class="body-div__registration-div__form" action="#">
+                <form class="body-div__registration-div__form" action="/register" method="post">
                     <div class="body-div__registration-div__form__username">
-                        <label for="#">Username</label>
-                        <input class="body-div__registration-div__form__input" type="text">
+                        <label for="username">Username</label>
+                        <input class="body-div__registration-div__form__input" type="text" name="username">
                         <p class="body-div__registration-div__form__validation">* We do not recognize the username you provided</p>
                     </div>
-                    <div class="body-div__registration-div__form__username">
-                        <label for="#">Email</label>
-                        <input class="body-div__registration-div__form__input" type="text">
-                        <p class="body-div__registration-div__form__validation">* Email address already exists</p>
-                    </div>
                     <div class="body-div__registration-div__form__password">
-                        <label for="#">Password</label>
-                        <input class="body-div__registration-div__form__input" type="password">
+                        <label for="password">Password</label>
+                        <input class="body-div__registration-div__form__input" type="password" name="password">
                         <p class="body-div__registration-div__form__validation">* Password is not valid</p>
                     </div>
                     <div class="body-div__registration-div__form__confirm">
-                        <label for="#">Confirm</label>
-                        <input class="body-div__registration-div__form__input" type="password">
+                        <label for="confirm">Confirm Password</label>
+                        <input class="body-div__registration-div__form__input" type="password" name="confirm">
                         <p class="body-div__registration-div__form__validation">* Password is not valid</p>
                     </div>
-                    <button class="util--btn">Sign in</button>
+                    <button class="util--btn" type="submit">Sign in</button>
                     <p class="body-div__registration-div__form__sign-in">Already have an account? <a href="#">Sign in!</a></p>
                 </form>
             </div>
