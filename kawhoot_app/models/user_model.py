@@ -16,40 +16,40 @@ class User:
 
     @classmethod
     def get_user_by_username(cls, data): 
-        query = "SELECT * FROM users WHERE user_id = %(username)s;"
+        query = "SELECT * FROM users WHERE username = %(username)s;"
         result = connectToMySQL('kawhoot_schema').query_db(query, data)
         if result: 
             return cls(result[0])
         return False
 
     @staticmethod
-    def validate_registration(cls, data):
+    def validate_registration(data):
         # default is_valid value is true
         is_valid = True
         # for validating a username, we will have three steps: 1) an appropriate username is provided, and 2) it is not a duplicate. 
         # 1) checking that a username is provided
         if len(data['username']) < 1: 
-            flash("Username is required", 'username_required')
+            flash("Username is required", 'username')
             is_valid = False
         elif len(data['username']) < 6: 
-            flash("Username must be at least 5 characters", 'username_too_short')
+            flash("Username must be at least 5 characters", 'username')
             is_valid = False
         elif len(data['username']) > 16: 
-            flash("Username must be 15 characters or shorter", 'username_too_long')
+            flash("Username must be 15 characters or shorter", 'username')
             is_valid = False
         # 2) provided username is not a duplicate
         else: 
             existing_user = User.get_user_by_username({'username': data['username']})
             if existing_user: 
-                flash("Username already exists", 'duplicate_username')
+                flash("Username already exists", 'username')
                 is_valid = False
         # checking that the password is at least 8 characters
         if len(data['password']) < 8: 
-            flash("Password must be at least 8 characters", 'password_too_short')
+            flash("Password must be at least 8 characters", 'password')
             is_valid = False
         # checking that confirm password matches
-        elif data['password'] != data['password_confirm']: 
-            flash("passwords do not match", 'confirm_failed')
+        if data['password'] != data['confirm']: 
+            flash("passwords do not match", 'confirm')
             is_valid = False
         # this static method returns a boolean value of is_valid 
         return is_valid
