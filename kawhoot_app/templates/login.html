@@ -25,19 +25,35 @@
             <div class="body-div__login-div">
                 <h2 class="util--page-header">Sign in</h2>
                 <p class="body-div__login-div__description">Fill in below to access your account.</p>
-                <form class="body-div__login-div__form" action="#">
+                <form class="body-div__login-div__form" action="/login" method="post">
                     <div class="body-div__login-div__form__username">
-                        <label for="#">Username</label>
-                        <input class="body-div__login-div__form__input" type="text">
-                        <p class="body-div__login-div__form__validation">* We do not recognize the username you provided</p>
+                        <label for="username">Username</label>
+                        <input class="body-div__login-div__form__input" type="text" name="username">
+                        {% with messages = get_flashed_messages(category_filter=['invalid_username']) %}
+                            {% if messages %}
+                                {% for message in messages %}
+                        <p class="body-div__login-div__form__validation">* {{message}}</p>
+                                {% endfor %}
+                            {% else %}
+                            <p class="body-div__login-div__form__validation"></p>
+                            {% endif %}
+                        {% endwith %}
                     </div>
                     <div class="body-div__login-div__form__password">
-                        <label for="#">Password</label>
-                        <input class="body-div__login-div__form__input" type="password">
-                        <p class="body-div__login-div__form__validation">* Password is not valid</p>
+                        <label for="password">Password</label>
+                        <input class="body-div__login-div__form__input" type="password" name="password">
+                        {% with messages = get_flashed_messages(category_filter=['wrong_password']) %}
+                            {% if messages %}
+                                {% for message in messages %}
+                        <p class="body-div__login-div__form__validation">* {{message}}</p>
+                                {% endfor %}
+                            {% else %}
+                            <p class="body-div__login-div__form__validation"></p>
+                            {% endif %}
+                        {% endwith %}
                     </div>
                     <button class="util--btn">Sign in</button>
-                    <p class="body-div__login-div__form__sign-up">Don't have an account? <a href="#">Sign up!</a></p>
+                    <p class="body-div__login-div__form__sign-up">Don't have an account? <a href="/register">Sign up!</a></p>
                 </form>
             </div>
         </div>

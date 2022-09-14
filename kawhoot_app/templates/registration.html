@@ -29,20 +29,44 @@
                     <div class="body-div__registration-div__form__username">
                         <label for="username">Username</label>
                         <input class="body-div__registration-div__form__input" type="text" name="username">
-                        <p class="body-div__registration-div__form__validation">* We do not recognize the username you provided</p>
+                        {% with messages = get_flashed_messages(category_filter=['username']) %}
+                            {% if messages %}
+                                {% for message in messages %}
+                        <p class="body-div__registration-div__form__validation">* {{message}}</p>
+                                {% endfor %}
+                            {% else %}
+                        <p class="body-div__registration-div__form__validation"></p>
+                            {% endif %}
+                        {% endwith %}
                     </div>
                     <div class="body-div__registration-div__form__password">
                         <label for="password">Password</label>
                         <input class="body-div__registration-div__form__input" type="password" name="password">
-                        <p class="body-div__registration-div__form__validation">* Password is not valid</p>
+                        {% with messages = get_flashed_messages(category_filter=['password']) %}
+                            {% if messages %}
+                                {% for message in messages %}
+                        <p class="body-div__registration-div__form__validation">* {{message}}</p>
+                                {% endfor %}
+                            {% else %}
+                        <p class="body-div__registration-div__form__validation"></p>
+                            {% endif %}
+                        {% endwith %}
                     </div>
                     <div class="body-div__registration-div__form__confirm">
                         <label for="confirm">Confirm Password</label>
                         <input class="body-div__registration-div__form__input" type="password" name="confirm">
-                        <p class="body-div__registration-div__form__validation">* Password is not valid</p>
+                        {% with messages = get_flashed_messages(category_filter=['confirm']) %}
+                            {% if messages %}
+                                {% for message in messages %}
+                        <p class="body-div__registration-div__form__validation">* {{message}}</p>
+                                {% endfor %}
+                            {% else %}
+                        <p class="body-div__registration-div__form__validation"></p>
+                            {% endif %}
+                        {% endwith %}
                     </div>
                     <button class="util--btn" type="submit">Sign in</button>
-                    <p class="body-div__registration-div__form__sign-in">Already have an account? <a href="#">Sign in!</a></p>
+                    <p class="body-div__registration-div__form__sign-in">Already have an account? <a href="/login">Sign in!</a></p>
                 </form>
             </div>
         </div>

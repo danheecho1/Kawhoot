@@ -43,7 +43,7 @@ def login_post():
     else: 
         plain_password = request.form['password']
         hashed_password = existing_user.password
-        if not bcrypt.check_password_hash(plain_password, hashed_password):
+        if not bcrypt.check_password_hash(hashed_password, plain_password):
             flash("Password is incorrect", 'wrong_password')
             return redirect('/')
         else: 
