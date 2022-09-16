@@ -1,5 +1,6 @@
 from kawhoot_app import app
 from kawhoot_app.models.user_model import User
+from kawhoot_app.models.quiz_model import Quiz
 
 from flask import render_template, redirect, session, request, flash
 from flask_bcrypt import Bcrypt
@@ -59,3 +60,29 @@ def logout():
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
+
+@app.route('/my_quizzes')
+def my_quizzes(): 
+    return render_template('myQuizzes.html')
+
+@app.route('/new_quiz')
+def new_quiz(): 
+    return render_template('create_quiz_title.html')
+
+@app.route('/new_quiz/title', methods=['POST'])
+def new_quiz_title_post(): 
+    data = {
+        'title': request.form['title'], 
+        'description': request.form['description'], 
+        'user_id': session['logged_in_user_id']
+    }
+    Quiz.create_blank_quiz(data)
+    return redirect('/new_quiz/question')
+
+@app.route('/new_quiz/question')
+def new_quiz_question(): 
+    return render_template('create_quiz__question.html')
+
+@app.route('/edit_profile')
+def search(): 
+    return render_template('/edit_profile.html')
