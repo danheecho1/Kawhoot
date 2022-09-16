@@ -57,3 +57,78 @@ back2.onclick = function() {
     question2.style.display = 'none';
     question1.style.display = 'block';
 }
+
+Next3.onclick = function() {
+    question3.style.display = 'none';
+    question4.style.display = 'block';
+}
+
+back3.onclick = function() {
+    question3.style.display = 'none';
+    question2.style.display = 'block';
+}
+
+Next4.onclick = function() {
+    question4.style.display = 'none';
+    question5.style.display = 'block';
+}
+
+back4.onclick = function() {
+    question4.style.display = 'none';
+    question3.style.display = 'block';
+}
+
+Next5.onclick = function() {
+    question5.style.display = 'none';
+    question6.style.display = 'block';
+}
+
+back5.onclick = function() {
+    question5.style.display = 'none';
+    question4.style.display = 'block';
+}
+
+Next6.onclick = function() {
+    question6.style.display = 'none';
+    question7.style.display = 'block';
+}
+
+back6.onclick = function() {
+    question6.style.display = 'none';
+    question5.style.display = 'block';
+}
+
+Next7.onclick = function() {
+    question7.style.display = 'none';
+    question8.style.display = 'block';
+}
+
+back7.onclick = function() {
+    question7.style.display = 'none';
+    question6.style.display = 'block';
+}
+
+Next8.onclick = function() {
+    question8.style.display = 'none';
+    question9.style.display = 'block';
+}
+
+back8.onclick = function() {
+    question8.style.display = 'none';
+    question7.style.display = 'block';
+}
+
+Next9.onclick = function() {
+    question9.style.display = 'none';
+    question10.style.display = 'block';
+}
+
+back9.onclick = function() {
+    question9.style.display = 'none';
+    question8.style.display = 'block';
+}
+
+back10.onclick = function() {
+    question10.style.display = 'none';
+    question9.style.display = 'block';
+}
