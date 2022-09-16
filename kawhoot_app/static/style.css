@@ -369,16 +369,21 @@ a {
 
 /* body__main content view -> create quiz__title */
 
-.body-div__main-content-div__form {
+.body-div__main-content-div__create-form {
     display: flex;
-    flex-direction: column;
     gap: 20px;
+    width: 950px;
+}
+
+#body-div__main-content-div__create-form__title-description {
+    position: absolute;
 }
 
 .body-div__main-content-div__form-label-input-div {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 950px;
 }
 
 .body-div__main-content-div__form-label-input-div input {
@@ -414,6 +419,12 @@ a {
 }
 
 /* body__main content view -> create quiz__question and options */
+
+.body-div__main-content-div__form {
+    position: absolute;
+    width: 950px;
+    display: none;
+}
 
 .body-div__main-content-div__form__question-div {
     display: flex;
