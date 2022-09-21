@@ -77,14 +77,6 @@ def new_quiz():
 
 @app.route('/new_quiz', methods=['POST'])
 def new_quiz_post(): 
-    print("TESTING REQUEST FORM")
-    print(request.form)
-    print("REQUEST FORM LENGTH")
-    print(len(request.form))
-    print("Request.form[0]")
-    print(request.form['title'])
-    print("Printing request values")
-    print(request.values)
     data_for_title_description = {
         'user_id': session['logged_in_user_id'], 
         'title': request.form['title'], 
