@@ -55,547 +55,525 @@
             <!-- main content view -->
             <div class="body-div__main-content-div">
                 <h1 class="util--page-header">Create a New Quiz</h1>
-                <form action="/new_quiz/title" class="body-div__main-content-div__create-form" method="post">
+                <form action="/new_quiz" class="body-div__main-content-div__create-form" method="post" onsubmit="validate_quiz(this)">
                     <div id="body-div__main-content-div__create-form__title-description">
                         <div class="body-div__main-content-div__form-label-input-div">
                             <label for="title">Title</label>
-                            <input type="text" name="title">
-                            <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                            <input type="text" name="title" id="title">
                         </div>
                         <div class="body-div__main-content-div__form-label-input-div">
                             <label for="description">Description</label>
-                            <textarea name="description" cols="30" rows="10"></textarea>
-                            <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                            <textarea name="description" cols="30" rows="10" id="description"></textarea>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
                             <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
                             <button class="util--btn" id="next0" type="button">Next</button>
                         </div>
                     </div>
-
                     <div class="body-div__main-content-div__form" id="question1">
                         <div class="body-div__main-content-div__form__question-div">
-                            <label for="">Question #1</label>
-                            <input type="text">
-                            <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                            <label for="question1">Question #1</label>
+                            <input type="text" name="prompt1" id="prompt1">
                         </div>
                         <div class="body-div__main-content-div__form-label-input-div--options-div">
                             <label for="">Options</label>
                             <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
                                 <div>
-                                    <label for="">A</label>
-                                    <input type="text">
+                                    <label for="1a">A</label>
+                                    <input type="text" name="1a" id="1a">
                                 </div>
                                 <div>
                                     
-                                    <label for="">B</label>
-                                    <input type="text">
+                                    <label for="1b">B</label>
+                                    <input type="text" name="1b" id="1b">
                                 </div>
                                 <div>
                                     
-                                    <label for="">C</label>
-                                    <input type="text">
+                                    <label for="1c">C</label>
+                                    <input type="text" name="1c" id="1c">
                                 </div>
                                 <div>
                                     
-                                    <label for="">D</label>
-                                    <input type="text">
+                                    <label for="1d">D</label>
+                                    <input type="text" name="1d" id="1d">
                                 </div>
                                 <div>
-                                    <label for="">E</label>
-                                    <input type="text">
+                                    <label for="1e">E</label>
+                                    <input type="text" name="1e" id="1e">
                                 </div>
                                 <div>
-                                    <label for="">Correct Answer</label>
-                                    <select name="" id="">
-                                        <option value="">A</option>
-                                        <option value="">B</option>
-                                        <option value="">C</option>
-                                        <option value="">D</option>
-                                        <option value="">E</option>
+                                    <label for="1answer">Correct Answer</label>
+                                    <select name="1answer">
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                        <option value="e">E</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
-                            <button class="util--btn">Cancel</button>
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
                             <div class="body-div__main-content-div__form__buttons-div--right">
                                 <button class="util--btn" id="back1" type="button">Go Back</button>
                                 <button class="util--btn" id="next1" type="button">Next</button>
                             </div>
                         </div>
                     </div>
-
                     <div class="body-div__main-content-div__form" id="question2">
                         <div class="body-div__main-content-div__form__question-div">
                             <label for="">Question #2</label>
-                            <input type="text">
-                            <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                            <input type="text" name="prompt2">
                         </div>
                         <div class="body-div__main-content-div__form-label-input-div--options-div">
                             <label for="">Options</label>
                             <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
                                 <div>
-                                    <label for="">A</label>
-                                    <input type="text">
+                                    <label for="2a">A</label>
+                                    <input type="text" name="2a">
                                 </div>
                                 <div>
                                     
-                                    <label for="">B</label>
-                                    <input type="text">
+                                    <label for="2b">B</label>
+                                    <input type="text" name="2b">
                                 </div>
                                 <div>
                                     
-                                    <label for="">C</label>
-                                    <input type="text">
+                                    <label for="2c">C</label>
+                                    <input type="text" name="2c">
                                 </div>
                                 <div>
                                     
-                                    <label for="">D</label>
-                                    <input type="text">
+                                    <label for="2d">D</label>
+                                    <input type="text" name="2d">
                                 </div>
                                 <div>
-                                    <label for="">E</label>
-                                    <input type="text">
+                                    <label for="2e">E</label>
+                                    <input type="text" name=2e>
                                 </div>
                                 <div>
-                                    <label for="">Correct Answer</label>
-                                    <select name="" id="">
-                                        <option value="">A</option>
-                                        <option value="">B</option>
-                                        <option value="">C</option>
-                                        <option value="">D</option>
-                                        <option value="">E</option>
+                                    <label for="2answer">Correct Answer</label>
+                                    <select name="2answer" id="">
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                        <option value="e">E</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
-                            <button class="util--btn">Cancel</button>
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
                             <div class="body-div__main-content-div__form__buttons-div--right">
                                 <button class="util--btn" id="back2" type="button">Go Back</button>
                                 <button class="util--btn" id="next2" type="button">Next</button>
                             </div>
                         </div>
                     </div>
-
                     <div class="body-div__main-content-div__form" id="question3">
                         <div class="body-div__main-content-div__form__question-div">
                             <label for="">Question #3</label>
-                            <input type="text">
-                            <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                            <input type="text" name="prompt3">
                         </div>
                         <div class="body-div__main-content-div__form-label-input-div--options-div">
                             <label for="">Options</label>
                             <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
                                 <div>
-                                    <label for="">A</label>
-                                    <input type="text">
+                                    <label for="3a">A</label>
+                                    <input type="text" name="3a">
                                 </div>
                                 <div>
                                     
-                                    <label for="">B</label>
-                                    <input type="text">
+                                    <label for="3b">B</label>
+                                    <input type="text" name="3b">
                                 </div>
                                 <div>
                                     
-                                    <label for="">C</label>
-                                    <input type="text">
+                                    <label for="3c">C</label>
+                                    <input type="text" name="3c">
                                 </div>
                                 <div>
                                     
-                                    <label for="">D</label>
-                                    <input type="text">
+                                    <label for="3d">D</label>
+                                    <input type="text" name="3d">
                                 </div>
                                 <div>
-                                    <label for="">E</label>
-                                    <input type="text">
+                                    <label for="3e">E</label>
+                                    <input type="text" name="3e">
                                 </div>
                                 <div>
-                                    <label for="">Correct Answer</label>
-                                    <select name="" id="">
-                                        <option value="">A</option>
-                                        <option value="">B</option>
-                                        <option value="">C</option>
-                                        <option value="">D</option>
-                                        <option value="">E</option>
+                                    <label for="3answer">Correct Answer</label>
+                                    <select name="3answer" id="">
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                        <option value="e">E</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
-                            <button class="util--btn">Cancel</button>
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
                             <div class="body-div__main-content-div__form__buttons-div--right">
                                 <button class="util--btn" id="back3" type="button">Go Back</button>
                                 <button class="util--btn" id="next3" type="button">Next</button>
                             </div>
                         </div>
                     </div>
-
                     <div class="body-div__main-content-div__form" id="question4">
                         <div class="body-div__main-content-div__form__question-div">
-                            <label for="">Question #4</label>
-                            <input type="text">
-                            <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                            <label for="prompt4">Question #4</label>
+                            <input type="text" name="prompt4">
                         </div>
                         <div class="body-div__main-content-div__form-label-input-div--options-div">
                             <label for="">Options</label>
                             <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
                                 <div>
-                                    <label for="">A</label>
-                                    <input type="text">
+                                    <label for="4a">A</label>
+                                    <input type="text" name="4a">
                                 </div>
                                 <div>
                                     
-                                    <label for="">B</label>
-                                    <input type="text">
+                                    <label for="4b">B</label>
+                                    <input type="text" name="4b">
                                 </div>
                                 <div>
                                     
-                                    <label for="">C</label>
-                                    <input type="text">
+                                    <label for="4c">C</label>
+                                    <input type="text" name="4c">
                                 </div>
                                 <div>
                                     
-                                    <label for="">D</label>
-                                    <input type="text">
+                                    <label for="4d">D</label>
+                                    <input type="text" name="4d">
                                 </div>
                                 <div>
-                                    <label for="">E</label>
-                                    <input type="text">
+                                    <label for="4e">E</label>
+                                    <input type="text" name="4e">
                                 </div>
                                 <div>
-                                    <label for="">Correct Answer</label>
-                                    <select name="" id="">
-                                        <option value="">A</option>
-                                        <option value="">B</option>
-                                        <option value="">C</option>
-                                        <option value="">D</option>
-                                        <option value="">E</option>
+                                    <label for="4answer">Correct Answer</label>
+                                    <select name="4answer" id="">
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                        <option value="e">E</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
-                            <button class="util--btn">Cancel</button>
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
                             <div class="body-div__main-content-div__form__buttons-div--right">
                                 <button class="util--btn" id="back4" type="button">Go Back</button>
                                 <button class="util--btn" id="next4" type="button">Next</button>
                             </div>
                         </div>
                     </div>
-
                     <div class="body-div__main-content-div__form" id="question5">
                         <div class="body-div__main-content-div__form__question-div">
-                            <label for="">Question #5</label>
-                            <input type="text">
-                            <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                            <label for="prompt5">Question #5</label>
+                            <input type="text" name="prompt5">
                         </div>
                         <div class="body-div__main-content-div__form-label-input-div--options-div">
                             <label for="">Options</label>
                             <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
                                 <div>
-                                    <label for="">A</label>
-                                    <input type="text">
+                                    <label for="5a">A</label>
+                                    <input type="text" name="5a">
                                 </div>
                                 <div>
                                     
-                                    <label for="">B</label>
-                                    <input type="text">
+                                    <label for="5b">B</label>
+                                    <input type="text" name="5b">
                                 </div>
                                 <div>
                                     
-                                    <label for="">C</label>
-                                    <input type="text">
+                                    <label for="5c">C</label>
+                                    <input type="text" name="5c">
                                 </div>
                                 <div>
                                     
-                                    <label for="">D</label>
-                                    <input type="text">
+                                    <label for="5d">D</label>
+                                    <input type="text" name="5d">
                                 </div>
                                 <div>
-                                    <label for="">E</label>
-                                    <input type="text">
+                                    <label for="5e">E</label>
+                                    <input type="text" name="5e">
                                 </div>
                                 <div>
-                                    <label for="">Correct Answer</label>
-                                    <select name="" id="">
-                                        <option value="">A</option>
-                                        <option value="">B</option>
-                                        <option value="">C</option>
-                                        <option value="">D</option>
-                                        <option value="">E</option>
+                                    <label for="5answer">Correct Answer</label>
+                                    <select name="5answer" id="">
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                        <option value="e">E</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
-                            <button class="util--btn">Cancel</button>
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
                             <div class="body-div__main-content-div__form__buttons-div--right">
                                 <button class="util--btn" id="back5" type="button">Go Back</button>
                                 <button class="util--btn" id="next5" type="button">Next</button>
                             </div>
                         </div>
                     </div>
-
                     <div class="body-div__main-content-div__form" id="question6">
                         <div class="body-div__main-content-div__form__question-div">
-                            <label for="">Question #6</label>
-                            <input type="text">
-                            <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                            <label for="prompt6">Question #6</label>
+                            <input type="text" name="prompt6">
                         </div>
                         <div class="body-div__main-content-div__form-label-input-div--options-div">
                             <label for="">Options</label>
                             <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
                                 <div>
-                                    <label for="">A</label>
-                                    <input type="text">
+                                    <label for="6a">A</label>
+                                    <input type="text" name="6a">
                                 </div>
                                 <div>
                                     
-                                    <label for="">B</label>
-                                    <input type="text">
+                                    <label for="6b">B</label>
+                                    <input type="text" name="6b">
                                 </div>
                                 <div>
                                     
-                                    <label for="">C</label>
-                                    <input type="text">
+                                    <label for="6d">C</label>
+                                    <input type="text" name="6c">
                                 </div>
                                 <div>
                                     
-                                    <label for="">D</label>
-                                    <input type="text">
+                                    <label for="6d">D</label>
+                                    <input type="text" name="6d">
                                 </div>
                                 <div>
-                                    <label for="">E</label>
-                                    <input type="text">
+                                    <label for="6e">E</label>
+                                    <input type="text" name="6e">
                                 </div>
                                 <div>
-                                    <label for="">Correct Answer</label>
-                                    <select name="" id="">
-                                        <option value="">A</option>
-                                        <option value="">B</option>
-                                        <option value="">C</option>
-                                        <option value="">D</option>
-                                        <option value="">E</option>
+                                    <label for="6answer">Correct Answer</label>
+                                    <select name="6answer" id="">
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                        <option value="e">E</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
-                            <button class="util--btn">Cancel</button>
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
                             <div class="body-div__main-content-div__form__buttons-div--right">
                                 <button class="util--btn" id="back6" type="button">Go Back</button>
                                 <button class="util--btn" id="next6" type="button">Next</button>
                             </div>
                         </div>
                     </div>
-
                     <div class="body-div__main-content-div__form" id="question7">
                         <div class="body-div__main-content-div__form__question-div">
                             <label for="">Question #7</label>
-                            <input type="text">
-                            <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                            <input type="text" name="prompt7">
                         </div>
                         <div class="body-div__main-content-div__form-label-input-div--options-div">
                             <label for="">Options</label>
                             <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
                                 <div>
-                                    <label for="">A</label>
-                                    <input type="text">
+                                    <label for="7a">A</label>
+                                    <input type="text" name="7a">
                                 </div>
                                 <div>
                                     
                                     <label for="">B</label>
-                                    <input type="text">
+                                    <input type="text" name="7b">
                                 </div>
                                 <div>
                                     
                                     <label for="">C</label>
-                                    <input type="text">
+                                    <input type="text" name="7c">
                                 </div>
                                 <div>
                                     
                                     <label for="">D</label>
-                                    <input type="text">
+                                    <input type="text" name="7d">
                                 </div>
                                 <div>
                                     <label for="">E</label>
-                                    <input type="text">
+                                    <input type="text" name="7e">
                                 </div>
                                 <div>
-                                    <label for="">Correct Answer</label>
-                                    <select name="" id="">
-                                        <option value="">A</option>
-                                        <option value="">B</option>
-                                        <option value="">C</option>
-                                        <option value="">D</option>
-                                        <option value="">E</option>
+                                    <label for="7answer">Correct Answer</label>
+                                    <select name="7answer" id="">
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                        <option value="e">E</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
-                            <button class="util--btn">Cancel</button>
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
                             <div class="body-div__main-content-div__form__buttons-div--right">
                                 <button class="util--btn" id="back7" type="button">Go Back</button>
                                 <button class="util--btn" id="next7" type="button">Next</button>
                             </div>
                         </div>
                     </div>
-
                     <div class="body-div__main-content-div__form" id="question8">
                         <div class="body-div__main-content-div__form__question-div">
                             <label for="">Question #8</label>
-                            <input type="text">
-                            <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                            <input type="text" name="prompt8">
                         </div>
                         <div class="body-div__main-content-div__form-label-input-div--options-div">
                             <label for="">Options</label>
                             <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
                                 <div>
                                     <label for="">A</label>
-                                    <input type="text">
+                                    <input type="text" name="8a">
                                 </div>
                                 <div>
                                     
                                     <label for="">B</label>
-                                    <input type="text">
+                                    <input type="text" name="8b">
                                 </div>
                                 <div>
                                     
                                     <label for="">C</label>
-                                    <input type="text">
+                                    <input type="text" name="8c">
                                 </div>
                                 <div>
                                     
                                     <label for="">D</label>
-                                    <input type="text">
+                                    <input type="text" name="8d">
                                 </div>
                                 <div>
                                     <label for="">E</label>
-                                    <input type="text">
+                                    <input type="text" name="8e">
                                 </div>
                                 <div>
                                     <label for="">Correct Answer</label>
-                                    <select name="" id="">
-                                        <option value="">A</option>
-                                        <option value="">B</option>
-                                        <option value="">C</option>
-                                        <option value="">D</option>
-                                        <option value="">E</option>
+                                    <select name="8answer" id="">
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                        <option value="e">E</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
-                            <button class="util--btn">Cancel</button>
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
                             <div class="body-div__main-content-div__form__buttons-div--right">
                                 <button class="util--btn" id="back8" type="button">Go Back</button>
                                 <button class="util--btn" id="next8" type="button">Next</button>
                             </div>
                         </div>
                     </div>
-
                     <div class="body-div__main-content-div__form" id="question9">
                         <div class="body-div__main-content-div__form__question-div">
                             <label for="">Question #9</label>
-                            <input type="text">
-                            <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                            <input type="text" name="prompt9">
                         </div>
                         <div class="body-div__main-content-div__form-label-input-div--options-div">
                             <label for="">Options</label>
                             <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
                                 <div>
                                     <label for="">A</label>
-                                    <input type="text">
+                                    <input type="text" name="9a">
                                 </div>
                                 <div>
                                     
                                     <label for="">B</label>
-                                    <input type="text">
+                                    <input type="text" name="9b">
                                 </div>
                                 <div>
                                     
                                     <label for="">C</label>
-                                    <input type="text">
+                                    <input type="text" name="9c">
                                 </div>
                                 <div>
                                     
                                     <label for="">D</label>
-                                    <input type="text">
+                                    <input type="text" name="9d">
                                 </div>
                                 <div>
                                     <label for="">E</label>
-                                    <input type="text">
+                                    <input type="text" name="9e">
                                 </div>
                                 <div>
                                     <label for="">Correct Answer</label>
-                                    <select name="" id="">
-                                        <option value="">A</option>
-                                        <option value="">B</option>
-                                        <option value="">C</option>
-                                        <option value="">D</option>
-                                        <option value="">E</option>
+                                    <select name="9answer" id="">
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                        <option value="e">E</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
-                            <button class="util--btn">Cancel</button>
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
                             <div class="body-div__main-content-div__form__buttons-div--right">
                                 <button class="util--btn" id="back9" type="button">Go Back</button>
                                 <button class="util--btn" id="next9" type="button">Next</button>
                             </div>
                         </div>
                     </div>
-
                     <div class="body-div__main-content-div__form" id="question10">
                         <div class="body-div__main-content-div__form__question-div">
                             <label for="">Question #10</label>
-                            <input type="text">
-                            <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                            <input type="text" name="prompt10">
                         </div>
                         <div class="body-div__main-content-div__form-label-input-div--options-div">
                             <label for="">Options</label>
                             <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
                                 <div>
                                     <label for="">A</label>
-                                    <input type="text">
+                                    <input type="text" name="10a">
                                 </div>
                                 <div>
                                     
                                     <label for="">B</label>
-                                    <input type="text">
+                                    <input type="text" name="10b">
                                 </div>
                                 <div>
                                     
                                     <label for="">C</label>
-                                    <input type="text">
+                                    <input type="text" name="10c">
                                 </div>
                                 <div>
                                     
                                     <label for="">D</label>
-                                    <input type="text">
+                                    <input type="text" name="10d">
                                 </div>
                                 <div>
                                     <label for="">E</label>
-                                    <input type="text">
+                                    <input type="text" name="10e">
                                 </div>
                                 <div>
                                     <label for="">Correct Answer</label>
-                                    <select name="" id="">
-                                        <option value="">A</option>
-                                        <option value="">B</option>
-                                        <option value="">C</option>
-                                        <option value="">D</option>
-                                        <option value="">E</option>
+                                    <select name="10answer" id="">
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                        <option value="e">E</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
-                            <button class="util--btn">Cancel</button>
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
                             <div class="body-div__main-content-div__form__buttons-div--right">
                                 <button class="util--btn" id="back10" type="button">Go Back</button>
                                 <button class="util--btn" type="submit">Finish</button>

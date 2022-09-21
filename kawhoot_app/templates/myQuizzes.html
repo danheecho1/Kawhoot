@@ -69,58 +69,16 @@
                 <!-- my quizzes table -->
                 <table class="body-div__main-content-div__my-quizzes-table" rules="none">
                     <tbody class="body-div__main-content-div__my-quizzes-table__tbody">
+                        {% if my_quizzes %}
+                            {% for quiz in my_quizzes %}
                         <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#129</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">Are you smarter than a 5th grader?</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">09/10/2022</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">X | X | X</td>
+                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
+                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.title}}</td>
+                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.created_date}}</td>
+                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td"><a href="#">Edit</a> | <a href="#">Delete</a></td>
                         </tr>
-                        <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#129</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">Are you smarter than a 5th grader?</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">09/10/2022</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">X | X | X</td>
-                        </tr>                        <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#129</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">Are you smarter than a 5th grader?</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">09/10/2022</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">X | X | X</td>
-                        </tr>                        <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#129</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">Are you smarter than a 5th grader?</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">09/10/2022</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">X | X | X</td>
-                        </tr>                        <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#129</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">Are you smarter than a 5th grader?</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">09/10/2022</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">X | X | X</td>
-                        </tr>                        <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#129</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">Are you smarter than a 5th grader?</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">09/10/2022</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">X | X | X</td>
-                        </tr>                        <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#129</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">Are you smarter than a 5th grader?</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">09/10/2022</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">X | X | X</td>
-                        </tr>                        <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#129</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">Are you smarter than a 5th grader?</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">09/10/2022</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">X | X | X</td>
-                        </tr>                        <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#129</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">Are you smarter than a 5th grader?</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">09/10/2022</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">X | X | X</td>
-                        </tr>                        <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#129</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">Are you smarter than a 5th grader?</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">09/10/2022</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">X | X | X</td>
-                        </tr>
+                            {% endfor %}
+                        {% endif %}
                     </tbody>
                 </table>
             </div>
