@@ -21,6 +21,7 @@ var Next6 = document.getElementById("next6")
 var Next7 = document.getElementById("next7")
 var Next8 = document.getElementById("next8")
 var Next9 = document.getElementById("next9")
+var finish = document.getElementById("finish")
 
 var back1 = document.getElementById("back1")
 var back2 = document.getElementById("back2")
@@ -249,6 +250,16 @@ Next9.onclick = function() {
 back9.onclick = function() {
     question9.style.display = 'none';
     question8.style.display = 'block';
+}
+
+finish.onclick = function() {
+    if(!prompt10.value || !a10.value || !b10.value || !c10.value || !d10.value || !e10.value) {
+        alert("All fields must be filled in!")
+        finish.setAttribute('type', 'button')
+        }
+    else if (prompt10.value && a10.value && b10.value && c10.value && d10.value && e10.value) {
+        finish.setAttribute('type', 'submit')
+    }
 }
 
 back10.onclick = function() {
