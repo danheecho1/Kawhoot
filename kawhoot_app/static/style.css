@@ -285,9 +285,18 @@ a {
     width: 950px;
 }
 
+.body-div__main-content-div__my-quizzes-table__thead__tr__th {
+    padding-left: 25px;
+    text-align: left;
+    font-weight: var(--fw-bold);
+}
+
 .body-div__main-content-div__my-quizzes-table__tbody {
     background-color: var(--clr-general-5);
-    height: 525px;
+}
+
+.body-div__main-content-div__my-quizzes-table_tbody__tr {
+    height: 52.5px;
 }
 
 .body-div__main-content-div__my-quizzes-table_tbody__tr:hover {
@@ -384,6 +393,7 @@ a {
     flex-direction: column;
     gap: 5px;
     width: 950px;
+    margin-bottom: 20px;
 }
 
 .body-div__main-content-div__form-label-input-div input {
@@ -398,14 +408,6 @@ a {
     border-radius: 10px;
     border: 1px solid var(--clr-general-4);
     padding: 15px;
-}
-
-.body-div__main-content-div__form-label-input-div__validation {
-    color: var(--clr-general-7);
-    font-size: var(--fs-6);
-    margin-left: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
 }
 
 .body-div__main-content-div__form__buttons-div {
@@ -430,12 +432,14 @@ a {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-bottom: 20px;
 }
 
 .body-div__main-content-div__form-label-input-div--options-div__choices-div {
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
+    margin-bottom: 93px;
 }
 
 .body-div__main-content-div__form-label-input-div--options-div__choices-div div {
