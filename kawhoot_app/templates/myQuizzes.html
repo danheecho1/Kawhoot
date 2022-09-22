@@ -67,20 +67,36 @@
                     <a href="/new_quiz"><button class="body-div__main-content-div__search-bar-div__new-button util--btn">New Quiz</button></a>
                 </div>
                 <!-- my quizzes table -->
-                <table class="body-div__main-content-div__my-quizzes-table" rules="none">
-                    <tbody class="body-div__main-content-div__my-quizzes-table__tbody">
-                        {% if my_quizzes %}
-                            {% for quiz in my_quizzes %}
-                        <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.title}}</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.created_date}}</td>
-                            <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td"><a href="#">Edit</a> | <a href="#">Delete</a></td>
-                        </tr>
-                            {% endfor %}
-                        {% endif %}
-                    </tbody>
-                </table>
+                <div class="body-div__main-content-div__my-quizzes-div-wrap">
+                    <table class="body-div__main-content-div__my-quizzes-table" rules="none">
+                        <tbody class="body-div__main-content-div__my-quizzes-table__tbody">
+                            {% if my_quizzes %}
+                                {% for quiz in my_quizzes %}
+                            <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.title}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.created_date}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td"><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                            </tr>
+                                {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- pagination -->
+                <ul class="body-div__main-content-div__pagination-ul">
+                    {% if prev >= 1 %}
+                    <a href="/my_quizzes/{{prev}}" class="body-div__main-content-div__pagination__a"><< Previous</a>
+                    {% endif %}
+                    {% for page in range(pages) %}
+                    <li>
+                        <a href="/my_quizzes/{{loop.index}}" class="body-div__main-content-div__pagination__a">{{loop.index}}</a>
+                    </li>
+                    {% endfor %}
+                    {% if next <= pages %}
+                    <a href="/my_quizzes/{{next}}" class="body-div__main-content-div__pagination__a">Next >></a>
+                    {% endif %}
+                </ul>
             </div>
         </div>
         <!-- footer -->

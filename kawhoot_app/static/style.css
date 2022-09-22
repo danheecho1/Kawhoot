@@ -281,14 +281,13 @@ a {
     border-radius: 10px;
 }
 
-.body-div__main-content-div__my-quizzes-table {
-    width: 950px;
+.body-div__main-content-div__my-quizzes-div-wrap {
+    max-height: 525px;
+    overflow-y: hidden;
 }
 
-.body-div__main-content-div__my-quizzes-table__thead__tr__th {
-    padding-left: 25px;
-    text-align: left;
-    font-weight: var(--fw-bold);
+.body-div__main-content-div__my-quizzes-table {
+    width: 950px;
 }
 
 .body-div__main-content-div__my-quizzes-table__tbody {
@@ -307,25 +306,23 @@ a {
     padding-left: 25px;
 }
 
-.body-div__main-content-div__my-quizzes-table__tbody tr:first-child td:first-child {
-    border-top-left-radius: 10px;
-}
-
-.body-div__main-content-div__my-quizzes-table__tbody tr:first-child td:last-child {
-    border-top-right-radius: 10px;
-}
-
-.body-div__main-content-div__my-quizzes-table__tbody tr:last-child td:first-child {
-    border-bottom-left-radius: 10px;
-}
-
-
-.body-div__main-content-div__my-quizzes-table__tbody tr:last-child td:last-child{
-    border-bottom-right-radius: 10px;
-}
-
 .body-div__main-content-div__my-quizzes-table__tbody tr:not(:first-child) {
     border-top: 2px solid var(--clr-theme-3);
+}
+
+.body-div__main-content-div__pagination-ul {
+    list-style-type: none;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.body-div__main-content-div__pagination__a {
+    display: flex;
+    align-self: center;
+    color: black;
+    text-decoration: none;
+    padding: 5px;
 }
 
 /* body__main content view -> edit profile */
