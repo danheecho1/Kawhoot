@@ -4,6 +4,7 @@ from kawhoot_app.models.quiz_model import Quiz
 from kawhoot_app.models.question_model import Question
 from kawhoot_app.models.choice_model import Choice
 
+import math
 from flask import render_template, redirect, session, request, flash
 from flask_bcrypt import Bcrypt
 
@@ -63,13 +64,22 @@ def logout():
 def dashboard():
     return render_template('dashboard.html')
 
-@app.route('/my_quizzes')
-def my_quizzes(): 
+@app.route('/my_quizzes', defaults={'page': 1})
+@app.route('/my_quizzes/<int:page>')
+def my_quizzes(page): 
+    limit = 10
+    offset = page * limit - limit
     data = {
-        'user_id': session['logged_in_user_id']
+        'user_id': session['logged_in_user_id'],
+        'limit': limit, 
+        'offset': offset
     }
-    my_quizzes = Quiz.get_all_quizzes(data)
-    return render_template('myQuizzes.html', my_quizzes = my_quizzes)
+    my_quizzes = Quiz.get_paginated_posts(data)
+    number_of_quizzes = Quiz.get_quiz_count(data)
+    total_pages = math.ceil(number_of_quizzes / limit)
+    next = page + 1
+    prev = page - 1
+    return render_template('myQuizzes.html', my_quizzes = my_quizzes, pages = total_pages, next = next, prev = prev)
 
 @app.route('/new_quiz')
 def new_quiz(): 
