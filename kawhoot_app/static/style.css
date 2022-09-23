@@ -286,6 +286,15 @@ a {
     overflow-y: hidden;
 }
 
+.body-div__main-content-div__no-quiz-yet {
+    height: 525px;
+    width: 950px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--clr-general-5);
+}
+
 .body-div__main-content-div__my-quizzes-table {
     width: 950px;
 }
