@@ -315,6 +315,20 @@ a {
     padding-left: 25px;
 }
 
+.body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions {
+    display: flex;
+}
+
+.body-div__main-content-div__my-quizzes-table__tbody__tr__td__form {
+    display: flex;
+}
+
+.body-div__main-content-div__my-quizzes-table__tbody__tr__td__button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 .body-div__main-content-div__my-quizzes-table__tbody tr:not(:first-child) {
     border-top: 2px solid var(--clr-theme-3);
 }
