@@ -31,6 +31,19 @@ class Quiz:
         return False
 
     @classmethod
-    def get_paginated_posts(cls, data): 
+    def get_paginated_quizzes(cls, data): 
         query = "SELECT *, CAST(created_at as DATE) AS created_date FROM quizzes WHERE user_id = %(user_id)s ORDER BY created_at DESC LIMIT 1000000 OFFSET %(offset)s;"
+        return connectToMySQL('kawhoot_schema').query_db(query, data)
+
+    @classmethod
+    def select_quiz(cls, data): 
+        query = "SELECT * FROM quizzes JOIN users ON quizzes.user_id = users.id WHERE quizzes.id = %(quiz_id)s;"
+        result = connectToMySQL('kawhoot_schema').query_db(query, data)
+        if result: 
+            return cls(result[0])
+        return False
+
+    @classmethod
+    def delete_quiz(cls, data): 
+        query = "DELETE FROM quizzes WHERE id = %(quiz_id)s;"
         return connectToMySQL('kawhoot_schema').query_db(query, data)

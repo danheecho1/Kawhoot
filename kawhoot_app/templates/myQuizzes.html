@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='/style.css')}}">
     <title>Kawhoot - My Quizzes</title>
 </head>
 <body>
@@ -36,7 +36,7 @@
                         <h2>My Quizzes</h2>
                     </div>
                 </a>
-                <a href="#">
+                <a href="/search">
                     <div class="body-div__navigation-div__link-div">
                         <h2>Search</h2>
                     </div>
@@ -74,9 +74,15 @@
                     {% for quiz in my_quizzes %}
                             <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.title}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td"><a href="/quiz/{{user_id}}/{{quiz.id}}">{{quiz.title}}</a></td>
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.created_date}}</td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td"><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions">
+                                    <a href="/quiz/{{user_id}}/{{quiz.id}}/edit">Edit</a>
+                                    |
+                                    <form action="/quiz/{{user_id}}/{{quiz.id}}/delete" method='post'>
+                                        <button class="body-div__main-content-div__my-quizzes-table__tbody__tr__td__button" type="submit">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                     {% endfor %}
                         </tbody>

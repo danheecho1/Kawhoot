@@ -74,12 +74,30 @@ def my_quizzes(page):
         'limit': limit, 
         'offset': offset
     }
-    my_quizzes = Quiz.get_paginated_posts(data)
+    my_quizzes = Quiz.get_paginated_quizzes(data)
     number_of_quizzes = Quiz.get_quiz_count(data)
     total_pages = math.ceil(number_of_quizzes / limit)
     next = page + 1
     prev = page - 1
-    return render_template('myQuizzes.html', my_quizzes = my_quizzes, pages = total_pages, next = next, prev = prev)
+    user_id = session['logged_in_user_id']
+    return render_template('myQuizzes.html', my_quizzes = my_quizzes, pages = total_pages, next = next, prev = prev, user_id = user_id)
+
+@app.route('/quiz/<int:user_id>/<int:quiz_id>')
+def select_quiz(user_id, quiz_id): 
+    data = {
+        'quiz_id': quiz_id
+    }
+    quiz = Quiz.select_quiz(data)
+    return render_template('select_my_quiz.html', quiz = quiz)
+
+@app.route('/quiz/<int:user_id>/<int:quiz_id>/delete', methods = ['POST'])
+def delete_quiz(user_id, quiz_id): 
+    data = {
+        'user_id': user_id,
+        'quiz_id': quiz_id
+    }
+    Quiz.delete_quiz(data)
+    return redirect('/my_quizzes')
 
 @app.route('/new_quiz')
 def new_quiz(): 
@@ -185,6 +203,11 @@ def new_quiz_post():
     Choice.create_choices(data_for_answers)
     return redirect('/my_quizzes')
 
-@app.route('/edit_profile')
+@app.route('/search')
 def search(): 
+    return render_template('/search.html')
+
+
+@app.route('/edit_profile')
+def edit_profile(): 
     return render_template('/edit_profile.html')
