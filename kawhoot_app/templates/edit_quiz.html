@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='/style.css')}}">
     <title>Kawhoot - Edit Quiz</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
             <!-- header buttons -->
             <div class="header-div__buttons-div">
                 <a class="header-div__buttons-div__about" href="#">About</a>
-                <a class="header-div__buttons-div__log-out" href="#">Log Out</a>
+                <a class="header-div__buttons-div__log-out" href="/logout">Log Out</a>
             </div>
         </div>
         <!-- body -->
@@ -55,20 +55,540 @@
             <!-- main content view -->
             <div class="body-div__main-content-div">
                 <h1 class="util--page-header">Edit an Existing Quiz</h1>
-                <form action="#" class="body-div__main-content-div__form">
-                    <div class="body-div__main-content-div__form-label-input-div">
-                        <label for="">Title</label>
-                        <input type="text">
-                        <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                <form action="/quiz/{{user_id}}/{{quiz_id}}/edit" class="body-div__main-content-div__create-form" method="post" onsubmit="validate_quiz(this)">
+                    <div id="body-div__main-content-div__create-form__title-description">
+                        <div class="body-div__main-content-div__form-label-input-div">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" id="title" value="{{quiz[0].title}}">
+                        </div>
+                        <div class="body-div__main-content-div__form-label-input-div">
+                            <label for="description">Description</label>
+                            <textarea name="description" cols="30" rows="10" id="description">{{quiz[0].description}}</textarea>
+                        </div>
+                        <div class="body-div__main-content-div__form__buttons-div">
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
+                            <button class="util--btn" id="next0" type="button">Next</button>
+                        </div>
                     </div>
-                    <div class="body-div__main-content-div__form-label-input-div">
-                        <label for="">Description</label>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                        <p class="body-div__main-content-div__form-label-input-div__validation">* Validation message here</p>
+                    <div class="body-div__main-content-div__form" id="question1">
+                        <div class="body-div__main-content-div__form__question-div">
+                            <label for="question1">Question #1</label>
+                            <input type="text" name="prompt1" id="prompt1" value="{{quiz[0].prompt}}">
+                        </div>
+                        <div class="body-div__main-content-div__form-label-input-div--options-div">
+                            <label for="">Options</label>
+                            <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
+                                <div>
+                                    <label for="1a">A</label>
+                                    <input type="text" name="1a" id="1a" value="{{quiz[0].a}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="1b">B</label>
+                                    <input type="text" name="1b" id="1b" value="{{quiz[0].b}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="1c">C</label>
+                                    <input type="text" name="1c" id="1c" value="{{quiz[0].c}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="1d">D</label>
+                                    <input type="text" name="1d" id="1d"  value="{{quiz[0].d}}">
+                                </div>
+                                <div>
+                                    <label for="1e">E</label>
+                                    <input type="text" name="1e" id="1e" value="{{quiz[0].e}}">
+                                </div>
+                                <div>
+                                    <label for="1answer">Correct Answer</label>
+                                    <select name="1answer" id="select1">
+                                        <option hidden value="{{quiz[0].correct_answer}}" id="correct_answer_1"></option>
+                                        <option value="a" id="select1a">A</option>
+                                        <option value="b" id="select1b">B</option>
+                                        <option value="c" id="select1c">C</option>
+                                        <option value="d" id="select1d">D</option>
+                                        <option value="e" id="select1e">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body-div__main-content-div__form__buttons-div">
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
+                            <div class="body-div__main-content-div__form__buttons-div--right">
+                                <button class="util--btn" id="back1" type="button">Go Back</button>
+                                <button class="util--btn" id="next1" type="button">Next</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="body-div__main-content-div__form__buttons-div">
-                        <button class="util--btn">Go Back</button>
-                        <button class="util--btn">Continue</button>
+                    <div class="body-div__main-content-div__form" id="question2">
+                        <div class="body-div__main-content-div__form__question-div">
+                            <label for="">Question #2</label>
+                            <input type="text" name="prompt2" id="prompt2" value="{{quiz[1].prompt}}">
+                        </div>
+                        <div class="body-div__main-content-div__form-label-input-div--options-div">
+                            <label for="">Options</label>
+                            <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
+                                <div>
+                                    <label for="2a">A</label>
+                                    <input type="text" name="2a" id="2a" value="{{quiz[1].a}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="2b">B</label>
+                                    <input type="text" name="2b" id="2b" value="{{quiz[1].b}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="2c">C</label>
+                                    <input type="text" name="2c" id="2c" value="{{quiz[1].c}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="2d">D</label>
+                                    <input type="text" name="2d" id="2d" value="{{quiz[1].d}}">
+                                </div>
+                                <div>
+                                    <label for="2e">E</label>
+                                    <input type="text" name=2e id="2e" value="{{quiz[1].e}}">
+                                </div>
+                                <div>
+                                    <label for="2answer">Correct Answer</label>
+                                    <select name="2answer" id="">
+                                        <option hidden value="{{quiz[1].correct_answer}}" id="correct_answer_2"></option>
+                                        <option value="a" id="select2a">A</option>
+                                        <option value="b" id="select2b">B</option>
+                                        <option value="c" id="select2c">C</option>
+                                        <option value="d" id="select2d">D</option>
+                                        <option value="e" id="select2e">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body-div__main-content-div__form__buttons-div">
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
+                            <div class="body-div__main-content-div__form__buttons-div--right">
+                                <button class="util--btn" id="back2" type="button">Go Back</button>
+                                <button class="util--btn" id="next2" type="button">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body-div__main-content-div__form" id="question3">
+                        <div class="body-div__main-content-div__form__question-div">
+                            <label for="">Question #3</label>
+                            <input type="text" name="prompt3" id="prompt3" value="{{quiz[2].prompt}}">
+                        </div>
+                        <div class="body-div__main-content-div__form-label-input-div--options-div">
+                            <label for="">Options</label>
+                            <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
+                                <div>
+                                    <label for="3a">A</label>
+                                    <input type="text" name="3a" id="3a" value="{{quiz[2].a}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="3b">B</label>
+                                    <input type="text" name="3b" id="3b" value="{{quiz[2].b}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="3c">C</label>
+                                    <input type="text" name="3c" id="3c" value="{{quiz[2].c}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="3d">D</label>
+                                    <input type="text" name="3d" id="3d" value="{{quiz[2].d}}">
+                                </div>
+                                <div>
+                                    <label for="3e">E</label>
+                                    <input type="text" name="3e" id="3e" value="{{quiz[2].e}}">
+                                </div>
+                                <div>
+                                    <label for="3answer">Correct Answer</label>
+                                    <select name="3answer" id="">
+                                        <option value="{{quiz[2].correct_answer}}" hidden id="correct_answer_3"></option>
+                                        <option value="a" id="select3a">A</option>
+                                        <option value="b" id="select3b">B</option>
+                                        <option value="c" id="select3c">C</option>
+                                        <option value="d" id="select3d">D</option>
+                                        <option value="e" id="select3e">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body-div__main-content-div__form__buttons-div">
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
+                            <div class="body-div__main-content-div__form__buttons-div--right">
+                                <button class="util--btn" id="back3" type="button">Go Back</button>
+                                <button class="util--btn" id="next3" type="button">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body-div__main-content-div__form" id="question4">
+                        <div class="body-div__main-content-div__form__question-div">
+                            <label for="prompt4">Question #4</label>
+                            <input type="text" name="prompt4" id="prompt4" value="{{quiz[3].prompt}}">
+                        </div>
+                        <div class="body-div__main-content-div__form-label-input-div--options-div">
+                            <label for="">Options</label>
+                            <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
+                                <div>
+                                    <label for="4a">A</label>
+                                    <input type="text" name="4a" id="4a" value="{{quiz[3].a}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="4b">B</label>
+                                    <input type="text" name="4b" id="4b" value="{{quiz[3].b}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="4c">C</label>
+                                    <input type="text" name="4c" id="4c" value="{{quiz[3].c}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="4d">D</label>
+                                    <input type="text" name="4d" id="4d" value="{{quiz[3].d}}">
+                                </div>
+                                <div>
+                                    <label for="4e">E</label>
+                                    <input type="text" name="4e" id="4e" value="{{quiz[3].e}}">
+                                </div>
+                                <div>
+                                    <label for="4answer">Correct Answer</label>
+                                    <select name="4answer" id="">
+                                        <option value="{{quiz[3].correct_answer}}" hidden id="correct_answer_4"></option>
+                                        <option value="a" id="select4a">A</option>
+                                        <option value="b" id="select4b">B</option>
+                                        <option value="c" id="select4c">C</option>
+                                        <option value="d" id="select4d">D</option>
+                                        <option value="e" id="select4e">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body-div__main-content-div__form__buttons-div">
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
+                            <div class="body-div__main-content-div__form__buttons-div--right">
+                                <button class="util--btn" id="back4" type="button">Go Back</button>
+                                <button class="util--btn" id="next4" type="button">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body-div__main-content-div__form" id="question5">
+                        <div class="body-div__main-content-div__form__question-div">
+                            <label for="prompt5">Question #5</label>
+                            <input type="text" name="prompt5" id="prompt5" value="{{quiz[4].prompt}}">
+                        </div>
+                        <div class="body-div__main-content-div__form-label-input-div--options-div">
+                            <label for="">Options</label>
+                            <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
+                                <div>
+                                    <label for="5a">A</label>
+                                    <input type="text" name="5a" id="5a" value="{{quiz[4].a}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="5b">B</label>
+                                    <input type="text" name="5b" id="5b" value="{{quiz[4].b}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="5c">C</label>
+                                    <input type="text" name="5c" id="5c" value="{{quiz[4].c}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="5d">D</label>
+                                    <input type="text" name="5d" id="5d" value="{{quiz[4].d}}">
+                                </div>
+                                <div>
+                                    <label for="5e">E</label>
+                                    <input type="text" name="5e" id="5e" value="{{quiz[4].e}}">
+                                </div>
+                                <div>
+                                    <label for="5answer">Correct Answer</label>
+                                    <select name="5answer" id="">
+                                        <option value="{{quiz[4].correct_answer}}" hidden id="correct_answer_5"></option>
+                                        <option value="a" id="select5a">A</option>
+                                        <option value="b" id="select5b">B</option>
+                                        <option value="c" id="select5c">C</option>
+                                        <option value="d" id="select5d">D</option>
+                                        <option value="e" id="select5e">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body-div__main-content-div__form__buttons-div">
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
+                            <div class="body-div__main-content-div__form__buttons-div--right">
+                                <button class="util--btn" id="back5" type="button">Go Back</button>
+                                <button class="util--btn" id="next5" type="button">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body-div__main-content-div__form" id="question6">
+                        <div class="body-div__main-content-div__form__question-div">
+                            <label for="prompt6">Question #6</label>
+                            <input type="text" name="prompt6" id="prompt6" value="{{quiz[5].prompt}}">
+                        </div>
+                        <div class="body-div__main-content-div__form-label-input-div--options-div">
+                            <label for="">Options</label>
+                            <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
+                                <div>
+                                    <label for="6a">A</label>
+                                    <input type="text" name="6a" id="6a" value="{{quiz[5].a}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="6b">B</label>
+                                    <input type="text" name="6b" id="6b" value="{{quiz[5].b}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="6d">C</label>
+                                    <input type="text" name="6c" id="6c" value="{{quiz[5].c}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="6d">D</label>
+                                    <input type="text" name="6d" id="6d" value="{{quiz[5].d}}">
+                                </div>
+                                <div>
+                                    <label for="6e">E</label>
+                                    <input type="text" name="6e" id="6e" value="{{quiz[5].e}}">
+                                </div>
+                                <div>
+                                    <label for="6answer">Correct Answer</label>
+                                    <select name="6answer" id="">
+                                        <option value="{{quiz[5].correct_answer}}" hidden id="correct_answer_6"></option>
+                                        <option value="a" id="select6a">A</option>
+                                        <option value="b" id="select6b">B</option>
+                                        <option value="c" id="select6c">C</option>
+                                        <option value="d" id="select6d">D</option>
+                                        <option value="e" id="select6e">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body-div__main-content-div__form__buttons-div">
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
+                            <div class="body-div__main-content-div__form__buttons-div--right">
+                                <button class="util--btn" id="back6" type="button">Go Back</button>
+                                <button class="util--btn" id="next6" type="button">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body-div__main-content-div__form" id="question7">
+                        <div class="body-div__main-content-div__form__question-div">
+                            <label for="">Question #7</label>
+                            <input type="text" name="prompt7" id="prompt7" value="{{quiz[6].prompt}}">
+                        </div>
+                        <div class="body-div__main-content-div__form-label-input-div--options-div">
+                            <label for="">Options</label>
+                            <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
+                                <div>
+                                    <label for="7a">A</label>
+                                    <input type="text" name="7a" id="7a" value="{{quiz[6].a}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="">B</label>
+                                    <input type="text" name="7b" id="7b" value="{{quiz[6].b}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="">C</label>
+                                    <input type="text" name="7c" id="7c" value="{{quiz[6].c}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="">D</label>
+                                    <input type="text" name="7d" id="7d" value="{{quiz[6].d}}">
+                                </div>
+                                <div>
+                                    <label for="">E</label>
+                                    <input type="text" name="7e" id="7e" value="{{quiz[6].e}}">
+                                </div>
+                                <div>
+                                    <label for="7answer">Correct Answer</label>
+                                    <select name="7answer" id="">
+                                        <option value="{{quiz[6].correct_answer}}" hidden id="correct_answer_7" ></option>
+                                        <option value="a" id="select7a">A</option>
+                                        <option value="b" id="select7b">B</option>
+                                        <option value="c" id="select7c">C</option>
+                                        <option value="d" id="select7d">D</option>
+                                        <option value="e" id="select7e">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body-div__main-content-div__form__buttons-div">
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
+                            <div class="body-div__main-content-div__form__buttons-div--right">
+                                <button class="util--btn" id="back7" type="button">Go Back</button>
+                                <button class="util--btn" id="next7" type="button">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body-div__main-content-div__form" id="question8">
+                        <div class="body-div__main-content-div__form__question-div">
+                            <label for="">Question #8</label>
+                            <input type="text" name="prompt8" id="prompt8" value="{{quiz[7].prompt}}">
+                        </div>
+                        <div class="body-div__main-content-div__form-label-input-div--options-div">
+                            <label for="">Options</label>
+                            <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
+                                <div>
+                                    <label for="">A</label>
+                                    <input type="text" name="8a" id="8a" value="{{quiz[7].a}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="">B</label>
+                                    <input type="text" name="8b" id="8b" value="{{quiz[7].b}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="">C</label>
+                                    <input type="text" name="8c" id="8c" value="{{quiz[7].c}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="">D</label>
+                                    <input type="text" name="8d" id="8d" value="{{quiz[7].d}}">
+                                </div>
+                                <div>
+                                    <label for="">E</label>
+                                    <input type="text" name="8e" id="8e" value="{{quiz[7].e}}">
+                                </div>
+                                <div>
+                                    <label for="">Correct Answer</label>
+                                    <select name="8answer" id="">
+                                        <option value="{{quiz[7].correct_answer}}" hidden id="correct_answer_8"></option>
+                                        <option value="a" id="select8a">A</option>
+                                        <option value="b" id="select8b">B</option>
+                                        <option value="c" id="select8c">C</option>
+                                        <option value="d" id="select8d">D</option>
+                                        <option value="e" id="select8e">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body-div__main-content-div__form__buttons-div">
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
+                            <div class="body-div__main-content-div__form__buttons-div--right">
+                                <button class="util--btn" id="back8" type="button">Go Back</button>
+                                <button class="util--btn" id="next8" type="button">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body-div__main-content-div__form" id="question9">
+                        <div class="body-div__main-content-div__form__question-div">
+                            <label for="">Question #9</label>
+                            <input type="text" name="prompt9" id="prompt9" value="{{quiz[8].prompt}}">
+                        </div>
+                        <div class="body-div__main-content-div__form-label-input-div--options-div">
+                            <label for="">Options</label>
+                            <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
+                                <div>
+                                    <label for="">A</label>
+                                    <input type="text" name="9a" id="9a" value="{{quiz[8].a}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="">B</label>
+                                    <input type="text" name="9b" id="9b" value="{{quiz[8].b}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="">C</label>
+                                    <input type="text" name="9c" id="9c" value="{{quiz[8].c}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="">D</label>
+                                    <input type="text" name="9d" id="9d" value="{{quiz[8].d}}">
+                                </div>
+                                <div>
+                                    <label for="">E</label>
+                                    <input type="text" name="9e" id="9e" value="{{quiz[8].e}}">
+                                </div>
+                                <div>
+                                    <label for="">Correct Answer</label>
+                                    <select name="9answer" id="">
+                                        <option value="{{quiz[8].correct_answer}}" hidden id="correct_answer_9"></option>
+                                        <option value="a" id="select9a">A</option>
+                                        <option value="b" id="select9b">B</option>
+                                        <option value="c" id="select9c">C</option>
+                                        <option value="d" id="select9d">D</option>
+                                        <option value="e" id="select9e">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body-div__main-content-div__form__buttons-div">
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
+                            <div class="body-div__main-content-div__form__buttons-div--right">
+                                <button class="util--btn" id="back9" type="button">Go Back</button>
+                                <button class="util--btn" id="next9" type="button">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body-div__main-content-div__form" id="question10">
+                        <div class="body-div__main-content-div__form__question-div">
+                            <label for="">Question #10</label>
+                            <input type="text" name="prompt10" id="prompt10" value="{{quiz[9].prompt}}">
+                        </div>
+                        <div class="body-div__main-content-div__form-label-input-div--options-div">
+                            <label for="">Options</label>
+                            <div class="body-div__main-content-div__form-label-input-div--options-div__choices-div">
+                                <div>
+                                    <label for="">A</label>
+                                    <input type="text" name="10a" id="10a" value="{{quiz[9].a}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="">B</label>
+                                    <input type="text" name="10b" id="10b" value="{{quiz[9].b}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="">C</label>
+                                    <input type="text" name="10c" id="10c" value="{{quiz[9].c}}">
+                                </div>
+                                <div>
+                                    
+                                    <label for="">D</label>
+                                    <input type="text" name="10d" id="10d" value="{{quiz[9].d}}">
+                                </div>
+                                <div>
+                                    <label for="">E</label>
+                                    <input type="text" name="10e" id="10e" value="{{quiz[9].e}}">
+                                </div>
+                                <div>
+                                    <label for="">Correct Answer</label>
+                                    <select name="10answer" id="">
+                                        <option value="{{quiz[9].correct_answer}}" hidden id="correct_answer_10"></option>
+                                        <option value="a" id="select10a">A</option>
+                                        <option value="b" id="select10b">B</option>
+                                        <option value="c" id="select10c">C</option>
+                                        <option value="d" id="select10d">D</option>
+                                        <option value="e" id="select10e">E</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body-div__main-content-div__form__buttons-div">
+                            <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
+                            <div class="body-div__main-content-div__form__buttons-div--right">
+                                <button class="util--btn" id="back10" type="button">Go Back</button>
+                                <button class="util--btn" type="submit" id="finish">Finish</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -78,5 +598,6 @@
             <p>No Copyright © 2022 Danny Cho. All rights reserved</p>
         </div>
     </div>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
 </html>
