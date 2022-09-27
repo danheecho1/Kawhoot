@@ -42,8 +42,19 @@ class Quiz:
         if result: 
             return cls(result[0])
         return False
+    
+    @classmethod
+    def grab_quiz_to_edit(cls, data): 
+        query = "SELECT * FROM quizzes LEFT JOIN questions on questions.quiz_id = quizzes.id JOIN choices ON questions.id = choices.question_id where quizzes.id = %(quiz_id)s;"
+        return connectToMySQL('kawhoot_schema').query_db(query, data)
 
     @classmethod
     def delete_quiz(cls, data): 
         query = "DELETE FROM quizzes WHERE id = %(quiz_id)s;"
         return connectToMySQL('kawhoot_schema').query_db(query, data)
+
+    @classmethod
+    def update_quiz(cls, data): 
+        query = "UPDATE quizzes SET title = %(title)s, description = %(description)s, updated_at = NOW() WHERE quizzes.id = %(quiz_id)s;"
+        return connectToMySQL('kawhoot_schema').query_db(query, data)
+
