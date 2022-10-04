@@ -74,14 +74,16 @@
                     {% for quiz in my_quizzes %}
                             <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td"><a href="/quiz/{{user_id}}/{{quiz.id}}">{{quiz.title}}</a></td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.created_date}}</td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions">
-                                    <a href="/quiz/{{user_id}}/{{quiz.id}}/edit">Edit</a>
-                                    |
-                                    <form action="/quiz/{{user_id}}/{{quiz.id}}/delete" method='post'>
-                                        <button class="body-div__main-content-div__my-quizzes-table__tbody__tr__td__button" type="submit">Delete</button>
-                                    </form>
+                                <td><a href="/quiz/{{user_id}}/{{quiz.id}}">{{quiz.title}}</a></td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_date}}</td>
+                                <td>
+                                    <div class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions">
+                                        <a href="/quiz/{{user_id}}/{{quiz.id}}/edit">Edit</a>
+                                        <p>|</p>
+                                        <form action="/quiz/{{user_id}}/{{quiz.id}}/delete" method='post'>
+                                            <button class="body-div__main-content-div__my-quizzes-table__tbody__tr__td__button" type="submit">Delete</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                     {% endfor %}

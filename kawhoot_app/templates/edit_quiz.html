@@ -64,6 +64,7 @@
                         <div class="body-div__main-content-div__form-label-input-div">
                             <label for="description">Description</label>
                             <textarea name="description" cols="30" rows="10" id="description">{{quiz[0].description}}</textarea>
+                            <p>*<span id="remaining_characters"></span> characters remaining</p>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
                             <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
@@ -599,5 +600,6 @@
         </div>
     </div>
     <script src="{{url_for('static', filename='script.js')}}"></script>
+    <script src="{{url_for('static', filename='edit_quiz.js')}}"></script>
 </body>
 </html>

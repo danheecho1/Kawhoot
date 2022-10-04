@@ -47,6 +47,9 @@ a {
 }
 
 .util--btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     border-radius: 10px;
     height: 45px;
     color: var(--clr-general-5);
@@ -54,7 +57,7 @@ a {
     font-weight: var(--fw-medium);
     border: none;
     cursor: pointer;
-    padding: 0px 30px;
+    padding: 0px 30px;  
 }
 
 .util--page-header {
@@ -242,6 +245,41 @@ a {
     gap: 40px;
 }
 
+/* body__main content view -> dashboard */
+
+.body-div__main-content-div__nav-buttons-div {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    height: 700px;
+}
+
+.body-div__main-content-div__nav-buttons-div__button {
+    height: 300px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--clr-general-5);
+    transition: 500ms;
+}
+
+.body-div__main-content-div__nav-buttons-div__button:hover {
+    transform: scale(1.03);
+}
+
+.body-div__main-content-div__nav-buttons-div__button--deco {
+    width: 450px;
+    height: 300px;
+    border-radius: 12px;
+    background-image: '../static/assets/1250.jpeg';
+}
+
+.body-div__main-content-div__nav-buttons-div__button p {
+    font-size: var(--fs-3);
+    font-weight: var(--fw-medium);
+}
+
 /* body__main content view -> my quizzes */
 
 .body-div__main-content-div__search-bar-div {
@@ -315,8 +353,14 @@ a {
     padding-left: 25px;
 }
 
+.body-div__main-content-div__my-quizzes-table__tbody__tr__td--date {
+    text-align: right;
+}
+
 .body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions {
     display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .body-div__main-content-div__my-quizzes-table__tbody__tr__td__form {
@@ -501,6 +545,10 @@ a {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+}
+
+.body-div__main-content-div__quiz-detail-div__header-div__timestamps {
+    text-align: right;
 }
 
 .body-div__main-content-div__quiz-detail-div__validation {

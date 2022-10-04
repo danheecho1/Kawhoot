@@ -55,7 +55,7 @@
             <!-- main content view -->
             <div class="body-div__main-content-div">
                 <h1 class="util--page-header">Create a New Quiz</h1>
-                <form action="/new_quiz" class="body-div__main-content-div__create-form" method="post" onsubmit="validate_quiz(this)">
+                <form action="/new_quiz" class="body-div__main-content-div__create-form" method="post">
                     <div id="body-div__main-content-div__create-form__title-description">
                         <div class="body-div__main-content-div__form-label-input-div">
                             <label for="title">Title</label>
@@ -64,6 +64,7 @@
                         <div class="body-div__main-content-div__form-label-input-div">
                             <label for="description">Description</label>
                             <textarea name="description" cols="30" rows="10" id="description"></textarea>
+                            <p>*<span id="remaining_characters"></span> characters remaining</p>
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div">
                             <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
