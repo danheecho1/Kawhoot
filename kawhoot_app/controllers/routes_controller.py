@@ -62,7 +62,11 @@ def logout():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    data = {
+        'user_id': session['logged_in_user_id']
+    }
+    user = User.get_user_by_id(data)
+    return render_template('dashboard.html', user = user)
 
 @app.route('/my_quizzes', defaults={'page': 1})
 @app.route('/my_quizzes/<int:page>')
@@ -88,7 +92,9 @@ def select_quiz(user_id, quiz_id):
         'quiz_id': quiz_id
     }
     quiz = Quiz.select_quiz(data)
-    return render_template('select_my_quiz.html', quiz = quiz)
+    quiz_owner_id = user_id
+    logged_in_user_id = session['logged_in_user_id']
+    return render_template('select_my_quiz.html', quiz = quiz, quiz_owner_id = quiz_owner_id, logged_in_user_id = logged_in_user_id)
 
 @app.route('/quiz/<int:user_id>/<int:quiz_id>/delete', methods = ['POST'])
 def delete_quiz(user_id, quiz_id): 

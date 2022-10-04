@@ -54,30 +54,75 @@
             </div>
             <!-- main content view -->
             <div class="body-div__main-content-div">
-                <h1 class="util--page-header">#{{quiz.id}} {{quiz.title}}</h1>
+                <h1 class="util--page-header">{{quiz[0].title}}</h1>
                 <div class="body-div__main-content-div__quiz-detail-div">
                     <div class="body-div__main-content-div__quiz-detail-div__header-div">
-                        <h2>By {{quiz.username}}</h2>
-                        <h3>08-30-22 17:45:21</h3>
-                    </div>
-                    <div style="display: flex; justify-content: space-between;">
-                        <div style="width: 400px;">
-                            <p class="body-div__main-content-div__quiz-detail-div__validation">* You cannot take your own quiz.</p>
-                            <p>Average score: 79.5 / 100</p>
-                            <p>This is a very simple quiz that anyone and everyone should be able to get the perfect score. The only reason why you would not get the perfect score is that you do not study what you should be studying.</p>
+                        <h2>By {{quiz[0].username}}</h2>
+                        <div>
+                            <h3 class="body-div__main-content-div__quiz-detail-div__header-div__timestamps">Created on {{quiz[0].created_at}}</h3>
+                            {% if quiz[0].created_at != quiz[0].updated_at %}
+                            <h3 class="body-div__main-content-div__quiz-detail-div__header-div__timestamps">Last edited on {{quiz[0].updated_at}}</h3>
+                            {% endif %}
                         </div>
-                        <div style="width: 400px;">
-                            <h3 style="text-align: center;">Leaderboard</h3>
-                            <p>1st place: </p>
-                            <p>2nd place: </p>
-                            <p>3rd place:</p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between">
+                        <div style="display: flex; flex-direction: column; justify-content: space-between; width: 450px;">
+                            {% if quiz_owner_id == logged_in_user_id %}
+                            <p class="body-div__main-content-div__quiz-detail-div__validation">* You cannot take your own quiz.</p>
+                            <p>{{quiz[0].description}}</p>
+                            <p>Number of takers: 15</p>
+                            <p>Average score: 79.5 / 100</p>
+                            {% else %}
+                            <p>{{quiz[0].description}}</p>
+                            <p>Number of takers: 15</p>
+                            <p>Average score: 79.5 / 100</p>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <h3>Leaderboard</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Place</th>
+                                        <th>Name</th>
+                                        <th>Score</th>
+                                        <th>Scored on</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1st</td>
+                                        <td>Danny Cho</td>
+                                        <td>100 / 100</td>
+                                        <td>2022-10-03 14:25:38</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2st</td>
+                                        <td>Danny Cho</td>
+                                        <td>100 / 100</td>
+                                        <td>2022-10-03 14:25:38</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3st</td>
+                                        <td>Danny Cho</td>
+                                        <td>100 / 100</td>
+                                        <td>2022-10-03 14:25:38</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
+                {% if quiz_owner_id != logged_in_user_id %}
                 <div class="body-div__main-content-div__form__buttons-div--start-quiz">
                     <button class="util--btn" onclick="history.back()">Go back</button>
-                    <button class="util--btn">Start</button>
+                    <a href="#" class="util--btn">Start</a>
                 </div>
+                {% else %}
+                <div class="body-div__main-content-div__form__buttons-div--start-quiz">
+                    <button class="util--btn" onclick="history.back()">Go back</button>
+                </div>
+                {% endif %}
             </div>
         </div>
         <!-- footer -->

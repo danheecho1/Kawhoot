@@ -38,11 +38,8 @@ class Quiz:
     @classmethod
     def select_quiz(cls, data): 
         query = "SELECT * FROM quizzes JOIN users ON quizzes.user_id = users.id WHERE quizzes.id = %(quiz_id)s;"
-        result = connectToMySQL('kawhoot_schema').query_db(query, data)
-        if result: 
-            return cls(result[0])
-        return False
-    
+        return connectToMySQL('kawhoot_schema').query_db(query, data)
+
     @classmethod
     def grab_quiz_to_edit(cls, data): 
         query = "SELECT * FROM quizzes LEFT JOIN questions on questions.quiz_id = quizzes.id JOIN choices ON questions.id = choices.question_id where quizzes.id = %(quiz_id)s;"

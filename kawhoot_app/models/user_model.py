@@ -22,6 +22,14 @@ class User:
             return cls(result[0])
         return False
 
+    @classmethod
+    def get_user_by_id(cls, data): 
+        query = "SELECT * FROM users WHERE id = %(user_id)s;"
+        result = connectToMySQL('kawhoot_schema').query_db(query, data)
+        if result: 
+            return cls(result[0])
+        return False
+
     @staticmethod
     def validate_registration(data):
         # default is_valid value is true
