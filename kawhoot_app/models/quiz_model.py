@@ -55,3 +55,18 @@ class Quiz:
         query = "UPDATE quizzes SET title = %(title)s, description = %(description)s, updated_at = NOW() WHERE quizzes.id = %(quiz_id)s;"
         return connectToMySQL('kawhoot_schema').query_db(query, data)
 
+    @classmethod
+    def grab_quizzes_from_search(cls, data):
+        search_keyword = data['search_keyword']
+        search_type = data['search_type']
+        query = "SELECT quizzes.created_at, title, description, username, quizzes.id, users.id FROM quizzes LEFT JOIN users ON users.id = quizzes.user_id WHERE "+search_type+ " LIKE '%%"+search_keyword+"%%' ORDER BY created_at DESC LIMIT 1000000 OFFSET %(offset)s;"
+        return connectToMySQL('kawhoot_schema').query_db(query, data)
+
+    @classmethod
+    def get_quiz_count_for_search(cls, data):
+        search_keyword = data['search_keyword']
+        query = "SELECT COUNT(*) FROM quizzes WHERE %(search_type)s LIKE '%%"+search_keyword+"%%' ORDER BY created_at DESC LIMIT 1000000 OFFSET %(offset)s;"
+        result = connectToMySQL('kawhoot_schema').query_db(query, data)
+        if result: 
+            return result[0]['COUNT(*)']
+        return False

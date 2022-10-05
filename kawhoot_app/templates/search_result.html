@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/style.css">
-    <title>Kawhoot - Search Quizzes</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='/style.css')}}">
+    <title>Kawhoot - My Quizzes</title>
 </head>
 <body>
     <!-- container -->
@@ -18,7 +18,7 @@
             <!-- header buttons -->
             <div class="header-div__buttons-div">
                 <a class="header-div__buttons-div__about" href="#">About</a>
-                <a class="header-div__buttons-div__log-out" href="#">Log Out</a>
+                <a class="header-div__buttons-div__log-out" href="/logout">Log Out</a>
             </div>
         </div>
         <!-- body -->
@@ -42,120 +42,7 @@
                     </div>
                 </a>
                 <a href="/edit_profile">
-                    <div class="body-div__navigation-div__link-div<!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-                            <link rel="stylesheet" href="../static/style.css">
-                            <title>Kawhoot - Search Quizzes</title>
-                        </head>
-                        <body>
-                            <!-- container -->
-                            <div class="container">
-                                <!-- header -->
-                                <div class="header-div">
-                                    <!-- logo -->
-                                    <img src="../static/assets/logo.png" class="header-div__logo" alt="">
-                                    <!-- header buttons -->
-                                    <div class="header-div__buttons-div">
-                                        <a class="header-div__buttons-div__about" href="#">About</a>
-                                        <a class="header-div__buttons-div__log-out" href="/logout">Log Out</a>
-                                    </div>
-                                </div>
-                                <!-- body -->
-                                <div class="body-div">
-                                    <!-- navigation div -->
-                                    <div class="body-div__navigation-div">
-                                        <!-- navigation links -->
-                                        <a href="/dashboard">
-                                            <div class="body-div__navigation-div__link-div">
-                                                <h2>Dashboard</h2>
-                                            </div>
-                                        </a>
-                                        <a href="/my_quizzes">
-                                            <div class="body-div__navigation-div__link-div--selected">
-                                                <h2>My Quizzes</h2>
-                                            </div>
-                                        </a>
-                                        <a href="/search">
-                                            <div class="body-div__navigation-div__link-div">
-                                                <h2>Search</h2>
-                                            </div>
-                                        </a>
-                                        <a href="/edit_profile">
-                                            <div class="body-div__navigation-div__link-div">
-                                                <h2>Edit Profile</h2>
-                                            </div>
-                                        </a>
-                                        <a href="#">
-                                            <div class="body-div__navigation-div__link-div">
-                                                <h2>Taking a Quiz</h2>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <!-- main content view -->
-                                    <div class="body-div__main-content-div">
-                                        <h1 class="util--page-header">My Quizzes</h1>
-                                        <!-- search bar -->
-                                        <div class="body-div__main-content-div__search-bar-div">
-                                            <form action="" class="body-div__main-content-div__search-bar-div__form">
-                                                <select name="" id="" class="body-div__main-content-div__search-bar-div__form__select">
-                                                    <option value="">Search by Creator</option>
-                                                    <option value="">Search by Title</option>
-                                                    <option value="">Search by Description</option>
-                                                </select>
-                                                <input type="text" placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input">
-                                            </form>
-                                            <a href="/new_quiz"><button class="body-div__main-content-div__search-bar-div__new-button util--btn">New Quiz</button></a>
-                                        </div>
-                                        {% if my_quizzes %}
-                                        <!-- my quizzes table -->
-                                        <div class="body-div__main-content-div__my-quizzes-div-wrap">
-                                            <table class="body-div__main-content-div__my-quizzes-table" rules="none">
-                                                <tbody class="body-div__main-content-div__my-quizzes-table__tbody">
-                                            {% for quiz in my_quizzes %}
-                                                    <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                                                        <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
-                                                        <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td"><a href="/quiz/{{quiz.id}}">{{quiz.title}}</a></td>
-                                                        <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.created_date}}</td>
-                                                        <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td"><a href="#">Edit</a> | <a href="#">Delete</a></td>
-                                                    </tr>
-                                            {% endfor %}
-                                                </tbody>
-                                            </table>
-                                        {% else %}
-                                        <!-- my quizzes table -->
-                                        <div class="body-div__main-content-div__no-quiz-yet">
-                                            <h3>You have not created any quizzes yet!</h3>
-                                        </div>
-                                        {% endif %}
-                                        </div>
-                                        <!-- pagination -->
-                                        <ul class="body-div__main-content-div__pagination-ul">
-                                            {% if prev >= 1 %}
-                                            <a href="/my_quizzes/{{prev}}" class="body-div__main-content-div__pagination__a"><< Previous</a>
-                                            {% endif %}
-                                            {% for page in range(pages) %}
-                                            <li>
-                                                <a href="/my_quizzes/{{loop.index}}" class="body-div__main-content-div__pagination__a">{{loop.index}}</a>
-                                            </li>
-                                            {% endfor %}
-                                            {% if next <= pages %}
-                                            <a href="/my_quizzes/{{next}}" class="body-div__main-content-div__pagination__a">Next >></a>
-                                            {% endif %}
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- footer -->
-                                <div class="footer-div">
-                                    <p>No Copyright © 2022 Danny Cho. All rights reserved</p>
-                                </div>
-                            </div>
-                        </body>
-                        </html>">
+                    <div class="body-div__navigation-div__link-div">
                         <h2>Edit Profile</h2>
                     </div>
                 </a>
@@ -167,31 +54,63 @@
             </div>
             <!-- main content view -->
             <div class="body-div__main-content-div">
-                <h1 class="util--page-header">#129 Are You Smarter than a 5th Grader?</h1>
-                <div class="body-div__main-content-div__quiz-detail-div">
-                    <div class="body-div__main-content-div__quiz-detail-div__header-div">
-                        <h2>By scpxdc</h2>
-                        <h3>08-30-22 17:45:21</h3>
-                    </div>
-                    <div style="display: flex; justify-content: space-between;">
-                        <div style="width: 400px;">
-                            <p class="body-div__main-content-div__quiz-detail-div__validation">* You cannot take the same quiz more than once.</p>
-                            <p>Number of question: 21</p>
-                            <p>Average score: 79.5 / 100</p>
-                            <p>This is a very simple quiz that anyone and everyone should be able to get the perfect score. The only reason why you would not get the perfect score is that you do not study what you should be studying.</p>
-                        </div>
-                        <div style="width: 400px;">
-                            <h3 style="text-align: center;">Leaderboard</h3>
-                            <p>1st place: </p>
-                            <p>2nd place: </p>
-                            <p>3rd place:</p>
-                        </div>
-                    </div>
+                <h1 class="util--page-header">Search</h1>
+                <!-- search bar -->
+                <div class="body-div__main-content-div__search-bar-div">
+                    <form action="/search" method="post" class="body-div__main-content-div__search-bar-div__form">
+                        <select name="search_type" id="" class="body-div__main-content-div__search-bar-div__form__select">
+                            <option value="title">Search by Title</option>
+                            <option value="description">Search by Description</option>
+                            <option value="username">Search by Username</option>
+                        </select>
+                        <input type="text" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input">
+                    </form>
+                    <a href="/new_quiz"><button class="body-div__main-content-div__search-bar-div__new-button util--btn">New Quiz</button></a>
                 </div>
-                <div class="body-div__main-content-div__form__buttons-div--start-quiz">
-                    <button class="util--btn" onclick="history.back()">Go back</button>
-                    <button class="util--btn">Start</button>
+                {% if search_result %}
+                <!-- my quizzes table -->
+                <div class="body-div__main-content-div__my-quizzes-div-wrap">
+                    <table class="body-div__main-content-div__my-quizzes-table" rules="none">
+                        <tbody class="body-div__main-content-div__my-quizzes-table__tbody">
+                    {% for quiz in search_result %}
+                            <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
+                                <td><a href="/quiz/{{quiz.user_id}}/{{quiz.id}}">{{quiz.title}}</a></td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_date}}</td>
+                                <td>
+                                    <div class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions">
+                                        <a href="/quiz/{{quiz.user_id}}/{{quiz.id}}/edit">Edit</a>
+                                        <p>|</p>
+                                        <form action="/quiz/{{quiz.user_id}}/{{quiz.id}}/delete" method='post'>
+                                            <button class="body-div__main-content-div__my-quizzes-table__tbody__tr__td__button" type="submit">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                    {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                <!-- my quizzes table -->
+                <div class="body-div__main-content-div__no-quiz-yet">
+                    <h3>You have not created any quizzes yet!</h3>
                 </div>
+                {% endif %}
+                </div>
+                <!-- pagination -->
+                <ul class="body-div__main-content-div__pagination-ul">
+                    {% if prev >= 1 %}
+                    <a href="/my_quizzes/{{prev}}" class="body-div__main-content-div__pagination__a"><< Previous</a>
+                    {% endif %}
+                    {% for page in range(pages) %}
+                    <li>
+                        <a href="/my_quizzes/{{loop.index}}" class="body-div__main-content-div__pagination__a">{{loop.index}}</a>
+                    </li>
+                    {% endfor %}
+                    {% if next <= pages %}
+                    <a href="/my_quizzes/{{next}}" class="body-div__main-content-div__pagination__a">Next >></a>
+                    {% endif %}
+                </ul>
             </div>
         </div>
         <!-- footer -->

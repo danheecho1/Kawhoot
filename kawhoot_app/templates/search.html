@@ -18,7 +18,7 @@
             <!-- header buttons -->
             <div class="header-div__buttons-div">
                 <a class="header-div__buttons-div__about" href="#">About</a>
-                <a class="header-div__buttons-div__log-out" href="#">Log Out</a>
+                <a class="header-div__buttons-div__log-out" href="/logout">Log Out</a>
             </div>
         </div>
         <!-- body -->
@@ -54,16 +54,16 @@
             </div>
             <!-- main content view -->
             <div class="body-div__main-content-div">
-                <h1 class="util--page-header">My Quizzes</h1>
+                <h1 class="util--page-header">Search</h1>
                 <!-- search bar -->
                 <div class="body-div__main-content-div__search-bar-div">
-                    <form action="" class="body-div__main-content-div__search-bar-div__form">
-                        <select name="" id="" class="body-div__main-content-div__search-bar-div__form__select">
-                            <option value="">Search by Title</option>
-                            <option value="">Search by Description</option>
-                            <option value="">Search by Username</option>
+                    <form action="/search" method="post" class="body-div__main-content-div__search-bar-div__form">
+                        <select name="search_type" id="" class="body-div__main-content-div__search-bar-div__form__select">
+                            <option value="title">Search by Title</option>
+                            <option value="description">Search by Description</option>
+                            <option value="username">Search by Username</option>
                         </select>
-                        <input type="text" placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input">
+                        <input type="text" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input">
                     </form>
                     <a href="/new_quiz"><button class="body-div__main-content-div__search-bar-div__new-button util--btn">New Quiz</button></a>
                 </div>
