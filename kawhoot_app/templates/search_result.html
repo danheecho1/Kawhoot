@@ -14,7 +14,7 @@
         <!-- header -->
         <div class="header-div">
             <!-- logo -->
-            <img src="../static/assets/logo.png" class="header-div__logo" alt="">
+            <img src="{{url_for('static', filename='/assets/logo.png')}}" class="header-div__logo" alt="">
             <!-- header buttons -->
             <div class="header-div__buttons-div">
                 <a class="header-div__buttons-div__about" href="#">About</a>
@@ -58,12 +58,13 @@
                 <!-- search bar -->
                 <div class="body-div__main-content-div__search-bar-div">
                     <form action="/search" method="post" class="body-div__main-content-div__search-bar-div__form">
-                        <select name="search_type" id="" class="body-div__main-content-div__search-bar-div__form__select">
-                            <option value="title">Search by Title</option>
-                            <option value="description">Search by Description</option>
-                            <option value="username">Search by Username</option>
+                        <select name="search_type" class="body-div__main-content-div__search-bar-div__form__select">
+                            <option id="title" value="title">Search by Title</option>
+                            <option id="description" value="description">Search by Description</option>
+                            <option id="username" value="username">Search by Username</option>
                         </select>
-                        <input type="text" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input">
+                        <input type="hidden" id="previous_search_type" value="{{search_type}}">
+                        <input type="text" value="{{search_keyword}}" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input">
                     </form>
                     <a href="/new_quiz"><button class="body-div__main-content-div__search-bar-div__new-button util--btn">New Quiz</button></a>
                 </div>
@@ -118,5 +119,6 @@
             <p>No Copyright © 2022 Danny Cho. All rights reserved</p>
         </div>
     </div>
+    <script src="{{url_for('static', filename='/search_result.js')}}"></script>
 </body>
 </html>
