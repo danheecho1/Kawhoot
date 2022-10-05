@@ -353,7 +353,7 @@ def search_result(search_type, search_keyword, page):
     total_pages = math.ceil(number_of_quizzes / limit)
     next = page + 1
     prev = page - 1
-    return render_template('search_result.html', search_result = search_result, pages = total_pages, next = next, prev = prev)
+    return render_template('search_result.html', search_type = search_type, search_keyword = search_keyword, search_result = search_result, pages = total_pages, next = next, prev = prev)
 
 @app.route('/edit_profile')
 def edit_profile(): 
