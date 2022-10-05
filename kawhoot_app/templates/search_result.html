@@ -75,7 +75,7 @@
                     {% for quiz in search_result %}
                             <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
-                                <td><a href="/quiz/{{quiz.user_id}}/{{quiz.id}}">{{quiz.title}}</a></td>
+                                <td><a href="/quiz/{{quiz.user_id}}/{{quiz.quiz_id}}">{{quiz.title}}</a></td>
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_date}}</td>
                                 <td>
                                     <div class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions">

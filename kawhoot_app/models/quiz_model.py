@@ -59,7 +59,7 @@ class Quiz:
     def grab_quizzes_from_search(cls, data):
         search_keyword = data['search_keyword']
         search_type = data['search_type']
-        query = "SELECT quizzes.created_at, title, description, username, quizzes.id, users.id FROM quizzes LEFT JOIN users ON users.id = quizzes.user_id WHERE "+search_type+ " LIKE '%%"+search_keyword+"%%' ORDER BY created_at DESC LIMIT 1000000 OFFSET %(offset)s;"
+        query = "SELECT quizzes.created_at, title, description, username, quizzes.id as quiz_id, users.id as user_id FROM quizzes LEFT JOIN users ON users.id = quizzes.user_id WHERE "+search_type+ " LIKE '%%"+search_keyword+"%%' ORDER BY created_at DESC LIMIT 1000000 OFFSET %(offset)s;"
         return connectToMySQL('kawhoot_schema').query_db(query, data)
 
     @classmethod
