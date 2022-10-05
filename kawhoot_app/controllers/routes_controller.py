@@ -331,6 +331,29 @@ def new_quiz_post():
 def search(): 
     return render_template('/search.html')
 
+@app.route('/search', methods=['post'])
+def search_post(): 
+    search_type = request.form['search_type']
+    search_keyword = request.form['search_keyword']
+    return redirect(f'/search/{search_type}/{search_keyword}')
+
+@app.route('/search/<search_type>/<search_keyword>', defaults={'page': 1})
+@app.route('/search/<search_type>/<search_keyword>/<int:page>')
+def search_result(search_type, search_keyword, page): 
+    limit = 10
+    offset = page * limit - limit
+    data = {
+        'search_type': search_type, 
+        'search_keyword': search_keyword,
+        'limit': limit, 
+        'offset': offset
+    }
+    search_result = Quiz.grab_quizzes_from_search(data)
+    number_of_quizzes = Quiz.get_quiz_count_for_search(data)
+    total_pages = math.ceil(number_of_quizzes / limit)
+    next = page + 1
+    prev = page - 1
+    return render_template('search_result.html', search_result = search_result, pages = total_pages, next = next, prev = prev)
 
 @app.route('/edit_profile')
 def edit_profile(): 
