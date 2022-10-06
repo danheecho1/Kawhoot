@@ -358,3 +358,7 @@ def search_result(search_type, search_keyword, page):
 @app.route('/edit_profile')
 def edit_profile(): 
     return render_template('/edit_profile.html')
+
+@app.route('/quiz/<user_id>/<quiz_id>/go')
+def taking_quiz(user_id, quiz_id): 
+    return render_template('taking_quiz.html')
