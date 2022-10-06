@@ -116,7 +116,7 @@
                 {% if quiz_owner_id != logged_in_user_id %}
                 <div class="body-div__main-content-div__form__buttons-div--start-quiz">
                     <button class="util--btn" onclick="history.back()">Go back</button>
-                    <a href="#" class="util--btn">Start</a>
+                    <a href="/quiz/{{quiz_owner_id}}/{{quiz[0].id}}/go" class="util--btn" onclick="return confirm('Are you sure you want to take this quiz now? You can take each quiz only once.');">Start</a>
                 </div>
                 {% else %}
                 <div class="body-div__main-content-div__form__buttons-div--start-quiz">

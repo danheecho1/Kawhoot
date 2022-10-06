@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='/style.css')}}">
     <title>Kawhoot - Quiz by Danny</title>
 </head>
 <body>
@@ -60,28 +60,42 @@
                     <h3>Who let the dogs out? </h3>
                 </div>
                 <div class="body-div__main-content-div__choices-div">
-                    <h2>Answer</h2>
                     <div class="body-div__main-content-div__choices-div__list">
-                        <div class="body-div__main-content-div__choices-div__list__selection">
-                            <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">A</h3>
-                            <p>Joey Tribs</p>
-                        </div>
-                        <div class="body-div__main-content-div__choices-div__list__selection">
-                            <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">B</h3>
-                            <p>Mr. Bing</p>
-                        </div>
-                        <div class="body-div__main-content-div__choices-div__list__selection">
-                            <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">C</h3>
-                            <p>The Dinosaur Guy</p>
-                        </div>
-                        <div class="body-div__main-content-div__choices-div__list__selection">
-                            <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">D</h3>
-                            <p>All of the above</p>
-                        </div>
-                        <div class="body-div__main-content-div__choices-div__list__selection">
-                            <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">E</h3>
-                            <p>None of the above</p>
-                        </div>
+                        <label class="body-div__main-content-div__choices-div__list__selection">
+                            <input name="answer" checked type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
+                            <div>
+                                <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">A</h3>
+                                <p>Because who let the dogs out didn't fly well</p>
+                            </div>
+                        </label>
+                        <label class="body-div__main-content-div__choices-div__list__selection">
+                            <input name="answer" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
+                            <div>
+                                <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">B</h3>
+                                <p>The Dinosaur Guy</p>
+                            </div>
+                        </label>
+                        <label class="body-div__main-content-div__choices-div__list__selection">
+                            <input name="answer" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
+                            <div>
+                                <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">C</h3>
+                                <p>The Dinosaur Guy</p>
+                            </div>
+                        </label>
+                        <label class="body-div__main-content-div__choices-div__list__selection">
+                            <input name="answer" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
+                            <div>
+                                <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">D</h3>
+                                <p>The Dinosaur Guy</p>
+                            </div>
+                        </label>
+                        <label class="body-div__main-content-div__choices-div__list__selection">
+                            <input name="answer" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
+                            <div>
+                                <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">E</h3>
+                                <p>The Dinosaur Guy</p>
+                            </div>
+                        </label>
                     </div>
                 </div>
                 <div class="body-div__main-content-div__form__buttons-div--start-quiz">
