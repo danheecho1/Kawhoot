@@ -4,6 +4,7 @@ from kawhoot_app.models.quiz_model import Quiz
 from kawhoot_app.models.question_model import Question
 from kawhoot_app.models.choice_model import Choice
 from kawhoot_app.models.result_model import Result
+from kawhoot_app.models.summary_model import Summary
 
 import math
 from flask import render_template, redirect, session, request, flash
@@ -326,6 +327,7 @@ def new_quiz_post():
         '10e': request.form['10e']
     }
     Choice.create_choices(data_for_answers)
+    Summary.create_summary(data_for_answers)
     return redirect('/my_quizzes')
 
 @app.route('/search')
@@ -408,8 +410,15 @@ def grade_quiz(user_id, quiz_id):
         'quiz_id': quiz_id
     }
     Result.save_grade(data)
+    Summary.update_summary(data)
     return redirect(f'/quiz/{user_id}/{quiz_id}/result')
 
 @app.route('/quiz/<user_id>/<quiz_id>/result')
 def quiz_result(user_id, quiz_id):
-    return render_template('quiz_result.html')
+    data = {
+        'user_id': session['logged_in_user_id'], 
+        'quiz_id': quiz_id
+    }
+    result = Result.grab_result(data)
+    print(result[0])
+    return render_template('quiz_result.html', result = result)
