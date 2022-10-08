@@ -3,6 +3,7 @@ from kawhoot_app.models.user_model import User
 from kawhoot_app.models.quiz_model import Quiz
 from kawhoot_app.models.question_model import Question
 from kawhoot_app.models.choice_model import Choice
+from kawhoot_app.models.result_model import Result
 
 import math
 from flask import render_template, redirect, session, request, flash
@@ -361,4 +362,54 @@ def edit_profile():
 
 @app.route('/quiz/<user_id>/<quiz_id>/go')
 def taking_quiz(user_id, quiz_id): 
-    return render_template('taking_quiz.html')
+    quiz = Quiz.get_quiz_by_id({'quiz_id': quiz_id})
+    questions = Question.grab_questions_for_quiz({'quiz_id': quiz_id})
+    return render_template('taking_quiz.html', quiz = quiz, questions = questions, user_id = user_id, quiz_id = quiz_id)
+
+@app.route('/quiz/<user_id>/<quiz_id>/done', methods=['post'])
+def grade_quiz(user_id, quiz_id): 
+    score = 0;
+    choice1 = request.form['answer1']
+    choice2 = request.form['answer2']
+    choice3 = request.form['answer3']
+    choice4 = request.form['answer4']
+    choice5 = request.form['answer5']
+    choice6 = request.form['answer6']
+    choice7 = request.form['answer7']
+    choice8 = request.form['answer8']
+    choice9 = request.form['answer9']
+    choice10 = request.form['answer10']
+    answers = Question.grab_questions_for_quiz({'quiz_id': quiz_id})
+
+    if choice1 == answers[0]['correct_answer']: 
+        score += 1
+    if choice2 == answers[1]['correct_answer']: 
+        score += 1
+    if choice3 == answers[2]['correct_answer']: 
+        score += 1
+    if choice4 == answers[3]['correct_answer']: 
+        score += 1
+    if choice5 == answers[4]['correct_answer']: 
+        score += 1
+    if choice6 == answers[5]['correct_answer']: 
+        score += 1
+    if choice7 == answers[6]['correct_answer']: 
+        score += 1
+    if choice8 == answers[7]['correct_answer']: 
+        score += 1
+    if choice9 == answers[8]['correct_answer']: 
+        score += 1
+    if choice10 == answers[9]['correct_answer']: 
+        score += 1
+
+    data = {
+        'score': score, 
+        'user_id': session['logged_in_user_id'], 
+        'quiz_id': quiz_id
+    }
+    Result.save_grade(data)
+    return redirect(f'/quiz/{user_id}/{quiz_id}/result')
+
+@app.route('/quiz/<user_id>/<quiz_id>/result')
+def quiz_result(user_id, quiz_id):
+    return render_template('quiz_result.html')
