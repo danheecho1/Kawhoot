@@ -70,3 +70,11 @@ class Quiz:
         if result: 
             return result[0]['COUNT(*)']
         return False
+
+    @classmethod
+    def get_quiz_by_id(cls, data): 
+        query = "SELECT * FROM quizzes WHERE quizzes.id = %(quiz_id)s;"
+        result = connectToMySQL('kawhoot_schema').query_db(query, data)
+        if result: 
+            return result[0]
+        return False
