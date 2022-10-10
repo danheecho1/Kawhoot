@@ -19,3 +19,8 @@ class Summary:
     def update_summary(cls, data):
         query = "UPDATE summaries SET number_of_takers = number_of_takers + 1, total_scores = total_scores + %(score)s, average_score = total_scores / number_of_takers, updated_at = NOW();"
         return connectToMySQL('kawhoot_schema').query_db(query, data)
+
+    @classmethod
+    def grab_summary(cls, data): 
+        query = "SELECT * FROM summaries WHERE quiz_id = %(quiz_id)s;"
+        return connectToMySQL('kawhoot_schema').query_db(query, data)

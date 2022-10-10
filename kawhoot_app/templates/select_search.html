@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='/style.css')}}">
-    <title>Kawhoot - Quiz by Danny</title>
+    <title>Kawhoot</title>
 </head>
 <body>
     <!-- container -->
@@ -32,12 +32,12 @@
                     </div>
                 </a>
                 <a href="/my_quizzes">
-                    <div class="body-div__navigation-div__link-div--selected">
+                    <div class="body-div__navigation-div__link-div">
                         <h2>My Quizzes</h2>
                     </div>
                 </a>
                 <a href="/search">
-                    <div class="body-div__navigation-div__link-div">
+                    <div class="body-div__navigation-div__link-div--selected">
                         <h2>Search</h2>
                     </div>
                 </a>
@@ -69,6 +69,9 @@
                         <div style="display: flex; flex-direction: column; justify-content: space-between; width: 450px;">
                             {% if quiz_owner_id == logged_in_user_id %}
                             <p class="body-div__main-content-div__quiz-detail-div__validation">* You cannot take your own quiz.</p>
+                            {% endif %}
+                            {% if taken %}
+                            <p class="body-div__main-content-div__quiz-detail-div__validation">* You already took this quiz.</p>
                             {% endif %}
                             <p>{{quiz[0].description}}</p>
                             <p>Number of takers: {{count[0]['COUNT(*)']}}</p>
@@ -118,7 +121,9 @@
                 {% if quiz_owner_id != logged_in_user_id %}
                 <div class="body-div__main-content-div__form__buttons-div--start-quiz">
                     <button class="util--btn" onclick="history.back()">Go back</button>
+                    {% if not taken %}
                     <a href="/quiz/{{quiz_owner_id}}/{{quiz[0].id}}/go" class="util--btn" onclick="return confirm('Are you sure you want to take this quiz now? You can take each quiz only once.');">Start</a>
+                    {% endif %}
                 </div>
                 {% else %}
                 <div class="body-div__main-content-div__form__buttons-div--start-quiz">

@@ -76,17 +76,13 @@
                     {% for quiz in search_result %}
                             <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
-                                <td><a href="/quiz/{{quiz.user_id}}/{{quiz.quiz_id}}">{{quiz.title}}</a></td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_date}}</td>
                                 <td>
-                                    <div class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions">
-                                        <a href="/quiz/{{quiz.user_id}}/{{quiz.id}}/edit">Edit</a>
-                                        <p>|</p>
-                                        <form action="/quiz/{{quiz.user_id}}/{{quiz.id}}/delete" method='post'>
-                                            <button class="body-div__main-content-div__my-quizzes-table__tbody__tr__td__button" type="submit">Delete</button>
-                                        </form>
-                                    </div>
+                                    <a href="/search/quiz/{{quiz.user_id}}/{{quiz.quiz_id}}">{{quiz.title}}</a>
                                 </td>
+                                <td>
+                                    <a href="#">{{quiz.username}}</a>
+                                </td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_at}}</td>
                             </tr>
                     {% endfor %}
                         </tbody>
@@ -94,7 +90,7 @@
                 {% else %}
                 <!-- my quizzes table -->
                 <div class="body-div__main-content-div__no-quiz-yet">
-                    <h3>You have not created any quizzes yet!</h3>
+                    <h3>No results found with a search keyword '{{search_keyword}}' for the {{search_type}}..</h3>
                 </div>
                 {% endif %}
                 </div>
