@@ -48,7 +48,7 @@
                 </a>
                 <a href="#">
                     <div class="body-div__navigation-div__link-div--selected">
-                        <h2>Taking a Quiz</h2>
+                        <h2>Result</h2>
                     </div>
                 </a>
             </div>
@@ -66,7 +66,7 @@
                         <h3>{{result[0].result_created_at}}</h3>
                     </div>
                     <p>Your score: {{result[0].score}}</p>
-                    <p>Average score: 7.5 / 10</p>
+                    <p>Average score: {{summary[0]['average_score']}} / 10</p>
                 </div>
             </div>
         </div>

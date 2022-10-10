@@ -96,7 +96,28 @@ def select_quiz(user_id, quiz_id):
     quiz = Quiz.select_quiz(data)
     quiz_owner_id = user_id
     logged_in_user_id = session['logged_in_user_id']
-    return render_template('select_my_quiz.html', quiz = quiz, quiz_owner_id = quiz_owner_id, logged_in_user_id = logged_in_user_id)
+    count = Result.get_count(data)
+    summary = Summary.grab_summary(data)
+    leaders = Result.get_leaderboard(data)
+    print(leaders)
+    return render_template('select_my_quiz.html', leaders = leaders, summary = summary, count = count, quiz = quiz, quiz_owner_id = quiz_owner_id, logged_in_user_id = logged_in_user_id)
+
+@app.route('/search/quiz/<int:user_id>/<int:quiz_id>')
+def select_quiz_from_search(user_id, quiz_id):
+    data = {
+        'quiz_id': quiz_id, 
+        'taker': session['logged_in_user_id'], 
+        'maker': user_id
+    }
+    quiz = Quiz.select_quiz(data)
+    quiz_owner_id = user_id
+    logged_in_user_id = session['logged_in_user_id']
+    count = Result.get_count(data)
+    summary = Summary.grab_summary(data)
+    leaders = Result.get_leaderboard(data)
+    taken = Result.check_if_taken(data)
+    print(taken)
+    return render_template('select_search.html', taken = taken, leaders = leaders, summary = summary, count = count, quiz = quiz, quiz_owner_id = quiz_owner_id, logged_in_user_id = logged_in_user_id)
 
 @app.route('/quiz/<int:user_id>/<int:quiz_id>/delete', methods = ['POST'])
 def delete_quiz(user_id, quiz_id): 
@@ -420,5 +441,6 @@ def quiz_result(user_id, quiz_id):
         'quiz_id': quiz_id
     }
     result = Result.grab_result(data)
-    print(result[0])
-    return render_template('quiz_result.html', result = result)
+    summary = Summary.grab_summary(data)
+    return render_template('quiz_result.html', summary = summary, result = result)
+
