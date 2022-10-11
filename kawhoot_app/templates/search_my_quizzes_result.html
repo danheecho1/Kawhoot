@@ -59,32 +59,29 @@
                 <div class="body-div__main-content-div__search-bar-div">
                     <form action="/my_quizzes/search" method="post" class="body-div__main-content-div__search-bar-div__form">
                         <select name="search_type" id="" class="body-div__main-content-div__search-bar-div__form__select">
-                            <option value="title">Search by Title</option>
-                            <option value="description">Search by Description</option>
+                            <option id="title" value="title">Search by Title</option>
+                            <option id="description" value="description">Search by Description</option>
                         </select>
-                        <input type="text" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input">
+                        <input type="hidden" id="previous_search_type" value="{{search_type}}">
+                        <input type="text" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input" value="{{search_keyword}}">
                     </form>
                     <a href="/new_quiz"><button class="body-div__main-content-div__search-bar-div__new-button util--btn">New Quiz</button></a>
                 </div>
-                {% if my_quizzes %}
+                {% if search_result %}
                 <!-- my quizzes table -->
                 <div class="body-div__main-content-div__my-quizzes-div-wrap">
                     <table class="body-div__main-content-div__my-quizzes-table" rules="none">
                         <tbody class="body-div__main-content-div__my-quizzes-table__tbody">
-                    {% for quiz in my_quizzes %}
+                    {% for quiz in search_result %}
                             <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
-                                <td><a href="/quiz/{{user_id}}/{{quiz.id}}">{{quiz.title}}</a></td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_date}}</td>
                                 <td>
-                                    <div class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions">
-                                        <a href="/quiz/{{user_id}}/{{quiz.id}}/edit">Edit</a>
-                                        <p>|</p>
-                                        <form action="/quiz/{{user_id}}/{{quiz.id}}/delete" method='post'>
-                                            <button class="body-div__main-content-div__my-quizzes-table__tbody__tr__td__button" type="submit">Delete</button>
-                                        </form>
-                                    </div>
+                                    <a href="/search/quiz/{{quiz.user_id}}/{{quiz.quiz_id}}">{{quiz.title}}</a>
                                 </td>
+                                <td>
+                                    <a href="#">{{quiz.username}}</a>
+                                </td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_at}}</td>
                             </tr>
                     {% endfor %}
                         </tbody>
@@ -92,7 +89,7 @@
                 {% else %}
                 <!-- my quizzes table -->
                 <div class="body-div__main-content-div__no-quiz-yet">
-                    <h3>You have not created any quizzes yet!</h3>
+                    <h3>You do not have a quiz that contains '{{search_keyword}}' in the {{search_type}}..</h3>
                 </div>
                 {% endif %}
                 </div>
@@ -117,5 +114,6 @@
             <p>No Copyright © 2022 Danny Cho. All rights reserved</p>
         </div>
     </div>
+    <script src="{{url_for('static', filename='/search_result.js')}}"></script>
 </body>
 </html>

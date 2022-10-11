@@ -14,7 +14,7 @@
         <!-- header -->
         <div class="header-div">
             <!-- logo -->
-            <img src="../static/assets/logo.png" class="header-div__logo" alt="">
+            <img src="{{url_for('static', filename='/assets/logo.png')}}" class="header-div__logo" alt="">
             <!-- header buttons -->
             <div class="header-div__buttons-div">
                 <a class="header-div__buttons-div__about" href="#">About</a>
@@ -56,18 +56,21 @@
             <div class="body-div__main-content-div">
                 <h1 class="util--page-header">Edit My Profile</h1>
                 <div class="body-div__main-content-div__forms-div__account-update-form-div">
-                    <form action="#">
+                    <form action="/edit_profile/username" method="post">
                         <div class="special-one">
                             <div class="body-div__main-content-div__forms-div__account-update-form-div__label-input-div">
                                 <label for="">Username</label>
-                                <input type="text" class="body-div__main-content-div__forms-div__account-update-form-div__input">
+                                <input type="text" name="username" class="body-div__main-content-div__forms-div__account-update-form-div__input">
                             </div>
-                            <p class="body-div__main-content-div__forms-div__validation">* This username is not okay to use</p>
-                            <div class="body-div__main-content-div__forms-div__account-update-form-div__label-input-div">
-                                <label for="">Email</label>
-                                <input type="text" class="body-div__main-content-div__forms-div__account-update-form-div__input">
-                            </div>
-                            <p class="body-div__main-content-div__forms-div__validation">* This username is not okay to use</p>
+                            {% with messages = get_flashed_messages(category_filter=['username']) %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                            <p class="body-div__main-content-div__forms-div__validation">* {{message}}</p>
+                                    {% endfor %}
+                                {% else %}
+                            <p class="body-div__main-content-div__forms-div__validation"></p>
+                                {% endif %}
+                            {% endwith %}
                         </div>
                         <button class="util--btn body-div__main-content-div__form__button">Save</button>
                     </form>

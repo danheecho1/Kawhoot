@@ -30,6 +30,30 @@ class User:
             return cls(result[0])
         return False
 
+    @classmethod
+    def update_username(cls, data): 
+        query = "UPDATE users SET username = %(username)s, updated_at = NOW() WHERE id = %(user_id)s;"
+        return connectToMySQL('kawhoot_schema').query_db(query, data)
+
+    @staticmethod
+    def validate_new_username(data): 
+        is_valid = True
+        if len(data['username']) < 1: 
+            flash("Username is required", 'username')
+            is_valid = False
+        elif len(data['username']) < 6: 
+            flash("Username must be at least 5 characters", 'username')
+            is_valid = False
+        elif len(data['username']) > 16: 
+            flash("Username must be 15 characters or shorter", 'username')
+            is_valid = False
+        else: 
+            existing_user = User.get_user_by_username(data)
+            if existing_user: 
+                flash("Username already exists", 'username')
+                is_valid = False
+        return is_valid
+
     @staticmethod
     def validate_registration(data):
         # default is_valid value is true
