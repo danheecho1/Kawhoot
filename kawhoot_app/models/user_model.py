@@ -35,6 +35,12 @@ class User:
         query = "UPDATE users SET username = %(username)s, updated_at = NOW() WHERE id = %(user_id)s;"
         return connectToMySQL('kawhoot_schema').query_db(query, data)
 
+    @classmethod
+    def update_password(cls, data): 
+        query = "UPDATE users SET password = %(new_password)s, updated_at = NOW() WHERE id = %(user_id)s;"
+        return connectToMySQL('kawhoot_schema').query_db(query, data)
+
+
     @staticmethod
     def validate_new_username(data): 
         is_valid = True
@@ -52,6 +58,23 @@ class User:
             if existing_user: 
                 flash("Username already exists", 'username')
                 is_valid = False
+        return is_valid
+
+    @staticmethod
+    def validate_new_password(data):
+        is_valid = True
+        # checking that the password is at least 8 characters
+        if len(data['new_password']) < 8: 
+            flash("Password must be at least 8 characters", 'new_password')
+            is_valid = False
+        elif len(data['confirm']) < 1: 
+            flash("Confirm password is required", 'confirm')
+            is_valid = False
+        # checking that confirm password matches
+        elif data['new_password'] != data['confirm']: 
+            flash("Passwords do not match", 'confirm')
+            is_valid = False
+        # this static method returns a boolean value of is_valid 
         return is_valid
 
     @staticmethod

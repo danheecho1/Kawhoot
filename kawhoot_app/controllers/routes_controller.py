@@ -479,3 +479,24 @@ def update_username():
         User.update_username(data)
         return redirect('/edit_profile')
     return redirect('/edit_profile')
+
+@app.route('/edit_profile/password', methods=['post'])
+def update_password():
+    data = {
+        'user_id': session['logged_in_user_id'], 
+        'current_password': request.form['current_password'], 
+        'new_password': request.form['new_password'], 
+        'confirm': request.form['confirm']
+    }
+    current_user = User.get_user_by_id(data)
+    plain_password = data['current_password']
+    hashed_password = current_user.password
+    
+    if not bcrypt.check_password_hash(hashed_password, plain_password):
+        flash("Password is incorrect", "current_password")
+        return redirect('/edit_profile')
+    elif not User.validate_new_password(data): 
+        return redirect('/edit_profile')
+    encrypted_password = bcrypt.generate_password_hash(data['new_password'])
+    User.update_password({'new_password': encrypted_password, 'user_id': data['user_id']})
+    return redirect('/edit_profile')
