@@ -379,6 +379,31 @@ def search_result(search_type, search_keyword, page):
     prev = page - 1
     return render_template('search_result.html', search_type = search_type, search_keyword = search_keyword, search_result = search_result, pages = total_pages, next = next, prev = prev)
 
+@app.route('/my_quizzes/search', methods=['post'])
+def search_my_quizzes(): 
+    search_type = request.form['search_type']
+    search_keyword = request.form['search_keyword']
+    return redirect(f'/my_quizzes/{search_type}/{search_keyword}')
+
+@app.route('/my_quizzes/<search_type>/<search_keyword>', defaults = {'page': 1})
+@app.route('/my_quizzes/<search_type>/<search_keyword>/<int:page>')
+def my_quizzes_search_result(search_type, search_keyword, page):
+    limit = 10
+    offset = page * limit - limit
+    data = {
+        'search_type': search_type, 
+        'search_keyword': search_keyword,
+        'limit': limit, 
+        'offset': offset, 
+        'user_id': session['logged_in_user_id']
+    }
+    search_result = Quiz.grab_quizzes_from_my_quizzes_search(data)
+    number_of_quizzes = Quiz.get_quiz_count_for_search(data)
+    total_pages = math.ceil(number_of_quizzes / limit)
+    next = page + 1
+    prev = page - 1
+    return render_template('search_my_quizzes_result.html', search_type = search_type, search_keyword = search_keyword, search_result = search_result, pages = total_pages, next = next, prev = prev)
+
 @app.route('/edit_profile')
 def edit_profile(): 
     return render_template('/edit_profile.html')
@@ -444,3 +469,13 @@ def quiz_result(user_id, quiz_id):
     summary = Summary.grab_summary(data)
     return render_template('quiz_result.html', summary = summary, result = result)
 
+@app.route('/edit_profile/username', methods=['post'])
+def update_username(): 
+    data = {
+        'username': request.form['username'], 
+        'user_id': session['logged_in_user_id']
+    }
+    if User.validate_new_username(data): 
+        User.update_username(data)
+        return redirect('/edit_profile')
+    return redirect('/edit_profile')
