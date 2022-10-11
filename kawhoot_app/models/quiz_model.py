@@ -65,7 +65,8 @@ class Quiz:
     @classmethod
     def get_quiz_count_for_search(cls, data):
         search_keyword = data['search_keyword']
-        query = "SELECT COUNT(*) FROM quizzes WHERE %(search_type)s LIKE '%%"+search_keyword+"%%' ORDER BY created_at DESC LIMIT 1000000 OFFSET %(offset)s;"
+        search_type = data['search_type']
+        query = "SELECT COUNT(*) FROM quizzes WHERE "+search_type+" LIKE '%%"+search_keyword+"%%' ORDER BY created_at DESC LIMIT 1000000 OFFSET %(offset)s;"
         result = connectToMySQL('kawhoot_schema').query_db(query, data)
         if result: 
             return result[0]['COUNT(*)']
@@ -85,3 +86,13 @@ class Quiz:
         search_type = data['search_type']
         query = "SELECT quizzes.created_at, title, description, username, quizzes.id as quiz_id, users.id as user_id FROM quizzes LEFT JOIN users ON users.id = quizzes.user_id WHERE ("+search_type+ " LIKE '%%"+search_keyword+"%%') AND (user_id = %(user_id)s) ORDER BY created_at DESC LIMIT 1000000 OFFSET %(offset)s;"
         return connectToMySQL('kawhoot_schema').query_db(query, data)
+
+    @classmethod
+    def get_my_quiz_count_for_search(cls, data):
+        search_keyword = data['search_keyword']
+        search_type = data['search_type']
+        query = "SELECT COUNT(*) FROM quizzes WHERE ("+search_type+" LIKE '%%"+search_keyword+"%%') AND (user_id = %(user_id)s) ORDER BY created_at DESC LIMIT 1000000 OFFSET %(offset)s;"
+        result = connectToMySQL('kawhoot_schema').query_db(query, data)
+        if result: 
+            return result[0]['COUNT(*)']
+        return False

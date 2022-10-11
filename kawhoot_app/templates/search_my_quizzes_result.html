@@ -86,13 +86,13 @@
                     {% endfor %}
                         </tbody>
                     </table>
+                </div>
                 {% else %}
                 <!-- my quizzes table -->
                 <div class="body-div__main-content-div__no-quiz-yet">
                     <h3>You do not have a quiz that contains '{{search_keyword}}' in the {{search_type}}..</h3>
                 </div>
                 {% endif %}
-                </div>
                 <!-- pagination -->
                 <ul class="body-div__main-content-div__pagination-ul">
                     {% if prev >= 1 %}

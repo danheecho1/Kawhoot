@@ -89,26 +89,26 @@
                     {% endfor %}
                         </tbody>
                     </table>
+                </div>
                 {% else %}
                 <!-- my quizzes table -->
                 <div class="body-div__main-content-div__no-quiz-yet">
                     <h3>You have not created any quizzes yet!</h3>
                 </div>
                 {% endif %}
-                </div>
                 <!-- pagination -->
                 <ul class="body-div__main-content-div__pagination-ul">
-                    {% if prev >= 1 %}
+                {% if prev >= 1 %}
                     <a href="/my_quizzes/{{prev}}" class="body-div__main-content-div__pagination__a"><< Previous</a>
                     {% endif %}
-                    {% for page in range(pages) %}
+                        {% for page in range(pages) %}
                     <li>
                         <a href="/my_quizzes/{{loop.index}}" class="body-div__main-content-div__pagination__a">{{loop.index}}</a>
                     </li>
-                    {% endfor %}
+                        {% endfor %}
                     {% if next <= pages %}
                     <a href="/my_quizzes/{{next}}" class="body-div__main-content-div__pagination__a">Next >></a>
-                    {% endif %}
+                {% endif %}
                 </ul>
             </div>
         </div>
