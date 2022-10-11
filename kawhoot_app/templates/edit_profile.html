@@ -74,22 +74,46 @@
                         </div>
                         <button class="util--btn body-div__main-content-div__form__button">Save</button>
                     </form>
-                    <form action="#">
+                    <form action="/edit_profile/password" method="post">
                         <div class="body-div__main-content-div__forms-div__account-update-form-div__label-input-div">
                             <label for="">Current Password</label>
-                            <input type="password" class="body-div__main-content-div__forms-div__account-update-form-div__input">
+                            <input type="password" name='current_password' class="body-div__main-content-div__forms-div__account-update-form-div__input">
                         </div>
-                        <p class="body-div__main-content-div__forms-div__validation">* This username is not okay to use</p>
+                        {% with messages = get_flashed_messages(category_filter=['current_password']) %}
+                            {% if messages %}
+                                {% for message in messages %}
+                        <p class="body-div__main-content-div__forms-div__validation">* {{message}}</p>
+                                {% endfor %}
+                            {% else %}
+                        <p class="body-div__main-content-div__forms-div__validation"></p>
+                            {% endif %}
+                        {% endwith %}
                         <div class="body-div__main-content-div__forms-div__account-update-form-div__label-input-div">
                             <label for="">New Password</label>
-                            <input type="password" class="body-div__main-content-div__forms-div__account-update-form-div__input">
+                            <input type="password" name="new_password" class="body-div__main-content-div__forms-div__account-update-form-div__input">
                         </div>
-                        <p class="body-div__main-content-div__forms-div__validation">* This username is not okay to use</p>
+                        {% with messages = get_flashed_messages(category_filter=['new_password']) %}
+                            {% if messages %}
+                                {% for message in messages %}
+                        <p class="body-div__main-content-div__forms-div__validation">* {{message}}</p>
+                                {% endfor %}
+                            {% else %}
+                        <p class="body-div__main-content-div__forms-div__validation"></p>
+                            {% endif %}
+                        {% endwith %}
                         <div class="body-div__main-content-div__forms-div__account-update-form-div__label-input-div">
                             <label for="">Confirm New Password</label>
-                            <input type="password" class="body-div__main-content-div__forms-div__account-update-form-div__input">
+                            <input type="password" name="confirm" class="body-div__main-content-div__forms-div__account-update-form-div__input">
                         </div>
-                        <p class="body-div__main-content-div__forms-div__validation">* This username is not okay to use</p>
+                        {% with messages = get_flashed_messages(category_filter=['confirm']) %}
+                            {% if messages %}
+                                {% for message in messages %}
+                        <p class="body-div__main-content-div__forms-div__validation">* {{message}}</p>
+                                {% endfor %}
+                            {% else %}
+                        <p class="body-div__main-content-div__forms-div__validation"></p>
+                            {% endif %}
+                        {% endwith %}
                         <button class="util--btn body-div__main-content-div__form__button">Save</button>
                     </form>
                 </div>
