@@ -95,6 +95,8 @@
                                         <td>{{leaders[0].username}}</td>
                                         <td>{{leaders[0].score}} / 10.0</td>
                                         <td>{{leaders[0].created_at}}</td>
+                                        {% else %}
+                                        <td colspan="3">THIS COULD BE YOU</td>
                                         {% endif %}
                                     </tr>
                                     <tr>
@@ -103,6 +105,8 @@
                                         <td>{{leaders[1].username}}</td>
                                         <td>{{leaders[1].score}} / 10.0</td>
                                         <td>{{leaders[1].created_at}}</td>
+                                        {% else %}
+                                        <td colspan="3">THIS COULD BE YOU</td>
                                         {% endif %}
                                     </tr>
                                     <tr>
@@ -111,6 +115,8 @@
                                         <td>{{leaders[2].username}}</td>
                                         <td>{{leaders[2].score}} / 10.0</td>
                                         <td>{{leaders[2].created_at}}</td>
+                                        {% else %}
+                                        <td colspan="3">THIS COULD BE YOU</td>
                                         {% endif %}
                                     </tr>
                                 </tbody>

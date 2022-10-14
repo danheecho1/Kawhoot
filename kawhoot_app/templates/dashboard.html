@@ -55,16 +55,67 @@
             <!-- main content view -->
             <div class="body-div__main-content-div">
                 <h1 class="util--page-header">Welcome, {{user.username}}!</h1>
-                <!-- dashboard navs div -->
-                <div class="body-div__main-content-div__nav-buttons-div">
-                    <!-- first nav button -->
-                    <a href="#" class="body-div__main-content-div__nav-buttons-div__button">
-                        <p>Attempts at My Quizzes</p>
-                    </a>
-                    <!-- second nav button -->
-                    <a href="#" class="body-div__main-content-div__nav-buttons-div__button">
-                        <p>Quizzes I took</p>
-                    </a>
+                <!-- dashboard -->
+                <div class="body-div__main-content-div__content">
+                    <!-- dashboard - left column  -->
+                    <div class="body-div__main-content-div__content__left-column">
+                        <!-- dashboard - left column - my stats -->
+                        <div class="body-div__main-content-div__content__left-column__my-stats-div">
+                            <h3 class="body-div__main-content-div__content__left-column__my-stats-div__header">My Stats</h3>
+                            <div class="body-div__main-content-div__content__left-column__my-stats-div__content">
+                                <p># of quizzes created: <span>12</span></p>
+                                <p># of quizzes taken: <span>15</span></p>
+                                <p># of attempts at my quizzes: <span>52</span></p>
+                                <p>Average score for my quizzes: <span>7.5</span></p>
+                                <p>Average score for my attempts: <span>8.9</span></p>
+                            </div>
+                        </div>
+                        <!-- dashboard - left column - buttons -->
+                        <div class="body-div__main-content-div__content__left-column__records-div">
+                            <h3 class="body-div__main-content-div__content__left-column__records-div__header">Records</h3>
+                            <div class="body-div__main-content-div__content__left-column__records-div__buttons-div">
+                                <button class="body-div__main-content-div__content__left-column__records-div__button">Attempts at my quizzes</button>
+                                <button class="body-div__main-content-div__content__left-column__records-div__button">My Attempts</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- dashboard - right column  -->
+                    <div class="body-div__main-content-div__content__right-column">
+                        <h3 class="body-div__main-content-div__content__right-column__leaderboard-div__header">Leaderboard</h3>
+                        <div class="body-div__main-content-div__content__right-column__leaderboard-div__category-div">
+                            <h4>Score Hunters</h4>
+                            <p>(Total score earned from all quizzes taken)</p>
+                            <div>
+                                <p>#1 danheecho - 132</p>
+                                <p>#2 scpxdc - 117</p>
+                                <p>#3 danheecho1 - 103</p>
+                                <p>#4 danheecho2 - 96</p>
+                                <p>#5 jolaman - 84</p>
+                            </div>
+                        </div>
+                        <div class="body-div__main-content-div__content__right-column__leaderboard-div__category-div">
+                            <h4>Steady Hunters</h4>
+                            <p>(Average score from all quizzes taken)</p>
+                            <div>
+                                <p>#1 danheecho - 9.7</p>
+                                <p>#2 scpxdc - 8.1</p>
+                                <p>#3 danheecho1 - 7.5</p>
+                                <p>#4 danheecho2 - 7.3</p>
+                                <p>#5 jolaman - 6.5</p>
+                            </div>
+                        </div>
+                        <div class="body-div__main-content-div__content__right-column__leaderboard-div__category-div">
+                            <h4>Quiz Creators</h4>
+                            <p>(Number of quizzes created)</p>
+                            <div>
+                                <p>#1 danheecho - 27</p>
+                                <p>#2 scpxdc - 14</p>
+                                <p>#3 danheecho1 - 10</p>
+                                <p>#4 danheecho2 - 9</p>
+                                <p>#5 jolaman - 4</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
