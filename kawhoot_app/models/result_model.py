@@ -34,3 +34,37 @@ class Result:
         if result: 
             return result[0]
         return False
+
+    @classmethod
+    def grab_attempts_at_my_quiz(cls, data): 
+        query = "SELECT score, CAST(results.created_at AS DATE) AS date, title, username FROM results JOIN quizzes ON quizzes.id = results.quiz_id JOIN users ON results.user_id = users.id WHERE quizzes.user_id = %(user_id)s;"
+        return connectToMySQL('kawhoot_schema').query_db(query, data)
+
+    @classmethod
+    def get_attempts_count(cls, data): 
+        query = "SELECT COUNT(*) FROM results JOIN quizzes ON quizzes.id = results.quiz_id WHERE quizzes.user_id = %(user_id)s;"
+        result = connectToMySQL('kawhoot_schema').query_db(query, data)
+        if result: 
+            return result[0]['COUNT(*)']
+        return False
+
+    @classmethod
+    def get_my_attempts(cls, data): 
+        query = "SELECT score, CAST(results.created_at AS DATE) AS date, title, username FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN users ON quizzes.user_id = users.id WHERE results.user_id = %(user_id)s ORDER BY results.created_at DESC;"
+        return connectToMySQL('kawhoot_schema').query_db(query, data)
+
+    @classmethod
+    def get_my_attempts_count(cls, data):
+        query = "SELECT COUNT(*) FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN users ON quizzes.user_id = users.id WHERE results.user_id = %(user_id)s;"
+        result = connectToMySQL('kawhoot_schema').query_db(query, data)
+        if result: 
+            return result[0]['COUNT(*)']
+        return False
+
+    @classmethod
+    def get_unweighted_avg_for_my_quizzes(cls, data):
+        query = "SELECT CAST(AVG(score) AS DECIMAL(10, 1)) FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN users ON quizzes.user_id = users.id WHERE users.id = %(user_id)s;"
+        result = connectToMySQL('kawhoot_schema').query_db(query, data)
+        if result: 
+            return result[0]['CAST(AVG(score) AS DECIMAL(10, 1))']
+        return False

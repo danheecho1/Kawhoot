@@ -70,10 +70,18 @@
                 <!-- my quizzes table -->
                 <div class="body-div__main-content-div__my-quizzes-div-wrap">
                     <table class="body-div__main-content-div__my-quizzes-table" rules="none">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Created on</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
                         <tbody class="body-div__main-content-div__my-quizzes-table__tbody">
                     {% for quiz in my_quizzes %}
                             <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{loop.revindex}}</td>
                                 <td><a href="/quiz/{{user_id}}/{{quiz.id}}">{{quiz.title}}</a></td>
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_date}}</td>
                                 <td>
@@ -90,12 +98,6 @@
                         </tbody>
                     </table>
                 </div>
-                {% else %}
-                <!-- my quizzes table -->
-                <div class="body-div__main-content-div__no-quiz-yet">
-                    <h3>You have not created any quizzes yet!</h3>
-                </div>
-                {% endif %}
                 <!-- pagination -->
                 <ul class="body-div__main-content-div__pagination-ul">
                 {% if prev >= 1 %}
@@ -110,6 +112,12 @@
                     <a href="/my_quizzes/{{next}}" class="body-div__main-content-div__pagination__a">Next >></a>
                 {% endif %}
                 </ul>
+                {% else %}
+                <!-- my quizzes table -->
+                <div class="body-div__main-content-div__no-quiz-yet">
+                    <h3>You have not created any quizzes yet!</h3>
+                </div>
+                {% endif %}
             </div>
         </div>
         <!-- footer -->

@@ -292,10 +292,11 @@ a {
 }
 
 .body-div__main-content-div__content__left-column__records-div__button {
-    width: 225px;
-    height: 225px;
+    width: 200px;
+    height: 200px;
     background-color: var(--clr-general-5);
     border: 1px solid var(--clr-general-3);
+    border-radius: 5px;
     font-size: var(--fs-3);
     font-weight: var(--fw-medium);
     cursor: pointer;
@@ -313,6 +314,16 @@ a {
     margin-top: 50px;
     gap: 75px;
     /* border: 1px solid black; */
+}
+
+.body-div__main-content-div__content__right-column__leaderboard-div__category-div__header {
+    font-weight: var(--fw-medium);
+    text-align: center;
+}
+
+.body-div__main-content-div__content__right-column__leaderboard-div__category-div__description {
+    text-align: center;
+    font-size: var(--fs-5);
 }
 
 /* body__main content view -> my quizzes */

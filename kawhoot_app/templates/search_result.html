@@ -72,17 +72,23 @@
                 <!-- my quizzes table -->
                 <div class="body-div__main-content-div__my-quizzes-div-wrap">
                     <table class="body-div__main-content-div__my-quizzes-table" rules="none">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Owner</th>
+                                <th>Created on</th>
+                            </tr>
+                        </thead>
                         <tbody class="body-div__main-content-div__my-quizzes-table__tbody">
                     {% for quiz in search_result %}
                             <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
-                                <td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{loop.revindex}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">
                                     <a href="/search/quiz/{{quiz.user_id}}/{{quiz.quiz_id}}">{{quiz.title}}</a>
                                 </td>
-                                <td>
-                                    <a href="#">{{quiz.username}}</a>
-                                </td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_at}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.username}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.created_date}}</td>
                             </tr>
                     {% endfor %}
                         </tbody>
