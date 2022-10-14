@@ -242,42 +242,77 @@ a {
     flex-direction: column;
     width: 1150px;
     padding: 100px;
-    gap: 40px;
+    gap: 50px;
 }
 
 /* body__main content view -> dashboard */
 
-.body-div__main-content-div__nav-buttons-div {
+.body-div__main-content-div__content {
     display: flex;
-    flex-direction: column;
-    gap: 50px;
-    height: 700px;
 }
 
-.body-div__main-content-div__nav-buttons-div__button {
-    height: 300px;
-    border-radius: 12px;
+.body-div__main-content-div__content__left-column {
     display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin-top: 50px;
+    gap: 75px;
+    /* border: 1px solid black; */
+}
+
+.body-div__main-content-div__content__left-column__my-stats-div {
+    width: 400px;
     justify-content: space-around;
-    align-items: center;
+    align-self: center;
+}
+
+.body-div__main-content-div__content__left-column__my-stats-div__header, 
+.body-div__main-content-div__content__left-column__records-div__header, 
+.body-div__main-content-div__content__right-column__leaderboard-div__header {
+    text-align: center;
+    font-size: var(--fs-3);
+    font-weight: var(--fw-bold);
+    margin-bottom: 30px;
+}
+
+.body-div__main-content-div__content__left-column__my-stats-div__content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.body-div__main-content-div__content__left-column__my-stats-div__content p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.body-div__main-content-div__content__left-column__records-div__buttons-div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.body-div__main-content-div__content__left-column__records-div__button {
+    width: 225px;
+    height: 225px;
     background-color: var(--clr-general-5);
+    border: 1px solid var(--clr-general-3);
+    font-size: var(--fs-3);
+    font-weight: var(--fw-medium);
+    cursor: pointer;
     transition: 500ms;
 }
 
-.body-div__main-content-div__nav-buttons-div__button:hover {
-    transform: scale(1.03);
+.body-div__main-content-div__content__left-column__records-div__button:hover {
+    transform: scale(1.04);
 }
 
-.body-div__main-content-div__nav-buttons-div__button--deco {
-    width: 450px;
-    height: 300px;
-    border-radius: 12px;
-    background-image: '../static/assets/1250.jpeg';
-}
-
-.body-div__main-content-div__nav-buttons-div__button p {
-    font-size: var(--fs-3);
-    font-weight: var(--fw-medium);
+.body-div__main-content-div__content__right-column {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin-top: 50px;
+    gap: 75px;
+    /* border: 1px solid black; */
 }
 
 /* body__main content view -> my quizzes */

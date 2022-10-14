@@ -75,13 +75,17 @@
                     {% for quiz in search_result %}
                             <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">#{{loop.revindex}}</td>
+                                <td><a href="/search/quiz/{{quiz.user_id}}/{{quiz.quiz_id}}">{{quiz.title}}</a></td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_date}}</td>
                                 <td>
-                                    <a href="/search/quiz/{{quiz.user_id}}/{{quiz.quiz_id}}">{{quiz.title}}</a>
+                                    <div class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions">
+                                        <a href="/quiz/{{user_id}}/{{quiz.id}}/edit">Edit</a>
+                                        <p>|</p>
+                                        <form action="/quiz/{{user_id}}/{{quiz.id}}/delete" method='post'>
+                                            <button class="body-div__main-content-div__my-quizzes-table__tbody__tr__td__button" type="submit">Delete</button>
+                                        </form>
+                                    </div>
                                 </td>
-                                <td>
-                                    <a href="#">{{quiz.username}}</a>
-                                </td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_at}}</td>
                             </tr>
                     {% endfor %}
                         </tbody>
