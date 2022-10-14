@@ -68,7 +68,47 @@ def dashboard():
         'user_id': session['logged_in_user_id']
     }
     user = User.get_user_by_id(data)
-    return render_template('dashboard.html', user = user)
+    my_quizzes_count = Quiz.get_quiz_count(data)
+    my_attempts_count = Result.get_my_attempts_count(data)
+    attempts_at_my_quizzes_count = Result.get_attempts_count(data)
+    average_for_my_quizzes = Result.get_unweighted_avg_for_my_quizzes(data)
+
+
+    return render_template('dashboard.html', user = user, my_quizzes_count = my_quizzes_count, my_attempts_count = my_attempts_count, attempts_at_my_quizzes_count = attempts_at_my_quizzes_count, average_for_my_quizzes = average_for_my_quizzes)
+
+@app.route('/dashboard/attempts', defaults={'page': 1})
+@app.route('/dashboard/attempts/<int:page>')
+def attempts_at_me(page): 
+    limit = 10
+    offset = page * limit - limit
+    data = {
+        'user_id': session['logged_in_user_id'],
+        'limit': limit, 
+        'offset': offset
+    }
+    attempts_at_my_quizzes = Result.grab_attempts_at_my_quiz(data)
+    number_of_attempts = Result.get_attempts_count(data)
+    total_pages = math.ceil(number_of_attempts / limit)
+    next = page + 1
+    prev = page - 1
+    return render_template('attempts.html', attempts = attempts_at_my_quizzes, pages = total_pages, next = next, prev = prev)
+
+@app.route('/dashboard/myattempts', defaults={'page': 1})
+@app.route('/dashboard/myattempts/<int:page>')
+def my_attempts(page): 
+    limit = 10
+    offset = page * limit - limit
+    data = {
+        'user_id': session['logged_in_user_id'],
+        'limit': limit, 
+        'offset': offset
+    }
+    my_attempts = Result.get_my_attempts(data)
+    number_of_attempts = Result.get_my_attempts_count(data)
+    total_pages = math.ceil(number_of_attempts / limit)
+    next = page + 1
+    prev = page - 1
+    return render_template('my_attempts.html', attempts = my_attempts, pages = total_pages, next = next, prev = prev)
 
 @app.route('/my_quizzes', defaults={'page': 1})
 @app.route('/my_quizzes/<int:page>')

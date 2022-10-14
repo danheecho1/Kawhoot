@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='/style.css')}}">
-    <title>Kawhoot - My Quizzes</title>
+    <title>Kawhoot - Dashboard</title>
 </head>
 <body>
     <!-- container -->
@@ -27,12 +27,12 @@
             <div class="body-div__navigation-div">
                 <!-- navigation links -->
                 <a href="/dashboard">
-                    <div class="body-div__navigation-div__link-div">
+                    <div class="body-div__navigation-div__link-div--selected">
                         <h2>Dashboard</h2>
                     </div>
                 </a>
                 <a href="/my_quizzes">
-                    <div class="body-div__navigation-div__link-div--selected">
+                    <div class="body-div__navigation-div__link-div">
                         <h2>My Quizzes</h2>
                     </div>
                 </a>
@@ -54,71 +54,64 @@
             </div>
             <!-- main content view -->
             <div class="body-div__main-content-div">
-                <h1 class="util--page-header">My Quizzes</h1>
+                <h1 class="util--page-header">Attempts at My Quizzes</h1>
                 <!-- search bar -->
                 <div class="body-div__main-content-div__search-bar-div">
                     <form action="/my_quizzes/search" method="post" class="body-div__main-content-div__search-bar-div__form">
                         <select name="search_type" id="" class="body-div__main-content-div__search-bar-div__form__select">
-                            <option id="title" value="title">Search by Title</option>
-                            <option id="description" value="description">Search by Description</option>
+                            <option value="title">Search by Taker</option>
+                            <option value="description">Search by Quiz Title</option>
                         </select>
-                        <input type="hidden" id="previous_search_type" value="{{search_type}}">
-                        <input type="text" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input" value="{{search_keyword}}">
+                        <input type="text" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input">
+                        <button type="submit" class="body-div__main-content-div__search-bar-div__new-button util--btn">Search</button>
                     </form>
-                    <a href="/new_quiz"><button class="body-div__main-content-div__search-bar-div__new-button util--btn">New Quiz</button></a>
                 </div>
-                {% if search_result %}
+                {% if attempts %}
                 <!-- my quizzes table -->
                 <div class="body-div__main-content-div__my-quizzes-div-wrap">
                     <table class="body-div__main-content-div__my-quizzes-table" rules="none">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Title</th>
-                                <th>Created on</th>
-                                <th>Actions</th>
+                                <th>Taker</th>
+                                <th>Quiz</th>
+                                <th>Attempted on</th>
+                                <th>Score (out of 10)</th>
                             </tr>
                         </thead>
                         <tbody class="body-div__main-content-div__my-quizzes-table__tbody">
-                    {% for quiz in search_result %}
+                    {% for attempt in attempts %}
                             <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{loop.revindex}}</td>
-                                <td><a href="/search/quiz/{{quiz.user_id}}/{{quiz.quiz_id}}">{{quiz.title}}</a></td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_date}}</td>
-                                <td>
-                                    <div class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions">
-                                        <a href="/quiz/{{user_id}}/{{quiz.id}}/edit">Edit</a>
-                                        <p>|</p>
-                                        <form action="/quiz/{{user_id}}/{{quiz.id}}/delete" method='post'>
-                                            <button class="body-div__main-content-div__my-quizzes-table__tbody__tr__td__button" type="submit">Delete</button>
-                                        </form>
-                                    </div>
-                                </td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.username}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.title}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.date}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.score}}</td>
                             </tr>
                     {% endfor %}
                         </tbody>
                     </table>
                 </div>
-                {% else %}
-                <!-- my quizzes table -->
-                <div class="body-div__main-content-div__no-quiz-yet">
-                    <h3>You do not have a quiz that contains '{{search_keyword}}' in the {{search_type}}..</h3>
-                </div>
-                {% endif %}
                 <!-- pagination -->
                 <ul class="body-div__main-content-div__pagination-ul">
-                    {% if prev >= 1 %}
+                {% if prev >= 1 %}
                     <a href="/my_quizzes/{{prev}}" class="body-div__main-content-div__pagination__a"><< Previous</a>
                     {% endif %}
-                    {% for page in range(pages) %}
+                        {% for page in range(pages) %}
                     <li>
                         <a href="/my_quizzes/{{loop.index}}" class="body-div__main-content-div__pagination__a">{{loop.index}}</a>
                     </li>
-                    {% endfor %}
+                        {% endfor %}
                     {% if next <= pages %}
                     <a href="/my_quizzes/{{next}}" class="body-div__main-content-div__pagination__a">Next >></a>
-                    {% endif %}
+                {% endif %}
                 </ul>
+                {% else %}
+                <!-- my quizzes table -->
+                <div class="body-div__main-content-div__no-quiz-yet">
+                    <h3>No one has taken your quizzes yet!</h3>
+                </div>
+                {% endif %}
             </div>
         </div>
         <!-- footer -->
@@ -126,6 +119,5 @@
             <p>No Copyright © 2022 Danny Cho. All rights reserved</p>
         </div>
     </div>
-    <script src="{{url_for('static', filename='/search_result.js')}}"></script>
 </body>
 </html>
