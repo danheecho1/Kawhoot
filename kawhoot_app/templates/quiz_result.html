@@ -58,7 +58,7 @@
                 <div class="body-div__main-content-div__quiz-detail-div">
                     <h2>{{result[0].title}}</h2>
                     <div class="body-div__main-content-div__quiz-detail-div__header-div">
-                        <h2>Created by scpxdc</h2>
+                        <h2>Created by {{quiz[0]['username']}}</h2>
                         <h3>{{result[0].quiz_created_at}}</h3>
                     </div>
                     <div class="body-div__main-content-div__quiz-detail-div__header-div">
@@ -66,7 +66,7 @@
                         <h3>{{result[0].result_created_at}}</h3>
                     </div>
                     <p>Your score: {{result[0].score}}</p>
-                    <p>Average score: {{summary[0]['average_score']}} / 10</p>
+                    <p>Average score for this quiz: {{summary[0]['average_score']}} / 10</p>
                 </div>
             </div>
         </div>

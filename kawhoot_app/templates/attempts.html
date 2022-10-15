@@ -72,11 +72,11 @@
                     <table class="body-div__main-content-div__my-quizzes-table" rules="none">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Taker</th>
-                                <th>Quiz</th>
-                                <th>Attempted on</th>
-                                <th>Score (out of 10)</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">#</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Taker</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Quiz</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Attempted on</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Score</th>
                             </tr>
                         </thead>
                         <tbody class="body-div__main-content-div__my-quizzes-table__tbody">
@@ -86,7 +86,7 @@
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.username}}</td>
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.title}}</td>
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.date}}</td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.score}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.score}} / 10.0</td>
                             </tr>
                     {% endfor %}
                         </tbody>

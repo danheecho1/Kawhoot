@@ -72,9 +72,8 @@ def dashboard():
     my_attempts_count = Result.get_my_attempts_count(data)
     attempts_at_my_quizzes_count = Result.get_attempts_count(data)
     average_for_my_quizzes = Result.get_unweighted_avg_for_my_quizzes(data)
-
-
-    return render_template('dashboard.html', user = user, my_quizzes_count = my_quizzes_count, my_attempts_count = my_attempts_count, attempts_at_my_quizzes_count = attempts_at_my_quizzes_count, average_for_my_quizzes = average_for_my_quizzes)
+    my_average_score = Result.get_my_average_score(data)
+    return render_template('dashboard.html', user = user, my_quizzes_count = my_quizzes_count, my_attempts_count = my_attempts_count, attempts_at_my_quizzes_count = attempts_at_my_quizzes_count, average_for_my_quizzes = average_for_my_quizzes, my_average_score = my_average_score)
 
 @app.route('/dashboard/attempts', defaults={'page': 1})
 @app.route('/dashboard/attempts/<int:page>')
@@ -418,7 +417,9 @@ def new_quiz_post():
 
 @app.route('/search')
 def search(): 
-    return render_template('/search.html')
+    quizzes = Quiz.get_all_quizzes()
+    print(quizzes)
+    return render_template('/search.html', quizzes = quizzes)
 
 @app.route('/search', methods=['post'])
 def search_post(): 
@@ -508,7 +509,8 @@ def quiz_result(user_id, quiz_id):
     }
     result = Result.grab_result(data)
     summary = Summary.grab_summary(data)
-    return render_template('quiz_result.html', summary = summary, result = result)
+    quiz = Quiz.select_quiz(data)
+    return render_template('quiz_result.html', summary = summary, result = result, quiz = quiz)
 
 @app.route('/edit_profile/username', methods=['post'])
 def update_username(): 

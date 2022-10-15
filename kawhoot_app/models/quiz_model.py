@@ -96,3 +96,8 @@ class Quiz:
         if result: 
             return result[0]['COUNT(*)']
         return False
+
+    @classmethod
+    def get_all_quizzes(cls): 
+        query = "SELECT *, CAST(quizzes.created_at as DATE) as created_date FROM quizzes JOIN users ON quizzes.user_id = users.id ORDER BY quizzes.created_at DESC;"
+        return connectToMySQL('kawhoot_schema').query_db(query)
