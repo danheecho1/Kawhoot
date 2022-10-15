@@ -73,18 +73,18 @@
                     <table class="body-div__main-content-div__my-quizzes-table" rules="none">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Title</th>
-                                <th>Created on</th>
-                                <th>Actions</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">#</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Title</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Created on</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="body-div__main-content-div__my-quizzes-table__tbody">
                     {% for quiz in search_result %}
                             <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{loop.revindex}}</td>
-                                <td><a href="/search/quiz/{{quiz.user_id}}/{{quiz.quiz_id}}">{{quiz.title}}</a></td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--date">{{quiz.created_date}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td"><a href="/search/quiz/{{quiz.user_id}}/{{quiz.quiz_id}}">{{quiz.title}}</a></td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.created_date}}</td>
                                 <td>
                                     <div class="body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions">
                                         <a href="/quiz/{{user_id}}/{{quiz.id}}/edit">Edit</a>

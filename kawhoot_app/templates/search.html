@@ -67,10 +67,36 @@
                     </form>
                     <a href="/new_quiz"><button class="body-div__main-content-div__search-bar-div__new-button util--btn">New Quiz</button></a>
                 </div>
+                {% if quizzes %}
+                <!-- my quizzes table -->
+                <div class="body-div__main-content-div__my-quizzes-div-wrap">
+                    <table class="body-div__main-content-div__my-quizzes-table" rules="none">
+                        <thead>
+                            <tr>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">#</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Title</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Owner</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Created on</th>
+                            </tr>
+                        </thead>
+                        <tbody class="body-div__main-content-div__my-quizzes-table__tbody">
+                    {% for quiz in quizzes %}
+                            <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{loop.revindex}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td"><a href="/search/quiz/{{quiz.user_id}}/{{quiz.id}}">{{quiz.title}}</a></td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.username}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{quiz.created_date}}</td>
+                            </tr>
+                    {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
                 <!-- my quizzes table -->
                 <div class="body-div__main-content-div__no-quiz-yet">
                     <h3>You can search for quizzes by title, description, or username. </h3>
                 </div>
+                {% endif %}
             </div>
         </div>
         <!-- footer -->

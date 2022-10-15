@@ -293,7 +293,7 @@ a {
 
 .body-div__main-content-div__content__left-column__records-div__button {
     width: 200px;
-    height: 200px;
+    height: 150px;
     background-color: var(--clr-general-5);
     border: 1px solid var(--clr-general-3);
     border-radius: 5px;
@@ -312,7 +312,7 @@ a {
     flex-direction: column;
     width: 350px;
     margin-top: 50px;
-    gap: 75px;
+    gap: 15px;
     /* border: 1px solid black; */
 }
 
@@ -324,6 +324,10 @@ a {
 .body-div__main-content-div__content__right-column__leaderboard-div__category-div__description {
     text-align: center;
     font-size: var(--fs-5);
+}
+
+.body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div {
+    width: 275px;
 }
 
 /* body__main content view -> my quizzes */
@@ -397,16 +401,20 @@ a {
 
 .body-div__main-content-div__my-quizzes-table__tbody__tr__td {
     padding-left: 25px;
-}
+    text-align: left;
+} 
 
-.body-div__main-content-div__my-quizzes-table__tbody__tr__td--date {
-    text-align: right;
+.body-div__main-content-div__my-quizzes-table-thead__tr__th {
+    padding-left: 25px;
+    text-align: left;
+    font-weight: var(--fw-medium);
 }
 
 .body-div__main-content-div__my-quizzes-table__tbody__tr__td--actions {
+    padding-left: 25px;
     display: flex;
-    justify-content: center;
     gap: 10px;
+    align-items: left;
 }
 
 .body-div__main-content-div__my-quizzes-table__tbody__tr__td__form {

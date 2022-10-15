@@ -68,3 +68,11 @@ class Result:
         if result: 
             return result[0]['CAST(AVG(score) AS DECIMAL(10, 1))']
         return False
+
+    @classmethod
+    def get_my_average_score(cls, data): 
+        query = "SELECT CAST(AVG(score) AS DECIMAL(10, 1)) FROM results WHERE user_id = %(user_id)s;"
+        result = connectToMySQL('kawhoot_schema').query_db(query, data)
+        if result: 
+            return result[0]['CAST(AVG(score) AS DECIMAL(10, 1))']
+        return False
