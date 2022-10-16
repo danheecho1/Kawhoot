@@ -40,10 +40,6 @@ class User:
         query = "UPDATE users SET password = %(new_password)s, updated_at = NOW() WHERE id = %(user_id)s;"
         return connectToMySQL('kawhoot_schema').query_db(query, data)
 
-    # @classmethod
-    # def get_score_hunters(cls, data): 
-    #     query = "SELECT username FROM users"
-
     @staticmethod
     def validate_new_username(data): 
         is_valid = True

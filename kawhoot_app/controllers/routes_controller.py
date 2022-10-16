@@ -5,6 +5,7 @@ from kawhoot_app.models.question_model import Question
 from kawhoot_app.models.choice_model import Choice
 from kawhoot_app.models.result_model import Result
 from kawhoot_app.models.summary_model import Summary
+from kawhoot_app.models.userSummary_model import UserSummary
 
 import math
 from flask import render_template, redirect, session, request, flash
@@ -73,7 +74,10 @@ def dashboard():
     attempts_at_my_quizzes_count = Result.get_attempts_count(data)
     average_for_my_quizzes = Result.get_unweighted_avg_for_my_quizzes(data)
     my_average_score = Result.get_my_average_score(data)
-    return render_template('dashboard.html', user = user, my_quizzes_count = my_quizzes_count, my_attempts_count = my_attempts_count, attempts_at_my_quizzes_count = attempts_at_my_quizzes_count, average_for_my_quizzes = average_for_my_quizzes, my_average_score = my_average_score)
+    scorehunters = UserSummary.get_scorehunters()
+    steadyhunters = UserSummary.get_steadyhunters()
+    quizcreators = UserSummary.get_quizcreators()
+    return render_template('dashboard.html', user = user, my_quizzes_count = my_quizzes_count, my_attempts_count = my_attempts_count, attempts_at_my_quizzes_count = attempts_at_my_quizzes_count, average_for_my_quizzes = average_for_my_quizzes, my_average_score = my_average_score, scorehunters = scorehunters, steadyhunters = steadyhunters, quizcreators = quizcreators)
 
 @app.route('/dashboard/attempts', defaults={'page': 1})
 @app.route('/dashboard/attempts/<int:page>')
@@ -413,6 +417,7 @@ def new_quiz_post():
     }
     Choice.create_choices(data_for_answers)
     Summary.create_summary(data_for_answers)
+    UserSummary.update_user_summary_create_quiz(data_for_title_description)
     return redirect('/my_quizzes')
 
 @app.route('/search')
@@ -499,6 +504,7 @@ def grade_quiz(user_id, quiz_id):
     }
     Result.save_grade(data)
     Summary.update_summary(data)
+    UserSummary.update_user_summary(data)
     return redirect(f'/quiz/{user_id}/{quiz_id}/result')
 
 @app.route('/quiz/<user_id>/<quiz_id>/result')

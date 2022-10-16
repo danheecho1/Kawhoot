@@ -249,6 +249,7 @@ a {
 
 .body-div__main-content-div__content {
     display: flex;
+    justify-content: space-between;
 }
 
 .body-div__main-content-div__content__left-column {
@@ -310,7 +311,7 @@ a {
 .body-div__main-content-div__content__right-column {
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 300px;
     margin-top: 50px;
     gap: 15px;
     /* border: 1px solid black; */
@@ -324,10 +325,6 @@ a {
 .body-div__main-content-div__content__right-column__leaderboard-div__category-div__description {
     text-align: center;
     font-size: var(--fs-5);
-}
-
-.body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div {
-    width: 275px;
 }
 
 /* body__main content view -> my quizzes */
