@@ -31,6 +31,19 @@ class Quiz:
         return False
 
     @classmethod
+    def get_all_quizzes(cls, data): 
+        query = "SELECT *, CAST(quizzes.created_at as DATE) as created_date FROM quizzes JOIN users ON quizzes.user_id = users.id ORDER BY quizzes.created_at DESC LIMIT 1000000 OFFSET %(offset)s;"
+        return connectToMySQL('kawhoot_schema').query_db(query, data)
+
+    @classmethod
+    def get_total_quiz_count(cls):
+        query = "SELECT COUNT(*) FROM quizzes;"
+        result = connectToMySQL('kawhoot_schema').query_db(query)
+        if result: 
+            return result[0]['COUNT(*)']
+        return False
+
+    @classmethod
     def get_paginated_quizzes(cls, data): 
         query = "SELECT *, CAST(created_at as DATE) AS created_date FROM quizzes WHERE user_id = %(user_id)s ORDER BY created_at DESC LIMIT 1000000 OFFSET %(offset)s;"
         return connectToMySQL('kawhoot_schema').query_db(query, data)
@@ -96,8 +109,3 @@ class Quiz:
         if result: 
             return result[0]['COUNT(*)']
         return False
-
-    @classmethod
-    def get_all_quizzes(cls): 
-        query = "SELECT *, CAST(quizzes.created_at as DATE) as created_date FROM quizzes JOIN users ON quizzes.user_id = users.id ORDER BY quizzes.created_at DESC;"
-        return connectToMySQL('kawhoot_schema').query_db(query)

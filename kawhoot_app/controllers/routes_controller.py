@@ -420,11 +420,21 @@ def new_quiz_post():
     UserSummary.update_user_summary_create_quiz(data_for_title_description)
     return redirect('/my_quizzes')
 
-@app.route('/search')
-def search(): 
-    quizzes = Quiz.get_all_quizzes()
-    print(quizzes)
-    return render_template('/search.html', quizzes = quizzes)
+@app.route('/search', defaults={'page': 1})
+@app.route('/search/<int:page>')
+def search(page): 
+    limit = 10
+    offset = page * limit - limit
+    data = {
+        'limit': limit, 
+        'offset': offset
+    }
+    quizzes = Quiz.get_all_quizzes(data)
+    number_of_quizzes = Quiz.get_total_quiz_count()
+    total_pages = math.ceil(number_of_quizzes / limit)
+    next = page + 1
+    prev = page - 1
+    return render_template('/search.html', quizzes = quizzes, pages = total_pages, next = next, prev = prev)
 
 @app.route('/search', methods=['post'])
 def search_post(): 
