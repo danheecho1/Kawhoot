@@ -100,34 +100,54 @@
                                     <th colspan="3" class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__header">Score Hunters</th>
                                 </tr>
                                 <tr>
-                                    <th colspan="3" class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__description">(Total score earned from all quizzes taken)</th>
+                                    <th colspan="3" class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__description">(Total score from all quizzes taken)</th>
                                 </tr>
                             </thead>
                             <tbody class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div">
                                 <tr>
                                     <td>#1</td>
-                                    <td>danheecho</td>
-                                    <td>132</td>
+                                    {% if scorehunters[0] %}
+                                    <td>{{scorehunters[0].username}}</td>
+                                    <td>{{scorehunters[0].total_score_earned}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                     <td>#2</td>
-                                    <td>scpxdc</td>
-                                    <td>117</td>
+                                    {% if scorehunters[1] %}
+                                    <td>{{scorehunters[1].username}}</td>
+                                    <td>{{scorehunters[1].total_score_earned}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                     <td>#3</td>
-                                    <td>danheecho2</td>
-                                    <td>100</td>
+                                    {% if scorehunters[2] %}
+                                    <td>{{scorehunters[2].username}}</td>
+                                    <td>{{scorehunters[2].total_score_earned}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                     <td>#4</td>
-                                    <td>danheecho3</td>
-                                    <td>99</td>
+                                    {% if scorehunters[3] %}
+                                    <td>{{scorehunters[3].username}}</td>
+                                    <td>{{scorehunters[3].total_score_earned}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                     <td>#5</td>
-                                    <td>danheecho4</td>
-                                    <td>32</td>
+                                    {% if scorehunters[4] %}
+                                    <td>{{scorehunters[4].username}}</td>
+                                    <td>{{scorehunters[4].total_score_earned}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                             </tbody>
                         </table>
@@ -143,28 +163,48 @@
                             <tbody class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div">
                                 <tr>
                                     <td>#1</td>
-                                    <td>danheecho</td>
-                                    <td>132</td>
+                                    {% if steadyhunters[0] %}
+                                    <td>{{steadyhunters[0].username}}</td>
+                                    <td>{{steadyhunters[0].average_score}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                     <td>#2</td>
-                                    <td>scpxdc</td>
-                                    <td>117</td>
+                                    {% if steadyhunters[1] %}
+                                    <td>{{steadyhunters[1].username}}</td>
+                                    <td>{{steadyhunters[1].average_score}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                     <td>#3</td>
-                                    <td>danheecho2</td>
-                                    <td>100</td>
+                                    {% if steadyhunters[2] %}
+                                    <td>{{steadyhunters[2].username}}</td>
+                                    <td>{{steadyhunters[2].average_score}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                     <td>#4</td>
-                                    <td>danheecho3</td>
-                                    <td>99</td>
+                                    {% if steadyhunters[3] %}
+                                    <td>{{steadyhunters[3].username}}</td>
+                                    <td>{{steadyhunters[3].average_score}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                     <td>#5</td>
-                                    <td>danheecho4</td>
-                                    <td>32</td>
+                                    {% if steadyhunters[4] %}
+                                    <td>{{steadyhunters[4].username}}</td>
+                                    <td>{{steadyhunters[4].average_score}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                             </tbody>
                         </table>
@@ -180,28 +220,48 @@
                             <tbody class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div">
                                 <tr>
                                     <td>#1</td>
-                                    <td>danheecho</td>
-                                    <td>132</td>
+                                    {% if quizcreators[0] %}
+                                    <td>{{quizcreators[0].username}}</td>
+                                    <td>{{quizcreators[0].create_quiz_count}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                     <td>#2</td>
-                                    <td>scpxdc</td>
-                                    <td>117</td>
+                                    {% if quizcreators[1] %}
+                                    <td>{{quizcreators[1].username}}</td>
+                                    <td>{{quizcreators[1].create_quiz_count}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                     <td>#3</td>
-                                    <td>danheecho2</td>
-                                    <td>100</td>
+                                    {% if quizcreators[2] %}
+                                    <td>{{quizcreators[2].username}}</td>
+                                    <td>{{quizcreators[2].create_quiz_count}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                     <td>#4</td>
-                                    <td>danheecho3</td>
-                                    <td>99</td>
+                                    {% if quizcreators[3] %}
+                                    <td>{{quizcreators[3].username}}</td>
+                                    <td>{{quizcreators[3].create_quiz_count}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                                 <tr>
                                     <td>#5</td>
-                                    <td>danheecho4</td>
-                                    <td>32</td>
+                                    {% if quizcreators[4] %}
+                                    <td>{{quizcreators[4].username}}</td>
+                                    <td>{{quizcreators[4].create_quiz_count}}</td>
+                                    {% else %}
+                                    <td colspan="2">No recordholder yet</td>
+                                    {% endif %}
                                 </tr>
                             </tbody>
                         </table>
