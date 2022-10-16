@@ -97,6 +97,20 @@
                     <h3>You can search for quizzes by title, description, or username. </h3>
                 </div>
                 {% endif %}
+                <!-- pagination -->
+                <ul class="body-div__main-content-div__pagination-ul">
+                    {% if prev >= 1 %}
+                    <a href="/my_quizzes/{{prev}}" class="body-div__main-content-div__pagination__a"><< Previous</a>
+                    {% endif %}
+                    {% for page in range(pages) %}
+                    <li>
+                        <a href="/my_quizzes/{{loop.index}}" class="body-div__main-content-div__pagination__a">{{loop.index}}</a>
+                    </li>
+                    {% endfor %}
+                    {% if next <= pages %}
+                    <a href="/my_quizzes/{{next}}" class="body-div__main-content-div__pagination__a">Next >></a>
+                    {% endif %}
+                </ul>
             </div>
         </div>
         <!-- footer -->
