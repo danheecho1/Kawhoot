@@ -255,31 +255,32 @@ a {
 .body-div__main-content-div__content__left-column {
     display: flex;
     flex-direction: column;
-    width: 600px;
-    margin-top: 50px;
+    width: 450px;
     gap: 75px;
-    /* border: 1px solid black; */
 }
 
-.body-div__main-content-div__content__left-column__my-stats-div {
-    width: 400px;
-    justify-content: space-around;
-    align-self: center;
+.body-div__main-content-div__content__left-column__my-stats-div, 
+.body-div__main-content-div__content__left-column__records-div, 
+.body-div__main-content-div__content__right-column {
+    border: 1px solid var(--clr-general-4);
+    border-radius: 5px;
+    width: 450px;
+    padding: 25px 35px;
+    background-color: var(--clr-general-5);
 }
 
 .body-div__main-content-div__content__left-column__my-stats-div__header, 
 .body-div__main-content-div__content__left-column__records-div__header, 
 .body-div__main-content-div__content__right-column__leaderboard-div__header {
-    text-align: center;
     font-size: var(--fs-3);
     font-weight: var(--fw-bold);
-    margin-bottom: 30px;
+    margin-bottom: 45px;
 }
 
 .body-div__main-content-div__content__left-column__my-stats-div__content {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 9px;
 }
 
 .body-div__main-content-div__content__left-column__my-stats-div__content p {
@@ -308,23 +309,30 @@ a {
     transform: scale(1.04);
 }
 
-.body-div__main-content-div__content__right-column {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    margin-top: 50px;
-    gap: 15px;
-    /* border: 1px solid black; */
+.body-div__main-content-div__content__right-column__leaderboard-div__category-div {
+    width: 378px;
 }
 
 .body-div__main-content-div__content__right-column__leaderboard-div__category-div__header {
     font-weight: var(--fw-medium);
-    text-align: center;
+    text-align: left;
 }
 
 .body-div__main-content-div__content__right-column__leaderboard-div__category-div__description {
-    text-align: center;
     font-size: var(--fs-5);
+    text-align: left;
+}
+
+.body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div tr {
+    height: 25px;
+}
+
+.body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score {
+    width: 45px;
+}
+
+.right_hr {
+    margin: 10px 0;
 }
 
 /* body__main content view -> my quizzes */

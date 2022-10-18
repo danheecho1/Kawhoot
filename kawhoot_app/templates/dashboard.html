@@ -64,8 +64,11 @@
                             <h3 class="body-div__main-content-div__content__left-column__my-stats-div__header">My Stats</h3>
                             <div class="body-div__main-content-div__content__left-column__my-stats-div__content">
                                 <p># of quizzes created: <span>{{my_quizzes_count}}</span></p>
+                                <hr class="left_hr">
                                 <p># of quizzes taken: <span>{{my_attempts_count}}</span></p>
+                                <hr class="left_hr">
                                 <p># of attempts at my quizzes: <span>{{attempts_at_my_quizzes_count}}</span></p>
+                                <hr class="left_hr">
                                 <p>Unweighted average score for my quizzes: 
                                     {% if average_for_my_quizzes == None %}
                                     <span>0</span>
@@ -73,6 +76,7 @@
                                     <span>{{average_for_my_quizzes}}</span>
                                     {% endif %}
                                 </p>
+                                <hr class="left_hr">
                                 <p>Average score for my attempts: 
                                     {% if my_average_score == None %}
                                     <span>0</span>
@@ -108,7 +112,7 @@
                                     <td>#1</td>
                                     {% if scorehunters[0] %}
                                     <td>{{scorehunters[0].username}}</td>
-                                    <td>{{scorehunters[0].total_score_earned}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{scorehunters[0].total_score_earned}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
@@ -117,7 +121,7 @@
                                     <td>#2</td>
                                     {% if scorehunters[1] %}
                                     <td>{{scorehunters[1].username}}</td>
-                                    <td>{{scorehunters[1].total_score_earned}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{scorehunters[1].total_score_earned}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
@@ -126,7 +130,7 @@
                                     <td>#3</td>
                                     {% if scorehunters[2] %}
                                     <td>{{scorehunters[2].username}}</td>
-                                    <td>{{scorehunters[2].total_score_earned}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{scorehunters[2].total_score_earned}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
@@ -135,7 +139,7 @@
                                     <td>#4</td>
                                     {% if scorehunters[3] %}
                                     <td>{{scorehunters[3].username}}</td>
-                                    <td>{{scorehunters[3].total_score_earned}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{scorehunters[3].total_score_earned}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
@@ -144,13 +148,14 @@
                                     <td>#5</td>
                                     {% if scorehunters[4] %}
                                     <td>{{scorehunters[4].username}}</td>
-                                    <td>{{scorehunters[4].total_score_earned}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{scorehunters[4].total_score_earned}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
                                 </tr>
                             </tbody>
                         </table>
+                        <hr class="right_hr">
                         <table class="body-div__main-content-div__content__right-column__leaderboard-div__category-div">
                             <thead>
                                 <tr>
@@ -165,7 +170,7 @@
                                     <td>#1</td>
                                     {% if steadyhunters[0] %}
                                     <td>{{steadyhunters[0].username}}</td>
-                                    <td>{{steadyhunters[0].average_score}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{steadyhunters[0].average_score}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
@@ -174,7 +179,7 @@
                                     <td>#2</td>
                                     {% if steadyhunters[1] %}
                                     <td>{{steadyhunters[1].username}}</td>
-                                    <td>{{steadyhunters[1].average_score}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{steadyhunters[1].average_score}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
@@ -183,7 +188,7 @@
                                     <td>#3</td>
                                     {% if steadyhunters[2] %}
                                     <td>{{steadyhunters[2].username}}</td>
-                                    <td>{{steadyhunters[2].average_score}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{steadyhunters[2].average_score}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
@@ -192,7 +197,7 @@
                                     <td>#4</td>
                                     {% if steadyhunters[3] %}
                                     <td>{{steadyhunters[3].username}}</td>
-                                    <td>{{steadyhunters[3].average_score}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{steadyhunters[3].average_score}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
@@ -201,13 +206,14 @@
                                     <td>#5</td>
                                     {% if steadyhunters[4] %}
                                     <td>{{steadyhunters[4].username}}</td>
-                                    <td>{{steadyhunters[4].average_score}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{steadyhunters[4].average_score}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
                                 </tr>
                             </tbody>
                         </table>
+                        <hr class="right_hr">
                         <table class="body-div__main-content-div__content__right-column__leaderboard-div__category-div">
                             <thead>
                                 <tr>
@@ -222,7 +228,7 @@
                                     <td>#1</td>
                                     {% if quizcreators[0] %}
                                     <td>{{quizcreators[0].username}}</td>
-                                    <td>{{quizcreators[0].create_quiz_count}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{quizcreators[0].create_quiz_count}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
@@ -231,7 +237,7 @@
                                     <td>#2</td>
                                     {% if quizcreators[1] %}
                                     <td>{{quizcreators[1].username}}</td>
-                                    <td>{{quizcreators[1].create_quiz_count}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{quizcreators[1].create_quiz_count}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
@@ -240,7 +246,7 @@
                                     <td>#3</td>
                                     {% if quizcreators[2] %}
                                     <td>{{quizcreators[2].username}}</td>
-                                    <td>{{quizcreators[2].create_quiz_count}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{quizcreators[2].create_quiz_count}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
@@ -249,7 +255,7 @@
                                     <td>#4</td>
                                     {% if quizcreators[3] %}
                                     <td>{{quizcreators[3].username}}</td>
-                                    <td>{{quizcreators[3].create_quiz_count}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{quizcreators[3].create_quiz_count}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}
@@ -258,7 +264,7 @@
                                     <td>#5</td>
                                     {% if quizcreators[4] %}
                                     <td>{{quizcreators[4].username}}</td>
-                                    <td>{{quizcreators[4].create_quiz_count}}</td>
+                                    <td class="body-div__main-content-div__content__right-column__leaderboard-div__category-div__list-div__tr__td--score">{{quizcreators[4].create_quiz_count}}</td>
                                     {% else %}
                                     <td colspan="2">No recordholder yet</td>
                                     {% endif %}

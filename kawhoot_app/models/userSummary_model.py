@@ -13,7 +13,7 @@ class UserSummary:
 
     @classmethod
     def create_user_summary(cls, data): 
-        query = "INSERT INTO usersummaries (total_score_earned, average_score, attempt_count, create_quiz_count, created_at, updated_at, user_id) VALUES (0, 0, 0, 0, NOW(), NOW(), %(user_id)s;);"
+        query = "INSERT INTO usersummaries (total_score_earned, average_score, attempt_count, create_quiz_count, created_at, updated_at, user_id) VALUES (0, 0, 0, 0, NOW(), NOW(), %(user_id)s);"
         return connectToMySQL('kawhoot_schema').query_db(query, data)
 
     @classmethod

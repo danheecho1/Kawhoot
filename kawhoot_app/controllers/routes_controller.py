@@ -25,7 +25,6 @@ def register():
 def register_post(): 
     if not User.validate_registration(request.form): 
         return redirect('/register')
-
     encrypted_password = bcrypt.generate_password_hash(request.form['password'])
     data = {
         'username': request.form['username'],
@@ -35,6 +34,7 @@ def register_post():
     User.register_user(data)
     logged_in_user = User.get_user_by_username({'username': request.form['username']})
     session['logged_in_user_id'] = logged_in_user.id
+    UserSummary.create_user_summary({'user_id': session['logged_in_user_id']})
     return redirect('/dashboard')
 
 @app.route('/login')
