@@ -57,7 +57,7 @@
                 <h1 class="util--page-header">{{quiz[0].title}}</h1>
                 <div class="body-div__main-content-div__quiz-detail-div">
                     <div class="body-div__main-content-div__quiz-detail-div__header-div">
-                        <h2>By {{quiz[0].username}}</h2>
+                        <h2 class="body-div__main-content-div__quiz-detail-div__header-div__created_by">By {{quiz[0].username}}</h2>
                         <div>
                             <h3 class="body-div__main-content-div__quiz-detail-div__header-div__timestamps">Created on {{quiz[0].created_at}}</h3>
                             {% if quiz[0].created_at != quiz[0].updated_at %}
@@ -65,21 +65,21 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div style="display: flex; justify-content: space-between">
-                        <div style="display: flex; flex-direction: column; justify-content: space-between; width: 450px;">
+                    <div class="body-div__main-content-div__quiz-detail-div__info-div">
+                        <div class="body-div__main-content-div__quiz-detail-div__info-div__left-side">
                             {% if quiz_owner_id == logged_in_user_id %}
                             <p class="body-div__main-content-div__quiz-detail-div__validation">* You cannot take your own quiz.</p>
                             {% endif %}
-                            <p>{{quiz[0].description}}</p>
-                            <p>Number of takers: {{count[0]['COUNT(*)']}}</p>
-                            <p>Average score: {{summary[0]['average_score']}} / 10.0</p>
+                            <p><span style="font-weight: var(--fw-medium)">Description: </span>{{quiz[0].description}}</p>
+                            <p><span style="font-weight: var(--fw-medium)">Number of takers: </span>{{count[0]['COUNT(*)']}}</p>
+                            <p><span style="font-weight: var(--fw-medium)">Average score: </span>{{summary[0]['average_score']}} / 10.0</p>
                         </div>
-                        <div>
-                            <h3>Leaderboard</h3>
-                            <table>
+                        <div class="body-div__main-content-div__quiz-detail-div__info-div__right-side">
+                            <h3 class="body-div__main-content-div__quiz-detail-div__info-div__right-side__header">Leaderboard</h3>
+                            <table class="body-div__main-content-div__quiz-detail-div__info-div__right-side__table">
                                 <thead>
                                     <tr>
-                                        <th>Place</th>
+                                        <th></th>
                                         <th>Name</th>
                                         <th>Score</th>
                                         <th>Scored on</th>
@@ -93,7 +93,9 @@
                                         <td>{{leaders[0].score}} / 10.0</td>
                                         <td>{{leaders[0].created_at}}</td>
                                         {% else %}
-                                        <td colspan="3">No recordholder yet</td>
+                                        <td>N/A</td>
+                                        <td>N/A</td>
+                                        <td>N/A</td>
                                         {% endif %}
                                     </tr>
                                     <tr>
@@ -103,7 +105,9 @@
                                         <td>{{leaders[1].score}} / 10.0</td>
                                         <td>{{leaders[1].created_at}}</td>
                                         {% else %}
-                                        <td colspan="3">No recordholder yet</td>
+                                        <td>N/A</td>
+                                        <td>N/A</td>
+                                        <td>N/A</td>
                                         {% endif %}
                                     </tr>
                                     <tr>
@@ -113,7 +117,9 @@
                                         <td>{{leaders[2].score}} / 10.0</td>
                                         <td>{{leaders[2].created_at}}</td>
                                         {% else %}
-                                        <td colspan="3">No recordholder yet</td>
+                                        <td>N/A</td>
+                                        <td>N/A</td>
+                                        <td>N/A</td>
                                         {% endif %}
                                     </tr>
                                 </tbody>
