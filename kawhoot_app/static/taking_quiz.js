@@ -9,6 +9,17 @@ var question8 = document.getElementById("question8")
 var question9 = document.getElementById("question9")
 var question10 = document.getElementById("question10")
 
+var answer1 = document.getElementById("answer1")
+var answer2 = document.getElementById("answer2")
+var answer3 = document.getElementById("answer3")
+var answer4 = document.getElementById("answer4")
+var answer5 = document.getElementById("answer5")
+var answer6 = document.getElementById("answer6")
+var answer7 = document.getElementById("answer7")
+var answer8 = document.getElementById("answer8")
+var answer9 = document.getElementById("answer9")
+var answer10 = document.getElementById("answer10")
+
 var Next1 = document.getElementById("next1")
 var Next2 = document.getElementById("next2")
 var Next3 = document.getElementById("next3")
@@ -173,6 +184,16 @@ Next9.onclick = function() {
 back9.onclick = function() {
     question9.style.display = 'none';
     question8.style.display = 'block';
+}
+
+finish.onclick = function() {
+    if(!answer1.value || !answer2.value || !answer3.value || !answer4.value || !answer5.value || !answer6.value || !answer7.value || !answer8.value || !answer9.value || !answer10.value) {
+        alert("All questions must be answered!")
+        finish.setAttribute('type', 'button')
+        }
+    else {
+        finish.setAttribute('type', 'submit')
+    }
 }
 
 back10.onclick = function() {
