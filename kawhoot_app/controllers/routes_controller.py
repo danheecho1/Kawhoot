@@ -96,6 +96,66 @@ def attempts_at_me(page):
     prev = page - 1
     return render_template('attempts.html', attempts = attempts_at_my_quizzes, pages = total_pages, next = next, prev = prev)
 
+@app.route('/dashboard/attempts/search_post', methods=['POST'])
+def attempts_at_me_search_post():
+    data = {
+        'search_keyword': request.form['search_keyword'], 
+        'search_type': request.form['search_type'], 
+        'user_id': session['logged_in_user_id']
+    }
+    search_result = Result.grab_attempts_at_my_quiz_from_search(data)
+    session['search_result'] = search_result
+    print("POST METHOD DONE")
+    return redirect('/dashboard/attempts/search')
+
+@app.route('/dashboard/attempts/search', defaults={'page': 1})
+@app.route('/dashboard/attempts/search/<int:page>')
+def attempts_at_me_search(page): 
+    limit = 10
+    offset = page * limit - limit
+    data = {
+        'user_id': session['logged_in_user_id'],
+        'limit': limit, 
+        'offset': offset
+    }
+    attempts_at_my_quizzes = session['search_result']
+    number_of_attempts = Result.get_attempts_count(data)
+    total_pages = math.ceil(number_of_attempts / limit)
+    next = page + 1
+    prev = page - 1
+    return render_template('attempts.html', attempts = attempts_at_my_quizzes, pages = total_pages, next = next, prev = prev)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/dashboard/myattempts', defaults={'page': 1})
 @app.route('/dashboard/myattempts/<int:page>')
 def my_attempts(page): 
