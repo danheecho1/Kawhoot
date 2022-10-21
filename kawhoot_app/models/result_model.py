@@ -37,7 +37,7 @@ class Result:
 
     @classmethod
     def grab_attempts_at_my_quiz(cls, data): 
-        query = "SELECT score, CAST(results.created_at AS DATE) AS date, title, username FROM results JOIN quizzes ON quizzes.id = results.quiz_id JOIN users ON results.user_id = users.id WHERE quizzes.user_id = %(user_id)s;"
+        query = "SELECT score, CAST(results.created_at AS DATE) AS date, title, username FROM results JOIN quizzes ON quizzes.id = results.quiz_id JOIN users ON results.user_id = users.id WHERE quizzes.user_id = %(user_id)s ORDER BY results.created_at DESC;"
         return connectToMySQL('kawhoot_schema').query_db(query, data)
 
     @classmethod

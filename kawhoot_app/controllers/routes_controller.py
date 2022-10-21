@@ -98,32 +98,28 @@ def attempts_at_me(page):
 
 @app.route('/dashboard/attempts/search_post', methods=['POST'])
 def attempts_at_me_search_post():
-    data = {
-        'search_keyword': request.form['search_keyword'], 
-        'search_type': request.form['search_type'], 
-        'user_id': session['logged_in_user_id']
-    }
-    search_result = Result.grab_attempts_at_my_quiz_from_search(data)
-    session['search_result'] = search_result
-    print("POST METHOD DONE")
-    return redirect('/dashboard/attempts/search')
+    search_keyword = request.form['search_keyword']
+    search_type = request.form['search_type']
+    return redirect(f'/dashboard/attempts/search/{search_type}/{search_keyword}')
 
-@app.route('/dashboard/attempts/search', defaults={'page': 1})
-@app.route('/dashboard/attempts/search/<int:page>')
-def attempts_at_me_search(page): 
+@app.route('/dashboard/attempts/search/<search_type>/<search_keyword>', defaults={'page': 1})
+@app.route('/dashboard/attempts/search/<search_type>/<search_keyword>/<int:page>')
+def attempts_at_me_search(page, search_type, search_keyword): 
     limit = 10
     offset = page * limit - limit
     data = {
         'user_id': session['logged_in_user_id'],
         'limit': limit, 
-        'offset': offset
+        'offset': offset, 
+        'search_type': search_type, 
+        'search_keyword': search_keyword
     }
-    attempts_at_my_quizzes = session['search_result']
+    attempts_at_my_quizzes = Result.grab_attempts_at_my_quiz_from_search(data)
     number_of_attempts = Result.get_attempts_count(data)
     total_pages = math.ceil(number_of_attempts / limit)
     next = page + 1
     prev = page - 1
-    return render_template('attempts.html', attempts = attempts_at_my_quizzes, pages = total_pages, next = next, prev = prev)
+    return render_template('attempts_search.html', attempts = attempts_at_my_quizzes, pages = total_pages, next = next, prev = prev)
 
 
 
