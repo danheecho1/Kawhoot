@@ -57,10 +57,10 @@
                 <h1 class="util--page-header">Attempts at My Quizzes</h1>
                 <!-- search bar -->
                 <div class="body-div__main-content-div__search-bar-div">
-                    <form action="/my_quizzes/search" method="post" class="body-div__main-content-div__search-bar-div__form">
+                    <form action="/dashboard/attempts/search_post" method="post" class="body-div__main-content-div__search-bar-div__form">
                         <select name="search_type" id="" class="body-div__main-content-div__search-bar-div__form__select">
-                            <option value="title">Search by Taker</option>
-                            <option value="description">Search by Quiz Title</option>
+                            <option value="username">Search by Taker</option>
+                            <option value="title">Search by Quiz Title</option>
                         </select>
                         <input type="text" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input">
                         <button type="submit" class="body-div__main-content-div__search-bar-div__new-button util--btn">Search</button>

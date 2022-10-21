@@ -54,17 +54,17 @@
             </div>
             <!-- main content view -->
             <div class="body-div__main-content-div">
-                <h1 class="util--page-header">Attempts at My Quizzes</h1>
+                <h1 class="util--page-header">My Attempts</h1>
                 <!-- search bar -->
                 <div class="body-div__main-content-div__search-bar-div">
-                    <form action="/dashboard/attempts/search_post" method="post" class="body-div__main-content-div__search-bar-div__form">
+                    <form action="/dashboard/attempts/search" method="post" class="body-div__main-content-div__search-bar-div__form">
                         <select name="search_type" id="" class="body-div__main-content-div__search-bar-div__form__select">
-                            <option value="username">Search by Taker</option>
-                            <option value="title">Search by Quiz Title</option>
+                            <option value="title">Search by Title</option>
+                            <option value="description">Search by Quiz Owner</option>
                         </select>
                         <input type="text" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input">
-                        <button type="submit" class="body-div__main-content-div__search-bar-div__new-button util--btn">Search</button>
                     </form>
+                    <button type="submit" class="body-div__main-content-div__search-bar-div__new-button util--btn">Search</button>
                 </div>
                 {% if attempts %}
                 <!-- my quizzes table -->
@@ -73,8 +73,8 @@
                         <thead>
                             <tr>
                                 <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">#</th>
-                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Taker</th>
-                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Quiz</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Title</th>
+                                <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Owner</th>
                                 <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Attempted on</th>
                                 <th class="body-div__main-content-div__my-quizzes-table-thead__tr__th">Score</th>
                             </tr>
@@ -83,8 +83,8 @@
                     {% for attempt in attempts %}
                             <tr class="body-div__main-content-div__my-quizzes-table_tbody__tr">
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{loop.revindex}}</td>
-                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.username}}</td>
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.title}}</td>
+                                <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.username}}</td>
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.date}}</td>
                                 <td class="body-div__main-content-div__my-quizzes-table__tbody__tr__td">{{attempt.score}} / 10.0</td>
                             </tr>
@@ -92,26 +92,26 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- pagination -->
-                <ul class="body-div__main-content-div__pagination-ul">
-                {% if prev >= 1 %}
-                    <a href="/dashboard/attempts/{{prev}}" class="body-div__main-content-div__pagination__a"><< Previous</a>
-                    {% endif %}
-                        {% for page in range(pages) %}
-                    <li>
-                        <a href="/dashboard/attempts/{{loop.index}}" class="body-div__main-content-div__pagination__a">{{loop.index}}</a>
-                    </li>
-                        {% endfor %}
-                    {% if next <= pages %}
-                    <a href="/dashboard/attempts/{{next}}" class="body-div__main-content-div__pagination__a">Next >></a>
-                {% endif %}
-                </ul>
                 {% else %}
                 <!-- my quizzes table -->
                 <div class="body-div__main-content-div__no-quiz-yet">
-                    <h3>No one has taken your quizzes yet!</h3>
+                    <h3>You have not taken any quizzes yet!</h3>
                 </div>
                 {% endif %}
+                <!-- pagination -->
+                <ul class="body-div__main-content-div__pagination-ul">
+                {% if prev >= 1 %}
+                    <a href="/dashboard/myattempts/{{prev}}" class="body-div__main-content-div__pagination__a"><< Previous</a>
+                    {% endif %}
+                        {% for page in range(pages) %}
+                    <li>
+                        <a href="/dashboard/myattempts/{{loop.index}}" class="body-div__main-content-div__pagination__a">{{loop.index}}</a>
+                    </li>
+                        {% endfor %}
+                    {% if next <= pages %}
+                    <a href="/dashboard/myattempts/{{next}}" class="body-div__main-content-div__pagination__a">Next >></a>
+                {% endif %}
+                </ul>
             </div>
         </div>
         <!-- footer -->
