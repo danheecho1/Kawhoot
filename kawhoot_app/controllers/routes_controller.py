@@ -119,38 +119,7 @@ def attempts_at_me_search(page, search_type, search_keyword):
     total_pages = math.ceil(number_of_attempts / limit)
     next = page + 1
     prev = page - 1
-    return render_template('attempts_search.html', attempts = attempts_at_my_quizzes, pages = total_pages, next = next, prev = prev)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return render_template('attempts_search.html', attempts = attempts_at_my_quizzes, pages = total_pages, next = next, prev = prev, search_type = search_type, search_keyword = search_keyword)
 
 @app.route('/dashboard/myattempts', defaults={'page': 1})
 @app.route('/dashboard/myattempts/<int:page>')
@@ -168,6 +137,31 @@ def my_attempts(page):
     next = page + 1
     prev = page - 1
     return render_template('my_attempts.html', attempts = my_attempts, pages = total_pages, next = next, prev = prev)
+
+@app.route('/dashboard/myattempts/search_post', methods=['POST'])
+def my_attempts_search_post():
+    search_keyword = request.form['search_keyword']
+    search_type = request.form['search_type']
+    return redirect(f'/dashboard/myattempts/search/{search_type}/{search_keyword}')
+
+@app.route('/dashboard/myattempts/search/<search_type>/<search_keyword>', defaults={'page': 1})
+@app.route('/dashboard/myattempts/search/<search_type>/<search_keyword>/<int:page>')
+def my_attempts_search(page, search_type, search_keyword): 
+    limit = 10
+    offset = page * limit - limit
+    data = {
+        'user_id': session['logged_in_user_id'],
+        'limit': limit, 
+        'offset': offset, 
+        'search_type': search_type, 
+        'search_keyword': search_keyword
+    }
+    my_attempts = Result.get_my_attempts_from_search(data)
+    number_of_attempts = Result.get_attempts_count(data)
+    total_pages = math.ceil(number_of_attempts / limit)
+    next = page + 1
+    prev = page - 1
+    return render_template('my_attempts_search.html', attempts = my_attempts, pages = total_pages, next = next, prev = prev, search_type = search_type, search_keyword = search_keyword)
 
 @app.route('/my_quizzes', defaults={'page': 1})
 @app.route('/my_quizzes/<int:page>')

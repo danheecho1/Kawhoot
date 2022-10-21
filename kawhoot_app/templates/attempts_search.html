@@ -94,22 +94,26 @@
                 </div>
                 <!-- pagination -->
                 <ul class="body-div__main-content-div__pagination-ul">
-                {% if prev >= 1 %}
+                    {% if prev >= 1 %}
                     <a href="/dashboard/attempts/{{prev}}" class="body-div__main-content-div__pagination__a"><< Previous</a>
                     {% endif %}
-                        {% for page in range(pages) %}
+                    {% for page in range(pages) %}
                     <li>
                         <a href="/dashboard/attempts/{{loop.index}}" class="body-div__main-content-div__pagination__a">{{loop.index}}</a>
                     </li>
-                        {% endfor %}
+                    {% endfor %}
                     {% if next <= pages %}
                     <a href="/dashboard/attempts/{{next}}" class="body-div__main-content-div__pagination__a">Next >></a>
-                {% endif %}
+                    {% endif %}
                 </ul>
                 {% else %}
                 <!-- my quizzes table -->
                 <div class="body-div__main-content-div__no-quiz-yet">
-                    <h3>No one has taken your quizzes yet!</h3>
+                    {% if search_type == 'username' %}
+                    <h3>No one with a username containing '{{search_keyword}}' has taken your quizzes yet.</h3>
+                    {% else %}
+                    <h3>Either you don't have a quiz with '{{search_keyword}}' in the title or no one took that quiz yet.</h3>
+                    {% endif %}
                 </div>
                 {% endif %}
             </div>

@@ -61,6 +61,13 @@ class Result:
         return connectToMySQL('kawhoot_schema').query_db(query, data)
 
     @classmethod
+    def get_my_attempts_from_search(cls, data):
+        search_keyword = data['search_keyword']
+        search_type = data['search_type']
+        query = "SELECT score, CAST(results.created_at AS DATE) AS date, title, username FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN users ON quizzes.user_id = users.id WHERE (results.user_id = %(user_id)s AND "+search_type+" LIKE '%%" + search_keyword + "%%') ORDER BY results.created_at DESC;"
+        return connectToMySQL('kawhoot_schema').query_db(query, data)
+
+    @classmethod
     def get_my_attempts_count(cls, data):
         query = "SELECT COUNT(*) FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN users ON quizzes.user_id = users.id WHERE results.user_id = %(user_id)s;"
         result = connectToMySQL('kawhoot_schema').query_db(query, data)
