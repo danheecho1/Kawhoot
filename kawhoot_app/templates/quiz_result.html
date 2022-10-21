@@ -54,19 +54,21 @@
             </div>
             <!-- main content view -->
             <div class="body-div__main-content-div">
-                <h1 class="util--page-header">Result</h1>
+                <h1 class="util--page-header">{{result[0].title}}</h1>
                 <div class="body-div__main-content-div__quiz-detail-div">
-                    <h2>{{result[0].title}}</h2>
-                    <div class="body-div__main-content-div__quiz-detail-div__header-div">
-                        <h2>Created by {{quiz[0]['username']}}</h2>
-                        <h3>{{result[0].quiz_created_at}}</h3>
-                    </div>
                     <div class="body-div__main-content-div__quiz-detail-div__header-div">
                         <h2>Taken by {{result[0].username}}</h2>
-                        <h3>{{result[0].result_created_at}}</h3>
+                        <h3>Attempt made on {{result[0].result_created_at}}</h3>
                     </div>
-                    <p>Your score: {{result[0].score}}</p>
-                    <p>Average score for this quiz: {{summary[0]['average_score']}} / 10</p>
+                    {% if result[0].score == 10 %}
+                    <p style="font-weight: var(--fw-medium); color: var(--clr-general-6); font-size: var(--fs-3)">You scored a perfect 10 out of 10!!</p>
+                    {% elif result[0].score > summary[0]['average_score'] %}
+                    <p style="font-weight: var(--fw-medium); color: var(--clr-theme-1); font-size: var(--fs-3)">You did better than average.. at least for the time being!</p>
+                    {% else %}
+                    <p style="font-weight: var(--fw-medium); color: var(--clr-general-7); font-size: var(--fs-3)">Don't tell people you took this quiz... because you did worse than the average!</p>
+                    {% endif %}
+                    <p><span style="font-weight: var(--fw-medium)">Your score: </span>{{result[0].score}}</p>
+                    <p><span style="font-weight: var(--fw-medium)">Average score for this quiz: </span>{{summary[0]['average_score']}} / 10</>
                 </div>
             </div>
         </div>

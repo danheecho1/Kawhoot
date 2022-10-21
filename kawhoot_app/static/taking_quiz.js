@@ -1,4 +1,4 @@
-var question1 = document.getElementById("body-div__main-content-div__form")
+var question1 = document.getElementById("question1")
 var question2 = document.getElementById("question2")
 var question3 = document.getElementById("question3")
 var question4 = document.getElementById("question4")
@@ -8,17 +8,6 @@ var question7 = document.getElementById("question7")
 var question8 = document.getElementById("question8")
 var question9 = document.getElementById("question9")
 var question10 = document.getElementById("question10")
-
-var answer1 = document.getElementById("answer1")
-var answer2 = document.getElementById("answer2")
-var answer3 = document.getElementById("answer3")
-var answer4 = document.getElementById("answer4")
-var answer5 = document.getElementById("answer5")
-var answer6 = document.getElementById("answer6")
-var answer7 = document.getElementById("answer7")
-var answer8 = document.getElementById("answer8")
-var answer9 = document.getElementById("answer9")
-var answer10 = document.getElementById("answer10")
 
 var Next1 = document.getElementById("next1")
 var Next2 = document.getElementById("next2")
@@ -187,9 +176,19 @@ back9.onclick = function() {
 }
 
 finish.onclick = function() {
-    if(!answer1.value || !answer2.value || !answer3.value || !answer4.value || !answer5.value || !answer6.value || !answer7.value || !answer8.value || !answer9.value || !answer10.value) {
-        alert("All questions must be answered!")
+    let answer1 = document.querySelector('input[name="answer1"]:checked');
+    let answer2 = document.querySelector('input[name="answer2"]:checked');
+    let answer3 = document.querySelector('input[name="answer3"]:checked');
+    let answer4 = document.querySelector('input[name="answer4"]:checked');
+    let answer5 = document.querySelector('input[name="answer5"]:checked');
+    let answer6 = document.querySelector('input[name="answer6"]:checked');
+    let answer7 = document.querySelector('input[name="answer7"]:checked');
+    let answer8 = document.querySelector('input[name="answer8"]:checked');
+    let answer9 = document.querySelector('input[name="answer9"]:checked');
+    let answer10 = document.querySelector('input[name="answer10"]:checked');
+    if(!answer1 || !answer2 || !answer3 || !answer4 || !answer5 || !answer6 || !answer7 || !answer8 || !answer9 || !answer10) {
         finish.setAttribute('type', 'button')
+        alert("All questions must be answered!")
         }
     else {
         finish.setAttribute('type', 'submit')

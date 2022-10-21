@@ -57,7 +57,7 @@
                 <h1 class="util--page-header">{{quiz['title']}}</h1>
                 <form action="/quiz/{{user_id}}/{{quiz_id}}/done" method="post">
                     <!-- question 1 -->
-                    <div id="body-div__main-content-div__form" id="question1">
+                    <div class="body-div__main-content-div__form" id="question1">
                         <div class="body-div__main-content-div__question-div__prompt-div">
                             <h2>Question (1/10)</h2>
                             <h3>{{questions[0]['prompt']}}</h3>
@@ -65,35 +65,35 @@
                         <div class="body-div__main-content-div__choices-div">
                             <div class="body-div__main-content-div__choices-div__list">
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer1" name="answer1" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer1" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">A</h3>
                                         <p>{{questions[0]['a']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer1"  name="answer1" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input  name="answer1" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">B</h3>
                                         <p>{{questions[0]['b']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer1"  name="answer1" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input  name="answer1" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">C</h3>
                                         <p>{{questions[0]['c']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer1"  name="answer1" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input  name="answer1" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">D</h3>
                                         <p>{{questions[0]['d']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer1"  name="answer1" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input  name="answer1" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">E</h3>
                                         <p>{{questions[0]['e']}}</p>
@@ -114,35 +114,35 @@
                         <div class="body-div__main-content-div__choices-div">
                             <div class="body-div__main-content-div__choices-div__list">
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer2" name="answer2" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer2" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">A</h3>
                                         <p>{{questions[1]['a']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer2" name="answer2" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer2" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">B</h3>
                                         <p>{{questions[1]['b']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer2" name="answer2" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer2" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">C</h3>
                                         <p>{{questions[1]['c']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer2" name="answer2" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer2" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">D</h3>
                                         <p>{{questions[1]['d']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer2" name="answer2" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer2" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">E</h3>
                                         <p>{{questions[1]['e']}}</p>
@@ -164,35 +164,35 @@
                         <div class="body-div__main-content-div__choices-div">
                             <div class="body-div__main-content-div__choices-div__list">
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer3" name="answer3" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer3" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">A</h3>
                                         <p>{{questions[2]['a']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer3" name="answer3" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer3" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">B</h3>
                                         <p>{{questions[2]['b']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer3" name="answer3" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer3" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">C</h3>
                                         <p>{{questions[2]['c']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer3" name="answer3" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer3" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">D</h3>
                                         <p>{{questions[2]['d']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer3" name="answer3" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer3" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">E</h3>
                                         <p>{{questions[2]['e']}}</p>
@@ -214,35 +214,35 @@
                         <div class="body-div__main-content-div__choices-div">
                             <div class="body-div__main-content-div__choices-div__list">
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer4" name="answer4" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer4" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">A</h3>
                                         <p>{{questions[3]['a']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer4" name="answer4" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer4" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">B</h3>
                                         <p>{{questions[3]['b']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer4" name="answer4" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer4" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">C</h3>
                                         <p>{{questions[3]['c']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer4" name="answer4" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer4" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">D</h3>
                                         <p>{{questions[3]['d']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer4" name="answer4" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer4" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">E</h3>
                                         <p>{{questions[3]['e']}}</p>
@@ -264,35 +264,35 @@
                         <div class="body-div__main-content-div__choices-div">
                             <div class="body-div__main-content-div__choices-div__list">
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer5" name="answer5" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer5" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">A</h3>
                                         <p>{{questions[4]['a']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer5" name="answer5" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer5" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">B</h3>
                                         <p>{{questions[4]['b']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer5" name="answer5" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer5" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">C</h3>
                                         <p>{{questions[4]['c']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer5" name="answer5" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer5" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">D</h3>
                                         <p>{{questions[4]['d']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer5" name="answer5" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer5" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">E</h3>
                                         <p>{{questions[4]['e']}}</p>
@@ -314,35 +314,35 @@
                         <div class="body-div__main-content-div__choices-div">
                             <div class="body-div__main-content-div__choices-div__list">
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer6" name="answer6" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer6" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">A</h3>
                                         <p>{{questions[5]['a']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer6" name="answer6" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer6" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">B</h3>
                                         <p>{{questions[5]['b']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer6" name="answer6" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer6" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">C</h3>
                                         <p>{{questions[5]['c']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer6" name="answer6" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer6" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">D</h3>
                                         <p>{{questions[5]['d']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer6" name="answer6" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer6" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">E</h3>
                                         <p>{{questions[5]['e']}}</p>
@@ -364,35 +364,35 @@
                         <div class="body-div__main-content-div__choices-div">
                             <div class="body-div__main-content-div__choices-div__list">
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer7" name="answer7" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer7" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">A</h3>
                                         <p>{{questions[6]['a']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer7" name="answer7" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer7" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">B</h3>
                                         <p>{{questions[6]['b']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer7" name="answer7" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer7" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">C</h3>
                                         <p>{{questions[6]['c']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer7" name="answer7" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer7" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">D</h3>
                                         <p>{{questions[6]['d']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer7" name="answer7" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer7" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">E</h3>
                                         <p>{{questions[6]['e']}}</p>
@@ -414,35 +414,35 @@
                         <div class="body-div__main-content-div__choices-div">
                             <div class="body-div__main-content-div__choices-div__list">
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer8" name="answer8" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer8" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">A</h3>
                                         <p>{{questions[7]['a']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer8" name="answer8" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer8" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">B</h3>
                                         <p>{{questions[7]['b']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer8" name="answer8" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer8" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">C</h3>
                                         <p>{{questions[7]['c']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer8" name="answer8" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer8" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">D</h3>
                                         <p>{{questions[7]['d']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer8" name="answer8" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer8" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">E</h3>
                                         <p>{{questions[7]['e']}}</p>
@@ -464,35 +464,35 @@
                         <div class="body-div__main-content-div__choices-div">
                             <div class="body-div__main-content-div__choices-div__list">
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer9" name="answer9" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer9" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">A</h3>
                                         <p>{{questions[8]['a']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer9" name="answer9" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer9" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">B</h3>
                                         <p>{{questions[8]['b']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer9" name="answer9" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer9" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">C</h3>
                                         <p>{{questions[8]['c']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer9" name="answer9" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer9" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">D</h3>
                                         <p>{{questions[8]['d']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer9" name="answer9" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer9" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">E</h3>
                                         <p>{{questions[8]['e']}}</p>
@@ -514,35 +514,35 @@
                         <div class="body-div__main-content-div__choices-div">
                             <div class="body-div__main-content-div__choices-div__list">
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer10" name="answer10" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer10" type="radio" value="a" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">A</h3>
                                         <p>{{questions[9]['a']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer10" name="answer10" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer10" type="radio" value="b" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">B</h3>
                                         <p>{{questions[9]['b']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer10" name="answer10" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer10" type="radio" value="c" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">C</h3>
                                         <p>{{questions[9]['c']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer10" name="answer10" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer10" type="radio" value="d" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">D</h3>
                                         <p>{{questions[9]['d']}}</p>
                                     </div>
                                 </label>
                                 <label class="body-div__main-content-div__choices-div__list__selection">
-                                    <input id="answer10" name="answer10" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
+                                    <input name="answer10" type="radio" value="e" class="body-div__main-content-div__choices-div__list__selection__input">
                                     <div>
                                         <h3 class="body-div__main-content-div__form-label-input-div--options-div__choices-div__label">E</h3>
                                         <p>{{questions[9]['e']}}</p>

@@ -548,6 +548,10 @@ a {
     display: none;
 }
 
+#question1 {
+    display: block;
+}
+
 .body-div__main-content-div__form__question-div {
     display: flex;
     flex-direction: column;
@@ -601,6 +605,10 @@ a {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+}
+
+.body-div__main-content-div__quiz-detail-div__header-div h2 {
+    font-weight: var(--fw-bold);
 }
 
 .body-div__main-content-div__quiz-detail-div__header-div__created_by {
