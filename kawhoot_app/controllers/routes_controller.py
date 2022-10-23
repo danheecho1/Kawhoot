@@ -609,3 +609,7 @@ def update_password():
     encrypted_password = bcrypt.generate_password_hash(data['new_password'])
     User.update_password({'new_password': encrypted_password, 'user_id': data['user_id']})
     return redirect('/edit_profile')
+
+@app.route('/about')
+def about(): 
+    return render_template('about.html')

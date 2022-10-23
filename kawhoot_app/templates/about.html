@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{url_for('static', filename='/style.css')}}">
-    <title>Kawhoot - Result</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Kawhoot - About</title>
 </head>
 <body>
     <!-- container -->
@@ -14,11 +14,11 @@
         <!-- header -->
         <div class="header-div">
             <!-- logo -->
-            <img src="{{url_for('static', filename='/assets/logo.png')}}" class="header-div__logo" alt="">
+            <img src="../static/assets/logo.png" class="header-div__logo" alt="">
             <!-- header buttons -->
             <div class="header-div__buttons-div">
                 <a class="header-div__buttons-div__about" href="/about">About</a>
-                <a class="header-div__buttons-div__log-out" href="/logout">Log Out</a>
+                <a class="header-div__buttons-div__log-out" href="#">Log Out</a>
             </div>
         </div>
         <!-- body -->
@@ -47,28 +47,16 @@
                     </div>
                 </a>
                 <a href="#">
-                    <div class="body-div__navigation-div__link-div--selected">
-                        <h2>Result</h2>
+                    <div class="body-div__navigation-div__link-div">
+                        <h2>Taking a Quiz</h2>
                     </div>
                 </a>
             </div>
             <!-- main content view -->
             <div class="body-div__main-content-div">
-                <h1 class="util--page-header">{{result[0].title}}</h1>
-                <div class="body-div__main-content-div__quiz-detail-div">
-                    <div class="body-div__main-content-div__quiz-detail-div__header-div">
-                        <h2>Taken by {{result[0].username}}</h2>
-                        <h3>Attempt made on {{result[0].result_created_at}}</h3>
-                    </div>
-                    {% if result[0].score == 10 %}
-                    <p style="font-weight: var(--fw-medium); color: var(--clr-general-6); font-size: var(--fs-3)">You scored a perfect 10 out of 10!!</p>
-                    {% elif result[0].score > summary[0]['average_score'] %}
-                    <p style="font-weight: var(--fw-medium); color: var(--clr-theme-1); font-size: var(--fs-3)">You did better than average.. at least for the time being!</p>
-                    {% else %}
-                    <p style="font-weight: var(--fw-medium); color: var(--clr-general-7); font-size: var(--fs-3)">Don't tell people you took this quiz... because you did worse than the average!</p>
-                    {% endif %}
-                    <p><span style="font-weight: var(--fw-medium)">Your score: </span>{{result[0].score}}</p>
-                    <p><span style="font-weight: var(--fw-medium)">Average score for this quiz: </span>{{summary[0]['average_score']}} / 10</>
+                <h1 class="util--page-header">About Kawhoot</h1>
+                <div class="body-div__main-content-div__about-div">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kahoot separates the party that creates quizzes from the one that takes quizzes. The latter has no reason to be on Kahoot other than that they are forced to by a teacher, meeting or presentation organizer, trainer, and so on. With Kawhoot, anyone can create quizzes about anything or take any quizzes they want. You want to test your ‘friends’ to see who your real friends are? You want to creep out your crush by taking every single quiz that he or she made? Search quizzes by title, description, or the creator’s username, and take a crack at them all!<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With Kahoot, there is no more competition once your session is over. Who thinks about playing another round of Kahoot? What, you got the perfect score? See if anyone remembers the following day. Kawhoot frames top performers from each quiz and within different categories for all to see. You have to score higher, and you have to take more quizzes. What gives you a reason to come back for more? Where will you be able to win it all? </p>
                 </div>
             </div>
         </div>
