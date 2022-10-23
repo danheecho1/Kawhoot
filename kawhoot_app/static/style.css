@@ -591,7 +591,8 @@ a {
 
 /* body__main content view -> take quiz__quiz info */
 
-.body-div__main-content-div__quiz-detail-div {
+.body-div__main-content-div__quiz-detail-div, 
+.body-div__main-content-div__about-div {
     border: 1px solid var(--clr-general-4);
     padding: 40px;
     display: flex;
