@@ -111,6 +111,7 @@ a {
     height: 1000px;
     background-color: var(--clr-theme-3);
     border-radius: 25px;
+    margin-bottom: 110px;
 }
 
 /* body__login & registration */
@@ -762,7 +763,8 @@ a {
 }
 
 .body-div__main-content-div__about-div__content {
-    line-height: 25px;
+    line-height: 35px;
+    font-size: var(--fs-3);
 }
 
 .body-div__main-content-div__about-div__image-div {
@@ -794,4 +796,5 @@ a {
     border-top: 1px solid var(--clr-general-4);
     position: fixed;
     bottom: 0px;
+    background-color: var(--clr-general-5);
 }
