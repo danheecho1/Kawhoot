@@ -613,3 +613,7 @@ def update_password():
 @app.route('/about')
 def about(): 
     return render_template('about.html')
+
+@app.route('/about/reflection')
+def about_reflection(): 
+    return render_template('about_reflection.html')

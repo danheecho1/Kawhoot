@@ -91,7 +91,8 @@ a {
     font-weight: var(--fw-medium);
 }
 
-.header-div__buttons-div__about:hover {
+.header-div__buttons-div__about:hover, 
+.about-links:hover {
     color: var(--clr-general-6);
 }
 
@@ -591,8 +592,7 @@ a {
 
 /* body__main content view -> take quiz__quiz info */
 
-.body-div__main-content-div__quiz-detail-div, 
-.body-div__main-content-div__about-div {
+.body-div__main-content-div__quiz-detail-div {
     border: 1px solid var(--clr-general-4);
     padding: 40px;
     display: flex;
@@ -744,6 +744,42 @@ a {
 
 .body-div__main-content-div__choices-div__list__selection__input:checked + div {
     background-color: var(--clr-general-4);
+}
+
+/* about */
+.about-links {
+    font-weight: var(--fw-medium);
+    color: var(--clr-theme-2);
+}
+
+.body-div__main-content-div__about-div {
+    border: 1px solid var(--clr-general-4);
+    padding: 40px;
+    display: flex;
+    gap: 25px;
+    background-color: var(--clr-general-5);
+    border-radius: 10px;
+}
+
+.body-div__main-content-div__about-div__content {
+    line-height: 25px;
+}
+
+.body-div__main-content-div__about-div__image-div {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.body-div__main-content-div__about-div img {
+    width: 350px;
+}
+
+.body-div__main-content-div__content-switch-button {
+    width: 150px;
+    align-self: end;
+    float: right;
 }
 
 /* footer  */

@@ -54,16 +54,16 @@
             </div>
             <!-- main content view -->
             <div class="body-div__main-content-div">
-                <h1 class="util--page-header">About Kawhoot</h1>
+                <h1 class="util--page-header">Reflection & Future Plans</h1>
                 <div class="body-div__main-content-div__about-div">
-                    <p class="body-div__main-content-div__about-div__content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kawhoot is somewhat of a clone of <a href="https://kahoot.com/" class="about-links" target="__blank">Kahoot</a> (a game-based learning platform) - simply put, users can search for, make, or take any quizzes they want. Kahoot is already a great product, but I wanted to add to the aspect of 'friendly competition' by rendering a bit more information in a form of leaderboard.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;While Kahoot displays a scoreboard for each quiz only at the end of each session (at least for the quiz takers), Kawhoot has a leaderboard for different criteria on the dashboard page as well as one for each quiz. The leaderboard slots are limited to either three or five positions. This was my solution to what Kahoot does not have: an incentive to come back for more. To carve your name on the leaderboard, you will have to score higher on more quizzes as well as create more quizzes.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I imagine Kawhoot to be an extension of SNS platforms (like <a href="myspice.dev" class="about-links" target="__blank">Myspice</a>) where people can create quizzes about themselves or their interests to see which 'friends' really know them. Or take every single quiz that someone cute wrote, and hope that he or she notices you...</p>
+                    <p class="body-div__main-content-div__about-div__content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For Kawhoot, I used the same languages, frameworks, and DB I used for Myspice: HTML, CSS, minimal JS, Python with Flask and Jinja, and MySQL. This is one of the biggest regrets I have for this project - I wish I tried Django instead of Flask, and maybe React for the frontend. My next project will definitely use different frameworks. Getting an API involved is also on the list.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another thing I did not realize until now (which is embarrassing) is that I did not make this application to be responsive or mobile friendly. I came up with Kawhoot's design thinking I would make it fit within the viewport so that there would be no need for scrolling.</p>
                     <div class="body-div__main-content-div__about-div__image-div">
                         <img src="{{url_for('static', filename='/assets/kahoot.png')}}" alt="">
                         <p>Screenshot of Kahoot's podium page</p>
                         <p>(Image from <a href="https://ivplteens.wordpress.com/2021/02/03/january-trivias-podium/" class="about-links" target="__blank">this link</a>)</p>
                     </div>
                 </div>
-                <a href="/about/reflection" class="util--btn body-div__main-content-div__content-switch-button">Reflection</a>
+                <a href="/about" class="util--btn body-div__main-content-div__content-switch-button">About</a>
             </div>
         </div>
             <!-- footer -->
