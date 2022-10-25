@@ -54,14 +54,9 @@
             </div>
             <!-- main content view -->
             <div class="body-div__main-content-div">
-                <h1 class="util--page-header">Reflection & Future Plans</h1>
+                <h1 class="util--page-header">Reflections and Notes to Self</h1>
                 <div class="body-div__main-content-div__about-div">
-                    <p class="body-div__main-content-div__about-div__content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For Kawhoot, I used the same languages, frameworks, and DB I used for Myspice: HTML, CSS, minimal JS, Python with Flask and Jinja, and MySQL. This is one of the biggest regrets I have for this project - I wish I tried Django instead of Flask, and maybe React for the frontend. My next project will definitely use different frameworks. Getting an API involved is also on the list.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another thing I did not realize until now (which is embarrassing) is that I did not make this application to be responsive or mobile friendly. I came up with Kawhoot's design thinking I would make it fit within the viewport so that there would be no need for scrolling.</p>
-                    <div class="body-div__main-content-div__about-div__image-div">
-                        <img src="{{url_for('static', filename='/assets/kahoot.png')}}" alt="">
-                        <p>Screenshot of Kahoot's podium page</p>
-                        <p>(Image from <a href="https://ivplteens.wordpress.com/2021/02/03/january-trivias-podium/" class="about-links" target="__blank">this link</a>)</p>
-                    </div>
+                    <p class="body-div__main-content-div__about-div__content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) I had a good idea of what features and information I wanted, but it was a headache trying to figure out how to showcase them on the web. The dashboard page is a clear evidence of the struggle.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) I have been curious about how to best render search results onto a redirected page (instead of 'return render_template()') after a 'post' route. For Myspice, I ignored the conventional wisdom and used 'return render_template()' to a 'post' route instead of 'return redirect()'. For Kawhoot, I tried passing the search keyword as a variable in the URL. Both seem to work, but I wonder which one is preferable and why.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3) For the next project: use different frameworks (i.e. Django and React) and/or technologies (i.e. API or ORM), make a responsive or mobile-friendly application (this concept was new to me), and incorporate different types of data formats (i.e. images, videos/animation loops, or sounds).
                 </div>
                 <a href="/about" class="util--btn body-div__main-content-div__content-switch-button">About</a>
             </div>
