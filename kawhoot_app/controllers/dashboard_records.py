@@ -118,7 +118,6 @@ def my_attempts_search(page, search_type, search_keyword):
         }
         my_attempts = Result.get_my_attempts_from_search(data)
         number_of_attempts = Result.get_my_attempts_count_from_search(data)
-        print(number_of_attempts)
         total_pages = math.ceil(number_of_attempts / limit)
         next = page + 1
         prev = page - 1
