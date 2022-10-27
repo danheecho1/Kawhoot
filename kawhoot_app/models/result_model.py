@@ -56,6 +56,16 @@ class Result:
         return False
 
     @classmethod
+    def get_attempts_count_from_search(cls, data): 
+        search_keyword = data['search_keyword']
+        search_type = data['search_type']
+        query = "SELECT COUNT(*) FROM results JOIN quizzes ON quizzes.id = results.quiz_id LEFT JOIN users ON results.user_id = users.id WHERE (quizzes.user_id = %(user_id)s AND " + search_type + " LIKE '%%" + search_keyword + "%%');"
+        result = connectToMySQL('kawhoot_schema').query_db(query, data)
+        if result: 
+            return result[0]['COUNT(*)']
+        return False
+
+    @classmethod
     def get_my_attempts(cls, data): 
         query = "SELECT score, CAST(results.created_at AS DATE) AS date, title, username FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN users ON quizzes.user_id = users.id WHERE results.user_id = %(user_id)s ORDER BY results.created_at DESC;"
         return connectToMySQL('kawhoot_schema').query_db(query, data)
@@ -70,6 +80,16 @@ class Result:
     @classmethod
     def get_my_attempts_count(cls, data):
         query = "SELECT COUNT(*) FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN users ON quizzes.user_id = users.id WHERE results.user_id = %(user_id)s;"
+        result = connectToMySQL('kawhoot_schema').query_db(query, data)
+        if result: 
+            return result[0]['COUNT(*)']
+        return False
+
+    @classmethod
+    def get_my_attempts_count_from_search(cls, data):
+        search_keyword = data['search_keyword']
+        search_type = data['search_type']
+        query = "SELECT COUNT(*) FROM results JOIN quizzes ON results.quiz_id = quizzes.id JOIN users ON quizzes.user_id = users.id WHERE (results.user_id = %(user_id)s AND " + search_type + " LIKE '%%" + search_keyword + "%%');"
         result = connectToMySQL('kawhoot_schema').query_db(query, data)
         if result: 
             return result[0]['COUNT(*)']

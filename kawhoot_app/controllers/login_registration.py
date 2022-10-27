@@ -3,8 +3,6 @@
 from kawhoot_app import app
 from kawhoot_app.models.user_model import User
 from kawhoot_app.models.userSummary_model import UserSummary
-
-import math
 from flask import render_template, redirect, session, request, flash
 from flask_bcrypt import Bcrypt
 
