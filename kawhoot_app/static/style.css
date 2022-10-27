@@ -247,6 +247,21 @@ a {
     gap: 50px;
 }
 
+.body-div__main-content-div__header-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.body-div__main-content-div__header-div a {
+    font-weight: var(--fw-medium);
+    margin-right: 15px;
+}
+
+.body-div__main-content-div__header-div a:hover {
+    color: var(--clr-general-6);
+}
+
 /* body__main content view -> dashboard */
 
 .body-div__main-content-div__content {

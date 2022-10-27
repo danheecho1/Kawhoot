@@ -107,3 +107,10 @@ class User:
             is_valid = False
         # this static method returns a boolean value of is_valid 
         return is_valid
+
+    @staticmethod
+    def validate_session(session): 
+        if 'logged_in_user_id' in session: 
+            return True
+        else: 
+            return False
