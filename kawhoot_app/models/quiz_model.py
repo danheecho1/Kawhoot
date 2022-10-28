@@ -79,7 +79,7 @@ class Quiz:
     def get_quiz_count_for_search(cls, data):
         search_keyword = data['search_keyword']
         search_type = data['search_type']
-        query = "SELECT COUNT(*) FROM quizzes WHERE "+search_type+" LIKE '%%"+search_keyword+"%%';"
+        query = "SELECT COUNT(*) FROM quizzes LEFT JOIN users ON users.id = quizzes.user_id WHERE "+search_type+" LIKE '%%"+search_keyword+"%%';"
         result = connectToMySQL('kawhoot_schema').query_db(query, data)
         if result: 
             return result[0]['COUNT(*)']
