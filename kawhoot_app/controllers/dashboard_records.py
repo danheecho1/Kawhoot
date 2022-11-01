@@ -50,9 +50,11 @@ def attempts_at_me(page):
 @app.route('/dashboard/attempts/search_post', methods=['POST'])
 def attempts_at_me_search_post():
     if User.validate_session(session): 
-        search_keyword = request.form['search_keyword']
-        search_type = request.form['search_type']
-        return redirect(f'/dashboard/attempts/search/{search_type}/{search_keyword}')
+        if request.form['search_keyword']:
+            search_keyword = request.form['search_keyword']
+            search_type = request.form['search_type']
+            return redirect(f'/dashboard/attempts/search/{search_type}/{search_keyword}')
+        return redirect('/dashboard/attempts')
     return redirect('/')
 
 @app.route('/dashboard/attempts/search/<search_type>/<search_keyword>', defaults={'page': 1})
@@ -98,9 +100,11 @@ def my_attempts(page):
 @app.route('/dashboard/myattempts/search_post', methods=['POST'])
 def my_attempts_search_post():
     if User.validate_session(session):
-        search_keyword = request.form['search_keyword']
-        search_type = request.form['search_type']
-        return redirect(f'/dashboard/myattempts/search/{search_type}/{search_keyword}')
+        if request.form['search_keyword']:
+            search_keyword = request.form['search_keyword']
+            search_type = request.form['search_type']
+            return redirect(f'/dashboard/myattempts/search/{search_type}/{search_keyword}')
+        return redirect('/dashboard/myattempts')
     return redirect('/')
 
 @app.route('/dashboard/myattempts/search/<search_type>/<search_keyword>', defaults={'page': 1})

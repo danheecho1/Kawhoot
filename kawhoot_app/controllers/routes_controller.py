@@ -346,9 +346,11 @@ def search(page):
 @app.route('/search', methods=['post'])
 def search_post(): 
     if User.validate_session(session):
-        search_type = request.form['search_type']
-        search_keyword = request.form['search_keyword']
-        return redirect(f'/search/{search_type}/{search_keyword}')
+        if request.form['search_keyword']:
+            search_type = request.form['search_type']
+            search_keyword = request.form['search_keyword']
+            return redirect(f'/search/{search_type}/{search_keyword}')
+        return redirect('/search')
     return redirect('/')
 
 @app.route('/search/<search_type>/<search_keyword>', defaults={'page': 1})
