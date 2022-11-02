@@ -38,9 +38,11 @@ def my_quizzes(page):
 @app.route('/my_quizzes/search', methods=['post'])
 def search_my_quizzes(): 
     if User.validate_session(session):
-        search_type = request.form['search_type']
-        search_keyword = request.form['search_keyword']
-        return redirect(f'/my_quizzes/{search_type}/{search_keyword}')
+        if request.form['search_keyword']:
+            search_type = request.form['search_type']
+            search_keyword = request.form['search_keyword']
+            return redirect(f'/my_quizzes/{search_type}/{search_keyword}')
+        return redirect('/my_quizzes')
     return redirect('/')
 
 @app.route('/my_quizzes/<search_type>/<search_keyword>', defaults = {'page': 1})
