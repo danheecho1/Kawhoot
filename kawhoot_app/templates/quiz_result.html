@@ -64,8 +64,10 @@
                     <p style="font-weight: var(--fw-medium); color: var(--clr-general-6); font-size: var(--fs-3)">You scored a perfect 10 out of 10!!</p>
                     {% elif result[0].score > summary[0]['average_score'] %}
                     <p style="font-weight: var(--fw-medium); color: var(--clr-theme-1); font-size: var(--fs-3)">You did better than average.. at least for the time being!</p>
-                    {% else %}
+                    {% elif result[0].score < summary[0]['average_score'] %}
                     <p style="font-weight: var(--fw-medium); color: var(--clr-general-7); font-size: var(--fs-3)">Don't tell people you took this quiz... because you did worse than the average!</p>
+                    {% else %}
+                    <p style="font-weight: var(--fw-medium); color: var(--clr-general-8); font-size: var(--fs-3)">You're so basic.. You scored just about the average!</p>
                     {% endif %}
                     <p><span style="font-weight: var(--fw-medium)">Your score: </span>{{result[0].score}}</p>
                     <p><span style="font-weight: var(--fw-medium)">Average score for this quiz: </span>{{summary[0]['average_score']}} / 10</>
