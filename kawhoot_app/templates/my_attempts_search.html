@@ -62,10 +62,11 @@
                 <div class="body-div__main-content-div__search-bar-div">
                     <form action="/dashboard/myattempts/search_post" method="post" class="body-div__main-content-div__search-bar-div__form">
                         <select name="search_type" id="" class="body-div__main-content-div__search-bar-div__form__select">
-                            <option value="title">Search by Title</option>
-                            <option value="username">Search by Quiz Owner</option>
+                            <option id="title" value="title">Search by Title</option>
+                            <option id="username" value="username">Search by Quiz Owner</option>
                         </select>
-                        <input type="text" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input">
+                        <input type="hidden" id="previous_search_type" value="{{search_type}}">
+                        <input type="text" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input" value="{{search_keyword}}">
                     </form>
                     <button type="submit" class="body-div__main-content-div__search-bar-div__new-button util--btn">Search</button>
                 </div>
@@ -126,5 +127,6 @@
             <p>No Copyright © 2022 Danny Cho. All rights reserved</p>
         </div>
     </div>
+    <script src="{{url_for('static', filename='/search_result.js')}}"></script>
 </body>
 </html>
