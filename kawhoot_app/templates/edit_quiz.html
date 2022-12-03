@@ -46,7 +46,7 @@
                         <h2>Edit Profile</h2>
                     </div>
                 </a>
-                <a href="#">
+                <a href="#" onclick="alert('You can take quizzes from the Search tab!')">
                     <div class="body-div__navigation-div__link-div">
                         <h2>Taking a Quiz</h2>
                     </div>
@@ -56,7 +56,7 @@
             <div class="body-div__main-content-div">
                 <h1 class="util--page-header">Edit an Existing Quiz</h1>
                 <form action="/quiz/{{user_id}}/{{quiz_id}}/edit" class="body-div__main-content-div__create-form" method="post" onsubmit="validate_quiz(this)">
-                    <div id="body-div__main-content-div__create-form__title-description">
+                    <div class="body-div__main-content-div__create-form__title-description" id="question0">
                         <div class="body-div__main-content-div__form-label-input-div">
                             <label for="title">Title</label>
                             <input type="text" name="title" id="title" value="{{quiz[0].title}}">
@@ -587,7 +587,7 @@
                             <a href="/my_quizzes"><button class="util--btn" type="button">Cancel</button></a>
                             <div class="body-div__main-content-div__form__buttons-div--right">
                                 <button class="util--btn" id="back10" type="button">Go Back</button>
-                                <button class="util--btn" type="submit" id="finish">Finish</button>
+                                <button class="util--btn" type="submit" id="next10">Finish</button>
                             </div>
                         </div>
                     </div>

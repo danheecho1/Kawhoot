@@ -46,7 +46,7 @@
                         <h2>Edit Profile</h2>
                     </div>
                 </a>
-                <a href="#">
+                <a href="#" onclick="alert('You can take quizzes from the Search tab!')">
                     <div class="body-div__navigation-div__link-div">
                         <h2>Taking a Quiz</h2>
                     </div>
@@ -89,7 +89,7 @@
                                         <a href="/quiz/{{user_id}}/{{quiz.id}}/edit">Edit</a>
                                         <p>|</p>
                                         <form action="/quiz/{{user_id}}/{{quiz.id}}/delete" method='post'>
-                                            <button class="body-div__main-content-div__my-quizzes-table__tbody__tr__td__button" type="submit">Delete</button>
+                                            <button class="body-div__main-content-div__my-quizzes-table__tbody__tr__td__button" type="submit" onclick="return confirm('Are you sure? Deletes cannot be undone, and user stats or leaderboard records will not be affected.')">Delete</button>
                                         </form>
                                     </div>
                                 </td>

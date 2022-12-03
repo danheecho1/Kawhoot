@@ -37,12 +37,3 @@ correct_option_9.setAttribute("selected", "selected")
 var correct_answer_10 = document.getElementById("correct_answer_10").value
 var correct_option_10 = document.getElementById(`select10${correct_answer_10}`)
 correct_option_10.setAttribute("selected", "selected")
-
-var max = 255;
-var remaining_characters = document.getElementById("remaining_characters")
-
-remaining_characters.textContent = max - description.value.length;
-
-description.addEventListener('input', function() {
-    remaining_characters.textContent = max - this.value.length;
-})  
