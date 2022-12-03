@@ -10,7 +10,7 @@ import math
 from flask import render_template, redirect, session, request
 
 @app.route('/dashboard')
-def dashboard():
+def test(): 
     if User.validate_session(session): 
         data = {
             'user_id': session['logged_in_user_id']
@@ -21,10 +21,12 @@ def dashboard():
         attempts_at_my_quizzes_count = Result.get_attempts_count(data)
         average_for_my_quizzes = Result.get_unweighted_avg_for_my_quizzes(data)
         my_average_score = Result.get_my_average_score(data)
+        my_total_score = UserSummary.get_my_total_score_earned(data)
         scorehunters = UserSummary.get_scorehunters()
         steadyhunters = UserSummary.get_steadyhunters()
         quizcreators = UserSummary.get_quizcreators()
-        return render_template('dashboard.html', user = user, my_quizzes_count = my_quizzes_count, my_attempts_count = my_attempts_count, attempts_at_my_quizzes_count = attempts_at_my_quizzes_count, average_for_my_quizzes = average_for_my_quizzes, my_average_score = my_average_score, scorehunters = scorehunters, steadyhunters = steadyhunters, quizcreators = quizcreators)
+        quiztakers = UserSummary.get_quiztakers()
+        return render_template('dashboard.html', user = user, my_quizzes_count = my_quizzes_count, my_attempts_count = my_attempts_count, attempts_at_my_quizzes_count = attempts_at_my_quizzes_count, average_for_my_quizzes = average_for_my_quizzes, my_average_score = my_average_score, my_total_score = my_total_score, scorehunters = scorehunters, steadyhunters = steadyhunters, quizcreators = quizcreators, quiztakers = quiztakers)
     return redirect('/')
 
 @app.route('/dashboard/attempts', defaults={'page': 1})
@@ -40,7 +42,6 @@ def attempts_at_me(page):
         }
         attempts_at_my_quizzes = Result.grab_attempts_at_my_quiz(data)
         number_of_attempts = Result.get_attempts_count(data)
-        print(number_of_attempts)
         total_pages = math.ceil(number_of_attempts / limit)
         next = page + 1
         prev = page - 1

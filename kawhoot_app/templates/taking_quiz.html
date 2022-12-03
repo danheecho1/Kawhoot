@@ -46,7 +46,7 @@
                         <h2>Edit Profile</h2>
                     </div>
                 </a>
-                <a href="#">
+                <a href="#" onclick="alert('You can take quizzes from the Search tab!')">
                     <div class="body-div__navigation-div__link-div--selected">
                         <h2>Taking a Quiz</h2>
                     </div>
@@ -57,7 +57,7 @@
                 <h1 class="util--page-header">{{quiz['title']}}</h1>
                 <form action="/quiz/{{user_id}}/{{quiz_id}}/done" method="post">
                     <!-- question 1 -->
-                    <div class="body-div__main-content-div__form" id="question1-attempt">
+                    <div class="body-div__main-content-div__form" id="question1_attempt">
                         <div class="body-div__main-content-div__question-div__prompt-div">
                             <h2>Question (1/10)</h2>
                             <h3>{{questions[0]['prompt']}}</h3>
@@ -552,7 +552,7 @@
                         </div>
                         <div class="body-div__main-content-div__form__buttons-div--start-quiz">
                             <button class="util--btn" type="button" id="back10">Go back</button>
-                            <button class="util--btn" type="submit" id="finish">Submit</button>
+                            <button class="util--btn" type="submit" id="next10">Submit</button>
                         </div>
                     </div>
                 </form>
