@@ -55,7 +55,12 @@
             </div>
             <!-- main content view -->
             <div class="body-div__main-content-div">
-                <h1 class="util--page-header">My Quizzes</h1>
+                <div class="body-div__main-content-div__header-div">
+                    <h1 class="util--page-header">My Quizzes</h1>
+                    <div class="body-div__main-content-div__header-div__links-div">
+                        <a href="/new_quiz">Create a New Quiz</a>
+                    </div>
+                </div>
                 <!-- search bar -->
                 <div class="body-div__main-content-div__search-bar-div">
                     <form action="/my_quizzes/search" method="post" class="body-div__main-content-div__search-bar-div__form">
@@ -64,8 +69,8 @@
                             <option value="description">Search by Description</option>
                         </select>
                         <input type="text" name='search_keyword' placeholder="Search Keyword" class="body-div__main-content-div__search-bar-div__form__input">
+                        <button type="submit" class="body-div__main-content-div__search-bar-div__new-button util--btn">Search</button>
                     </form>
-                    <a href="/new_quiz"><button class="body-div__main-content-div__search-bar-div__new-button util--btn">New Quiz</button></a>
                 </div>
                 {% if my_quizzes %}
                 <!-- my quizzes table -->
